@@ -1,0 +1,31 @@
+body {
+  padding: 80px 0px 10px 0px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center; }
+
+.navbar-inverse {
+  border-width: 0px;
+  box-shadow: 0px 0px;
+  background-color: transparent; }
+
+#home-nav {
+  padding-top: 5px;
+  background: transparent;
+  border-color: white; }
+
+#btn-nav {
+  padding-top: -5px; }
+
+#home-jumbotron {
+  padding-top: 450px;
+  margin-bottom: 0px;
+  margin-left: 20px;
+  height: 350px;
+  background: url("/images/logo.jpg");
+  color: black;
+  text-shadow: black 0.3em 0.3em 0.3em; }
+  #home-jumbotron p {
+    font-size: 45px; }
+
+/*# sourceMappingURL=main.css.map */
