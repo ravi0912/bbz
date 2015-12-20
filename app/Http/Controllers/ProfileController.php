@@ -2,48 +2,32 @@
 
 namespace App\Http\Controllers;
 
-use App\Status;
-use App\User;
 use Illuminate\Http\Request;
 
-use App\Http\Requests\PrepareStatusRequest;
+use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
 
-class StatusController extends Controller
+class ProfileController extends Controller
 {
-
     /**
-     * Create a new Status controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-    /**
-     * Display a listing of the status.
+     * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $statuses = Status::where('user_id', \Auth::User()->id)->orderBy('created_at', 'desc')->get();
-        return view('status.index', ['statuses' => $statuses]);
-    }
-
-    /**
-     * Show the form for creating a new status.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create(PrepareStatusRequest $request)
-    {
         //
     }
 
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -51,15 +35,9 @@ class StatusController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PrepareStatusRequest $request)
+    public function store(Request $request)
     {
-        Status::create([
-            'user_id' => \Auth::User()->id,
-            'body' => $request['body'],
-
-        ]);
-        $statuses = Status::where('user_id', \Auth::User()->id)->orderBy('created_at', 'desc')->get();
-        return view('status.index', ['statuses' => $statuses]);
+        //
     }
 
     /**

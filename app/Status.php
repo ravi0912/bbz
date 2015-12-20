@@ -15,7 +15,12 @@ class Status extends Model
      *
      * @var array
      */
-    protected $fillable = ['body'];
+    protected $fillable = ['user_id','body'];
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 
 
 }

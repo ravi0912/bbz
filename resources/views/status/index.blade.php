@@ -22,6 +22,12 @@
                 </div>
             {!! Form::close() !!}
         </div>
+        <div class="jumbotron" id="home-jumbotron">
+            @foreach ($statuses as $status)
+                <p>{{ $status->user->name }} {{ $status->created_at->diffForHumans() }}</p>
+                <p>{{ $status->body }}</p>
+            @endforeach
+        </div>
     </div>
     <div class="col-xs-2 col-md-1"></div>
 </div>
