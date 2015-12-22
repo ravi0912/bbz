@@ -15,5 +15,8 @@ var autoprefixer = require('gulp-autoprefixer');
  */
 
 elixir(function(mix) {
- mix.sass("main.sass");
+ mix.sass([
+   'main.sass',
+   'profile.sass'
+  ]);
 });

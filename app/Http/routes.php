@@ -40,8 +40,9 @@ Route::get('index', function()
 });
 
 Route::resource('status', 'StatusController');
-
-
+Route::post('profile/addeducation', 'ProfileController@educationStore');
+Route::post('profile/addproject', 'ProfileController@projectStore');
+Route::resource('profile','ProfileController');
 
 Route::controllers([
    'auth' => 'Auth\AuthController',

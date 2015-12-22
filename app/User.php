@@ -36,4 +36,13 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    public function statuses()
+    {
+        /**
+         * A user can create many statuses
+         *
+         */
+        return $this->hasMany('App\Status');
+    }
 }
