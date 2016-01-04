@@ -1,6 +1,6 @@
-<nav class="navbar navbar-default navbar-fixed-top navbar-inverse" id="home-nav">
+<nav class = "top_nav" >
     <div class="container-fluid">
-        <div class="col-xs-6 col-md-4">
+        <div class="col-xs-6 col-md-2">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle Navigation</span>
@@ -8,7 +8,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">BBz</a>
+                <a class="navbar-brand" id = "nav-brand" href="/">bbz</a>
             </div>
         </div>
 
@@ -26,19 +26,29 @@
                 </div>
             </div>
         @else
-            <div class="col-xs-6 col-md-4">
-
-                <form class="navbar-form navbar-right" role="search">
+            <div class="col-xs-6 col-md-6">
+                <form class="navbar-form navbar-right" role="search" action="{{ url('/searchResults') }}" method="GET" >
+                    <!-- styling needed -->
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search">
+                        <div class="" id="search-results"></div>
+                            <input type="text" id="search-input" class="form-control" placeholder="Search" autocomplete="off" name="keywords">
+                            <button type="submit" class="search-input-button">Submit</button>
                     </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
-
                 </form>
+
+                <!-->
+
+                {{--<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">--}}
+                    {{--<ul class="nav navbar-nav">--}}
+
+                    {{--</ul>--}}
+
+                {{--</div>--}}
             </div>
             <div class="col-xs-6 col-md-4">
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
+                        <li><a href="{{ url('/profile') }}">Profile</a></li>
                         <li><a href="#"><span class="glyphicon glyphicon-user"></span></a></li>
                         <li>
                             <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span></a>
@@ -46,7 +56,12 @@
                         </li>
                         <li><a href="#"><span class="glyphicon glyphicon-bell" aria-hidden="true"></span></a></li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ auth()->user()->name }} <span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                <span id = "nav_profile_image" class = "nav_profile_image">
+                                    <img src = "uploads/thumbnails/{{ auth()->user()->id }}.jpeg" >
+                                </span>
+                                <span class="caret"></span>
+                            </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="#">Privacy & Setting</a></li>
                                 <li><a href="#">Job Posting</a></li>
@@ -59,6 +74,9 @@
                 </div>
             </div>
 
-        @endif
     </div>
 </nav>
+@include ('partials.right')
+
+@include ('partials.left_overlap')
+@endif

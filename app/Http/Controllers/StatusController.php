@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Like;
 use App\Status;
 use App\User;
 use Illuminate\Http\Request;
@@ -30,8 +31,13 @@ class StatusController extends Controller
      */
     public function index()
     {
-        $statuses = Status::where('user_id', \Auth::User()->id)->orderBy('created_at', 'desc')->get();
-        return view('status.index', ['statuses' => $statuses]);
+        $statuses = Status::orderBy('created_at', 'desc')->get();
+        foreach($statuses as $status){
+          $likes[$status->id] =  Like::where('status_id', $status->id)->count();
+          $liked[$status->id] =  Like::whereStatus_idAndUser_id($status->id, \Auth::User()->id )->count();
+        }
+
+        return view('status.index', ['statuses' => $statuses,'likes' => $likes,'liked'  => $liked]);
     }
 
     /**
@@ -58,8 +64,8 @@ class StatusController extends Controller
             'body' => $request['body'],
 
         ]);
-        $statuses = Status::where('user_id', \Auth::User()->id)->orderBy('created_at', 'desc')->get();
-        return view('status.index', ['statuses' => $statuses]);
+
+        return redirect('/status');
     }
 
     /**
