@@ -1,0 +1,82 @@
+.bb_registration_top{
+	width: 100%;
+	background: blue;
+	color: white;
+	font-size:1.4em; 
+}
+.bb_registration_top_list{
+text-decoration: none;
+display: inline-block;
+cursor: pointer;
+padding: 1%;
+}
+	
+.bb_registration_input{
+border-radius: 2%;
+padding:1%;
+margin: 1%;
+width: 300px;
+border:1px solid grey;
+}
+.bb_registration_submit{
+border-radius: 2%;
+padding:1%;
+margin: 1%;
+width: 100px;
+border:none;
+background: blue;
+color:white;
+}
+.bb_1{
+	height:50vh;
+	width: 700px;
+	overflow-y:auto; 
+}
+.bb_2{
+	height:50vh;
+	width: 700px;
+	overflow-y:auto; 	
+}
+.bb_3{
+	height:50vh;
+	width: 700px;
+	overflow-y:auto; 	
+}
+.bb_4{
+	height:50vh;
+	width: 700px;
+	overflow-y:auto; 
+}
+.active{
+	color:blue;
+	background: white;
+}
+.bb_content::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+.bb_content::-webkit-scrollbar
+{
+	width: 4px;
+	background-color: #F5F5F5;
+}
+
+.bb_content::-webkit-scrollbar-thumb
+{
+	background-color: blue;	
+	cursor: pointer;
+	background-image: -webkit-linear-gradient(45deg,
+	                                          rgba(255, 255, 255, .2) 25%,
+											  transparent 25%,
+											  transparent 50%,
+											  rgba(255, 255, 255, .2) 50%,
+											  rgba(255, 255, 255, .2) 75%,
+											  transparent 75%,
+											  transparent)
+}
+.bb_registration_submit{
+	poistion:absolute;
+	bottom:5%;
+}

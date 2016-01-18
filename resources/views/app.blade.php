@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+    <link rel="icon" type="image/ico" href="/images/logo/BBZlogo/bbzlogo_blue.svg"/>
+    <title>BBz-Workstation A professional network for Real Estate</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport"><meta content="email=no" name="format-detection"><meta content="follow,index" name="robots"><meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" type="image/ico" href="/images/logo.ico"/>
-	<title>BBz-Business</title>
+    <meta content="Boosting professional network among Real Estate's wild cards i.e. Architect, Builder, Contractor " name="description">
+
 
 
 
@@ -13,12 +17,15 @@
 
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 	<link href="{{ URL::asset('css/main.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('css/right.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('css/animate.min.css') }}" rel="stylesheet">
 	<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 	<style>
 		body{
 			font-family: Raleway;
 		}
 	</style>
+	<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
 	<script src="{{ URL::asset('js/jquery-ui.js') }}"></script>
 	<script src="{{ URL::asset('js/jquery-1.11.3.min.js') }}"></script>
 </head>
@@ -49,7 +56,7 @@
 			var $anchor = $(this);
 
 			$('html, body').stop().animate({
-				scrollTop: $($anchor.attr('href')).offset().top - 95
+				scrollTop: $($anchor.attr('href')).offset().top - 107
 			}, 700,'easeInOutExpo');
 			/*
 			 if you don't want to use the easing effects:

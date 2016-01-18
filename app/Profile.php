@@ -13,10 +13,11 @@ class Profile extends Model
      *
      * @var array
      */
-    protected $fillable = ['dob','body'];
+    protected $fillable = ['user_id','current_city','current_company','current_state','current_designation','date','month','year'];
 
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->hasOne('App\User');
     }
+
 }

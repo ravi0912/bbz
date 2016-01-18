@@ -1,81 +1,89 @@
 <nav class = "top_nav" >
-    <div class="container-fluid">
-        <div class="col-xs-6 col-md-2">
-            <div class="navbar-header">
+    <div class="top_nav_content">
+        <div class="top_nav_left">
+            <div class="">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle Navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" id = "nav-brand" href="/">bbz</a>
+                <a class="" id = "" href="/"><img src = "{{ URL::asset('images/logo/BBZlogo/bbzlogo_white.svg') }}"></a>
             </div>
         </div>
 
         @if (Auth::guest())
-            <div class="col-xs-6 col-md-4">
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li><a href="{{ url('/') }}">Home</a></li>
-                        <li><a href="{{ url('/') }}">Blog</a></li>
-                        <li><a href="{{ url('/') }}">About Us</a></li>
-                        <li><a href="{{ url('/') }}">Contact Us</a></li>
-                        <li id="btn-nav"><a href="{{ url('/auth/login') }}" class="btn btn-default btn-sm">Login</a></li>
-                    </ul>
-
-                </div>
+            <div class="top_nav_right">
+                <span><a href="{{ url('/') }}">Home</a></span>
+                <span><a href="{{ url('/') }}">Blog</a></span>
+                <span><a href="{{ url('/') }}">About Us</a></span>
+                <span><a href="{{ url('/') }}">Contact Us</a></span>
+                <span id=""><a href="{{ url('/auth/login') }}" class="">Login</a></span>
             </div>
+
         @else
-            <div class="col-xs-6 col-md-6">
-                <form class="navbar-form navbar-right" role="search" action="{{ url('/searchResults') }}" method="GET" >
-                    <!-- styling needed -->
-                    <div class="form-group">
-                        <div class="" id="search-results"></div>
-                            <input type="text" id="search-input" class="form-control" placeholder="Search" autocomplete="off" name="keywords">
-                            <button type="submit" class="search-input-button">Submit</button>
-                    </div>
-                </form>
+            <div class="top_nav_right">
+                <div class = "nav_input" style="display: none;">
+                    <form class=" " role="search" action="{{ url('/searchResults') }}" method="GET" >
+                        <!-- styling needed -->
 
-                <!-->
+                        <span class="" id="search-results" style = "display:none;">
+                            <span class='nav_search_result_svg'>
+                                <svg height="10" width="10">
+                                    <polygon points=" 5,0 10,0 10,10" style="fill:red;stroke:white;stroke-width:1" />
+                                </svg>
+                            </span>
+                        </span>
+                        <span class = "search-input">
+                            <input type="text" id="search-input" class="" placeholder="Search" autocomplete="off" name="keywords">
+                            <button type="submit" class="search-input-button"><img src = "{{ URL::asset('images/logo/nav/SVG/search.svg') }}" width="20" height="20"></button>
+                        </span>
 
-                {{--<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">--}}
-                    {{--<ul class="nav navbar-nav">--}}
-
-                    {{--</ul>--}}
-
-                {{--</div>--}}
-            </div>
-            <div class="col-xs-6 col-md-4">
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">
+                    </form>
+                </div>
+                <div class = "nav_search" onclick = "show_nav_input();"><a href="#"><img id = "nav_search" src = "{{ URL::asset('images/logo/nav/SVG/search.svg') }}"></a></div>
+                <div class = "nav_settings"><a href="#"><img src = "{{ URL::asset('images/logo/nav/SVG/settings.svg') }}"></a></div>
+                <div class = "nav_home" style = "color:white;font-size:1.1em;"><a style = "color:white;" href="{{ url('/') }}">Home</a></div>
+                <div class = "nav_home" style = "color:white;font-size:1.1em;"><a style = "color:white;"  href="{{ url('/profile') }}">My Profile</a></div>
+                {{--<li><a href="#"><span class="glyphicon glyphicon-user"></span></a></li>--}}
+                {{--<li>--}}
+                    {{--<a href="{{ url('/viewAllMail') }}" onmousedown="mail_seen(event,{{ auth()->user()->id  }})"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span></a>--}}
+                    {{--<!--<span class="badge badge-notify">3</span>-->--}}
+                {{--</li>--}}
+                {{--<li><a href="#"><span class="glyphicon glyphicon-bell" aria-hidden="true"></span></a></li>--}}
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        <span id = "nav_profile_image" class = "nav_profile_image">
+                            <img src = "{{ URL::asset('uploads/thumbnails/'.auth()->user()->id.'.jpeg') }}" >
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-right" role="menu">
                         <li><a href="{{ url('/profile') }}">Profile</a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-user"></span></a></li>
-                        <li>
-                            <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span></a>
-                            <!--<span class="badge badge-notify">3</span>-->
-                        </li>
-                        <li><a href="#"><span class="glyphicon glyphicon-bell" aria-hidden="true"></span></a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                <span id = "nav_profile_image" class = "nav_profile_image">
-                                    <img src = "uploads/thumbnails/{{ auth()->user()->id }}.jpeg" >
-                                </span>
-                                <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Privacy & Setting</a></li>
-                                <li><a href="#">Job Posting</a></li>
-                                <li><a href="#">Help Center</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="{{ url('/auth/logout') }}">Logout</a></li>
-                            </ul>
-                        </li>
+                        <li><a href="{{url('/showConnections/'.auth()->user()->id)}}">Connections</a></li>
+                        <li><a href="#">Change Password</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="{{ url('/auth/logout') }}">Logout</a></li>
                     </ul>
                 </div>
             </div>
 
     </div>
 </nav>
+<!-- Search-->
+
+
+
+<script>
+    function show_nav_input(){
+        $(".nav_search").hide();
+        $(".nav_input").toggle(300)
+        $(".nav_input input").focus();
+        $('.nav_search').attr('src', '{{ URL::asset('images/logo/nav/SVG/search_1.svg') }}');
+    }
+
+</script>
+<script type="text/javascript" src="{{ URL::asset('js/mailnotification.js') }}"></script>
+
 @include ('partials.right')
 
 @include ('partials.left_overlap')

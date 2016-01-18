@@ -9,41 +9,57 @@
 
             -->
             {!! Form::open(['action' => 'StatusController@store']) !!}
-            <div class="newsfeed_header">
+            {{--<div class="newsfeed_header">--}}
                 {{--Hi {{ auth()->user()->name }}, Want to share something!!!--}}
+            {{--</div>--}}
+            <div class="newsfeed_form_1" id="newsfeed_form_1">
+                <span>
+                    <img src = "{{ URL::asset('uploads/thumbnails/'.auth()->user()->id.'.jpeg') }}" >
+                </span>
+                <span>
+                    {!! Form::textarea('body', null, ['class' => 'newsfeed_textarea','rows' => '3','cols' => '45','placeholder' => 'Hi '. auth()->user()->name.', Want to share something!!! ']) !!}
+                </span>
             </div>
-            <div class="">
-                {!! Form::textarea('body', null, ['class' => 'newsfeed_textarea','rows' => '3','placeholder' => 'Hi Ravi, Want to share something!!! ']) !!}
-            </div>
-            <div class="">
-                {!! Form::submit('Post Status', ['class' => 'newsfeed_poststatus general_button']) !!}
+            <div class="newsfeed_form_post" id="newsfeed_form_post">
+                {!! Form::submit('Post', ['class' => 'newsfeed_poststatus general_button']) !!}
             </div>
             {!! Form::close() !!}
         </div>
         @foreach ($statuses as $status)
             <div id = "newsfeed_content" class = "newsfeed_content">
                 <div id = "newsfeed_content_1" class = "newsfeed_content_1">
-                    <div id = "newsfeed_content_1_image" class = "newsfeed_content_1_content"><a href = ""><img src = "uploads/thumbnails/{{ $status->user_id}}.jpeg"></a></div>
+                    <a href="{{url('/showprofile/'.$status->user_id)}}">
+                        <div id = "newsfeed_content_1_image" class = "newsfeed_content_1_content image"><div id = "newsfeed_content_1_image_content " class = "newsfeed_content_1_image_content image_content"><img src = "{{ URL::asset('uploads/thumbnails/'.$status->user_id.'.jpeg') }}"></div></div>
                     <div id = "newsfeed_content_1_description" class = "newsfeed_content_1_content">
                         {{ $status->user->name }}
+
                         <div id = "newsfeed_content_1_time" class = "newsfeed_content_1_content">{{ $status->created_at->diffForHumans() }}</div>
                     </div>
-
+                    </a>
+                    @if(auth()->user()->id == $status->user_id)
                         <div class = "newsfeed_content_1_more">
                             <div id = "newsfeed_content_1_more" class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">Delete</a></li>
-                                    <li><a href="#">Edit</a></li>
+                                    {!! Form::open(['action' => 'StatusController@destroy']) !!}
+                                        <div class="form-group">
+                                            <input type="hidden"  value="{{ $status->id }}" name = "status_id">
+                                        </div>
+                                        <div class="form-group">
+                                            <button class="btn btn-info" id="status_delete" type="submit">Delete</button>
+                                        </div>
+                                    {!! Form::close() !!}
+                                    {{--<button class="btn btn-info" id="status_delete" type="submit">Edit</button>--}}
                                 </ul>
                             </div>
                         </div>
+                    @endif
 
                 </div>
                 <div id = "newsfeed_content_2" class = "newsfeed_content_2">
                     {{ $status->body }}
                 </div>
-                <div id = "newsfeed_content_3" class = "newsfeed_content_3">
+                <div id = "newsfeed_content_4" class = "newsfeed_content_4">
                     <span id="like_show_click_{{ $status->id }}">
                         @if($liked[$status->id])
                             <?php $l = $likes[$status->id] - 1?>
@@ -59,7 +75,10 @@
                             @endif
                         @endif
                     </span>
-                    <span id="like_click_{{ $status->id }}" onmouseup="LikeMouseUp(event,{{ $status->id }})">
+                </div>
+                <div id = "newsfeed_content_3" class = "newsfeed_content_3">
+
+                    <span id="like_click_{{ $status->id }}" onmouseup="LikeMouseUp(event,{{ $status->id }},{{ $status->user_id }},{{ auth()->user()->id }})">
                         like
                     </span>
                     <span id="comment_show_click_{{ $status->id }}" onmouseup="CommentMouseUp(event,{{ $status->id }})">
@@ -69,19 +88,25 @@
                        share
                    </span>
                 </div>
-                <div id = "newsfeed_content_4" class = "newsfeed_content_4">
-                    {{--display likes--}}
-                </div>
+
                 <div id = "newsfeed_content_5" class = "newsfeed_content_5">
                     {{--display comments--}}
-                    <div class="" id="comments_show_{{ $status->id }}"></div>
-                    <div>
-                        <input type="text" id="comment_body_{{ $status->id }}" onkeyup="keyUp(event,{{ $status->id }})" placeholder="Write Comment">
+                    <div class="newsfeed_content_5_content" id="comments_show_{{ $status->id }}"></div>
+                    {{--<div id = "newsfeed_comment" class = "newsfeed_content_5_input">--}}
+                    {{--</div>--}}
+                    <div class="newsfeed_comment_content">
+                        <div class="newsfeed_comment_content_image"><img src = "{{ URL::asset('uploads/thumbnails/'.auth()->user()->id.'.jpeg') }}"></div>
+                        <div class="newsfeed_comment_content_text">
+                            <span class="newsfeed_comment_content_name">
+                               <input type="text" id="comment_body_{{ $status->id }}" onkeyup="comment_execute_keyUp(event,{{ $status->id }},{{$status->user_id}},{{ auth()->user()->id }})" placeholder="Write Comment">
+                            </span>
+                        </div>
+
+
                     </div>
                 </div>
 
             </div>
         @endforeach
-@include('partials.notification')
         <script type="text/javascript" src ="{{ URL::asset('js/status_comment.js') }} "></script>
 @stop

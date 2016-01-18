@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
 use App\Like;
 use App\Status;
 use App\User;
@@ -10,6 +11,10 @@ use Illuminate\Http\Request;
 use App\Http\Requests\PrepareStatusRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class StatusController extends Controller
 {
@@ -29,8 +34,22 @@ class StatusController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        //Default image saving
+
+        if (!file_exists("uploads/profiles/".\Auth::User()->id.".jpeg")) {
+                $image ="uploads/profiles/default.jpg";
+                $size = getimagesize($image);
+                $aspectratio = $size[0]/$size[1];
+                $img_thumbnail = Image::make($image)->resize(30*$aspectratio,30);
+                $img_profile = Image::make($image)->resize(160*$aspectratio,160);
+                $imgname = \Auth::User()->id;
+                $img_thumbnail->save('uploads/thumbnails/'.$imgname.".jpeg");
+                $img_profile->save('uploads/profiles/'.$imgname.".jpeg");
+        }
+
+
         $statuses = Status::orderBy('created_at', 'desc')->get();
         foreach($statuses as $status){
           $likes[$status->id] =  Like::where('status_id', $status->id)->count();
@@ -76,7 +95,11 @@ class StatusController extends Controller
      */
     public function show($id)
     {
-        //
+        $statuses = Status::where('id', $id)->get();
+        $likes =  Like::where('status_id', $id)->count();
+        $liked =  Like::whereStatus_idAndUser_id($id, \Auth::User()->id )->count();
+
+        return view('status.showStatus', ['statuses' => $statuses,'likes' => $likes,'liked'  => $liked]);
     }
 
     /**
@@ -108,8 +131,9 @@ class StatusController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        Status::where('id',$request['status_id'])->delete();
+        return redirect('/status');
     }
 }
