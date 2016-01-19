@@ -9,7 +9,7 @@ function cancel_change(p) {
 
 
 	$('html, body').stop().animate({
-		scrollTop: $(p).offset().top - 95
+		scrollTop: $(p).offset().top - 80
 	}, 1500,'easeInOutExpo');
 	/*
 	 if you don't want to use the easing effects:

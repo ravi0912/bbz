@@ -1,4 +1,4 @@
-<nav class = "top_nav" >
+<center class = "top_nav" >
     <div class="top_nav_content">
         <div class="top_nav_left">
             <div class="">
@@ -10,7 +10,7 @@
                 </button>
                 <a class="" id = "" href="/"><img src = "{{ URL::asset('images/logo/BBZlogo/bbzlogo_white.svg') }}"></a>
             </div>
-        </div>
+
 
         @if (Auth::guest())
             <div class="top_nav_right">
@@ -22,8 +22,7 @@
             </div>
 
         @else
-            <div class="top_nav_right">
-                <div class = "nav_input" style="display: none;">
+                <div class = "nav_input" >
                     <form class=" " role="search" action="{{ url('/searchResults') }}" method="GET" >
                         <!-- styling needed -->
 
@@ -36,15 +35,18 @@
                         </span>
                         <span class = "search-input">
                             <input type="text" id="search-input" class="" placeholder="Search" autocomplete="off" name="keywords">
-                            <button type="submit" class="search-input-button"><img src = "{{ URL::asset('images/logo/nav/SVG/search.svg') }}" width="20" height="20"></button>
+                            <button type="submit" class="search-input-button"><img src = "{{ URL::asset('images/logo/nav/SVG/search_1.svg') }}" width="20" height="20"></button>
                         </span>
 
                     </form>
                 </div>
-                <div class = "nav_search" onclick = "show_nav_input();"><a href="#"><img id = "nav_search" src = "{{ URL::asset('images/logo/nav/SVG/search.svg') }}"></a></div>
-                <div class = "nav_settings"><a href="#"><img src = "{{ URL::asset('images/logo/nav/SVG/settings.svg') }}"></a></div>
-                <div class = "nav_home" style = "color:white;font-size:1.1em;"><a style = "color:white;" href="{{ url('/') }}">Home</a></div>
-                <div class = "nav_home" style = "color:white;font-size:1.1em;"><a style = "color:white;"  href="{{ url('/profile') }}">My Profile</a></div>
+        </div>
+            <div class="top_nav_right">
+
+                {{--<div class = "nav_search" onclick = "show_nav_input();"><a href="#"><img id = "nav_search" src = "{{ URL::asset('images/logo/nav/SVG/search.svg') }}"></a></div>--}}
+                {{--<div class = "nav_settings"><a href="#"><img src = "{{ URL::asset('images/logo/nav/SVG/settings.svg') }}"></a></div>--}}
+                <div class = "nav_home" style = "color:white;font-size:1.1em;"><a style = "color:white;" href="{{ url('/') }}">Blogs</a></div>
+                <div class = "nav_home" style = "color:white;font-size:1.1em;"><a style = "color:white;"  href="{{ url('/profile') }}">Byelaws </a></div>
                 {{--<li><a href="#"><span class="glyphicon glyphicon-user"></span></a></li>--}}
                 {{--<li>--}}
                     {{--<a href="{{ url('/viewAllMail') }}" onmousedown="mail_seen(event,{{ auth()->user()->id  }})"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span></a>--}}
@@ -68,7 +70,7 @@
             </div>
 
     </div>
-</nav>
+</center>
 <!-- Search-->
 
 

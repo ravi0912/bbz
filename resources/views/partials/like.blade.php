@@ -1,16 +1,20 @@
 <div>
-    @if($liked == 1 )
-        <?php $likes = $likes -1 ?>
-        @if($likes == 0)
-            you liked
+
+
+        @if($liked == 1 )
+
+                {{ $likes }}
+                <span id="like_click_{{ $status_id }}" onmouseup="LikeMouseUp(event,{{ $status_id }},{{ $user_id }},{{ auth()->user()->id }})">
+                                    <img id="like_img_{{ $status_id }}" src = "{{ URL::asset('images/logo/lcs/liked.svg') }}">
+                </span>
         @else
-            you & {{ $likes }} liked
+
+                {{ $likes }}
+                <span id="like_click_{{ $status_id }}" onmouseup="LikeMouseUp(event,{{ $status_id }},{{ $user_id }},{{ auth()->user()->id }})">
+                                    <img id="like_img_{{ $status_id }}" src = "{{ URL::asset('images/logo/lcs/like.svg') }}">
+                                </span>
+
         @endif
-    @else
-        @if($likes == 0)
-        @else
-            {{ $likes }} liked
-        @endif
-    @endif
+
 
 </div>

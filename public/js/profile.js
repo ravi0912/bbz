@@ -34,6 +34,49 @@ $('.profile_2').hover(
         $('#profile_1_edit').hide();
     }
 );
+$('#profile_3_education').hover(
+    function () {
+        $('.profile_3_education_edit').show();
+    },
+    function () {
+        $('.profile_3_education_edit').hide();
+    }
+);
+$('#profile_3_experience').hover(
+    function () {
+        $('.profile_3_experience_edit').show();
+    },
+    function () {
+        $('.profile_3_experience_edit').hide();
+    }
+);
+$('#profile_3_project').hover(
+    function () {
+        $('.profile_3_project_edit').show();
+    },
+    function () {
+        $('.profile_3_project_edit').hide();
+    }
+);
+
+
+
+
+
+//// Added by Ankur
+//$('.profile_2k').hover(
+//    function () {
+//        $('.profile_image_2k').addClass("profile_image_up profile_2_hover");
+//        $('#profile_1k_edit').show();
+//        $('#profile_1k_edit').addClass("animated");
+//
+//    },
+//    function () {
+//        $('.profile_image_2').removeClass("profile_image_up profile_2_hover");
+//        $('#profile_1_edit').hide();
+//    }
+//);
+
 
 
 
@@ -46,6 +89,7 @@ function profile_1_Show(event){
         $.get('http://'+domain+'/profileUpdateShow', {
         }, function (markup) {
             $("#profile_1_form_head").show();
+            $("#profile_1_form").addClass("animated zoomIn");
             $("#profile_1_form").html(markup);
         });
     }
@@ -57,6 +101,7 @@ function profile_1_Show(event){
 function profile_1_Add(event,user_id){
     if(event.which == 1) {
         $("#profile_1_form_head").show();
+        $("#profile_1_form").addClass("animated zoomIn");
     }
 
 }
@@ -64,6 +109,7 @@ function profile_1_Add(event,user_id){
 $('#profile_pop_close').click(
     function () {
         $("#profile_1_form_head").hide();
+        $("#profile_1_form").removeClass("animated zoomIn");
     }
 );
 
@@ -73,6 +119,7 @@ $('#profile_pop_close').click(
 function profile_large(event,user_id) {
         if(event.which == 1) {
             $("#profile_1_form_head").show();
+            $("#profile_1_form").addClass("animated zoomIn");
             $("#profile_1_form").html('<div id = "profile_image_1" class="profile_image_1"><img  src = "uploads/profiles/' + user_id + '.jpeg" alt = "not found" align="middle"></div>');
         }
 }
@@ -99,6 +146,7 @@ function profile_3_education_show(event,education_id){
             education_id : education_id,
         }, function (markup) {
             $("#profile_1_form_head").show();
+            $("#profile_1_form").addClass("animated zoomIn");
             $("#profile_1_form").html(markup);
         });
     }
@@ -114,6 +162,7 @@ function profile_3_experience_show(event,experience_id){
             experience_id : experience_id
         }, function (markup) {
             $("#profile_1_form_head").show();
+            $("#profile_1_form").addClass("animated zoomIn");
             $("#profile_1_form").html(markup);
         });
     }
@@ -129,6 +178,7 @@ function profile_3_project_show(event,project_id){
             project_id : project_id
         }, function (markup) {
             $("#profile_1_form_head").show();
+            $("#profile_1_form").addClass("animated zoomIn");
             $("#profile_1_form").html(markup);
         });
     }

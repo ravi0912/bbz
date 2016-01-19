@@ -84,6 +84,6 @@ class CommentLikeController extends Controller
             ]);
         }
         $likes =  Like::where('status_id', $status_id)->count();
-        return view('partials.like', ['likes' => $likes,'liked' => $liked]);
+        return view('partials.like', ['likes' => $likes,'liked' => $liked,'status_id'=> $status_id,'user_id'=>$user_id,]);
     }
 }

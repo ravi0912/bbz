@@ -30,11 +30,11 @@
                 <div id = "newsfeed_content_1" class = "newsfeed_content_1">
                     <a href="{{url('/showprofile/'.$status->user_id)}}">
                         <div id = "newsfeed_content_1_image" class = "newsfeed_content_1_content image"><div id = "newsfeed_content_1_image_content " class = "newsfeed_content_1_image_content image_content"><img src = "{{ URL::asset('uploads/thumbnails/'.$status->user_id.'.jpeg') }}"></div></div>
-                    <div id = "newsfeed_content_1_description" class = "newsfeed_content_1_content">
-                        {{ $status->user->name }}
+                    <span id = "newsfeed_content_1_description" class = "newsfeed_content_1_content">
+                        <div id = "newsfeed_content_1_name" class = "newsfeed_content_1_name"> {{ $status->user->name }}</div>
 
                         <div id = "newsfeed_content_1_time" class = "newsfeed_content_1_content">{{ $status->created_at->diffForHumans() }}</div>
-                    </div>
+                    </span>
                     </a>
                     @if(auth()->user()->id == $status->user_id)
                         <div class = "newsfeed_content_1_more">
@@ -59,34 +59,31 @@
                 <div id = "newsfeed_content_2" class = "newsfeed_content_2">
                     {{ $status->body }}
                 </div>
-                <div id = "newsfeed_content_4" class = "newsfeed_content_4">
-                    <span id="like_show_click_{{ $status->id }}">
-                        @if($liked[$status->id])
-                            <?php $l = $likes[$status->id] - 1?>
-                            @if($l == 0)
-                                you liked
-                            @else
-                                you & {{ $l }} liked
-                            @endif
-                        @else
-                            @if($likes[$status->id] == 0)
-                            @else
-                                {{ $likes[$status->id] }} liked
-                            @endif
-                        @endif
-                    </span>
-                </div>
+               {{--<div id = "newsfeed_content_4" class = "newsfeed_content_4">--}}
                 <div id = "newsfeed_content_3" class = "newsfeed_content_3">
+                    <div id="like_show_click_{{ $status->id }}" class = "newsfeed_content_3_lcs">
+                        @if($liked[$status->id])
 
-                    <span id="like_click_{{ $status->id }}" onmouseup="LikeMouseUp(event,{{ $status->id }},{{ $status->user_id }},{{ auth()->user()->id }})">
-                        like
-                    </span>
-                    <span id="comment_show_click_{{ $status->id }}" onmouseup="CommentMouseUp(event,{{ $status->id }})">
-                        comment
-                    </span>
-                    <span id="share">
-                       share
-                   </span>
+                                <div id="like_click_{{ $status->id }}" onmouseup="LikeMouseUp(event,{{ $status->id }},{{ $status->user_id }},{{ auth()->user()->id }})">
+                                    <div>{{ $likes[$status->id] }} </div>
+                                    <div><img id="like_img_{{ $status->id }}" src = "{{ URL::asset('images/logo/lcs/liked.svg') }}"></div>
+                                </div>
+                        @else
+
+                            <div id="like_click_{{ $status->id }}" onmouseup="LikeMouseUp(event,{{ $status->id }},{{ $status->user_id }},{{ auth()->user()->id }})">
+                                    <div>{{ $likes[$status->id] }} </div>
+                                    <div><img id="like_img_{{ $status->id }}" src = "{{ URL::asset('images/logo/lcs/like.svg') }}"></div>
+                            </div>
+
+                        @endif
+                    </div>
+
+                    <div id="comment_show_click_{{ $status->id }}" class = "newsfeed_content_3_lcs" onmouseup="CommentMouseUp(event,{{ $status->id }})">
+                        <img id="comment_img_{{ $status->id }}" src = "{{ URL::asset('images/logo/lcs/comment.svg') }}">
+                    </div>
+                    <div id="share" class = "newsfeed_content_3_lcs">
+                       <img src = "{{ URL::asset('images/logo/lcs/share.svg') }}">
+                   </div>
                 </div>
 
                 <div id = "newsfeed_content_5" class = "newsfeed_content_5">

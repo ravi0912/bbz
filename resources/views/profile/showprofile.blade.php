@@ -63,7 +63,7 @@
                                 <div id = "profile_name" class="profile_name">{{ $usr->name}}</div>
                                 <div id = "profile_type" class="profile_type">{{ $usr->designation}}, Hafeez Contractor</div>
                                 <div id = "profile_address" class="profile_address">Studio Apartments, Green city</div>
-                                <a href="{{url('/showConnections/'.$usr->id)}}"><span id = "profile_connection" class="profile_connection">Connection: {{ $connections }}</span></a>
+                                <a href="{{url('/showConnections/'.$usr->id)}}"><span id = "profile_connection" class="profile_connection">Connections: {{ $connections }}</span></a>
 
                                 <div id = "profile_1_form_head" class = "profile_pop">
                                     <span id = "profile_pop_close" class = "profile_pop_close">Close</span>
