@@ -78,8 +78,8 @@ a:hover{
     float:left;
     height: 50px;
     line-height: 50px;
-    margin-left:150px;
-    width:600px;
+    margin-left:50px;
+    width:px;
     text-align: center;
 }
 .top_nav_left div{
@@ -147,7 +147,7 @@ a:hover{
 }
 .search-input input{
     color:black;
-    width:50vh;
+    width:500px;
 }
 #search-input:focus{
     box-shadow: none;
@@ -833,9 +833,13 @@ width:100%;
     top:0;
     right:0;
 }
-@media (max-width: 768px) {
+@media (max-width: 850px) {
     .right_ul{
         display: none;
+    }
+    .search-input input{
+        color:black;
+        width:100px;
     }
 }
 /*message starts*/

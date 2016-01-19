@@ -1,4 +1,4 @@
-<center class = "top_nav" >
+<nav class = "top_nav" >
     <div class="top_nav_content">
         <div class="top_nav_left">
             <div class="">
@@ -70,7 +70,7 @@
             </div>
 
     </div>
-</center>
+</nav>
 <!-- Search-->
 
 
