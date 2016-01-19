@@ -58,12 +58,20 @@
                                 {{--<div><img src = "{{ URL::asset('images/addcontact.png') }}"></div>--}}
                                 <div id = "profile_2_content_sendmessage" class = "profile_2_content_sendmessage"><img src = "{{ URL::asset('images/sendmessage.png') }}"></div>
                             </div>
-                            <div id = "profile_image" class="profile_image"><img width="100" height="100" src = "{{ URL::asset('uploads/profiles/'.$usr->id.'.jpeg') }}" alt = "{{ $usr->name }}"></div>
+                            <div id = "profile_image" class="profile_image"><img onclick="profile_show_large(event,{{ $usr->id }})" width="100" height="100" src = "{{ URL::asset('uploads/profiles/'.$usr->id.'.jpeg') }}" alt = "{{ $usr->name }}"></div>
                             <div id = "profile_description" class="profile_description">
                                 <div id = "profile_name" class="profile_name">{{ $usr->name}}</div>
                                 <div id = "profile_type" class="profile_type">{{ $usr->designation}}, Hafeez Contractor</div>
                                 <div id = "profile_address" class="profile_address">Studio Apartments, Green city</div>
-                                <a href="{{url('/showConnections/'.$usr->id)}}"><div id = "profile_address" class="profile_address">{{ $connections }}</div></a>
+                                <a href="{{url('/showConnections/'.$usr->id)}}"><span id = "profile_connection" class="profile_connection">Connection: {{ $connections }}</span></a>
+
+                                <div id = "profile_1_form_head" class = "profile_pop">
+                                    <span id = "profile_pop_close" class = "profile_pop_close">Close</span>
+
+                                    <div id = "profile_1_form" class = "profile_1_form">
+                                    </div>
+                                </div>
+
                             </div>
                         {{--@endforeach--}}
                     </div>
@@ -285,6 +293,15 @@
                     $("#profile_2_content_sendmessage_container").removeClass("animated zoomIn");
                     $("#profile_2_content_sendmessage_container_head").hide();
                 });
+
+                //Profile enlarge
+
+                function profile_show_large(event,user_id) {
+                    if(event.which == 1) {
+                        $("#profile_1_form_head").show();
+                        $("#profile_1_form").html('<div id = "profile_image_1" class="profile_image_1"><img  src = "{{ URL::asset('uploads/profiles/'.$usr->id.'.jpeg') }}" alt = "not found" align="middle"></div>');
+                    }
+                }
             </script>
         </div>
     </div>

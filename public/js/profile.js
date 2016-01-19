@@ -35,6 +35,9 @@ $('.profile_2').hover(
     }
 );
 
+
+
+
 //Profile Edit Option popout
 function profile_1_Show(event){
     if(event.which == 1) {

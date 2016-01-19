@@ -286,7 +286,7 @@
                         </div>
                     @endforeach
                     <div id = "profile_3_project_content_form" class="profile_3_sub_content_form">
-                        <!-- //Form - project edit -->
+                        <!-- //Form - project  -->
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="">
@@ -330,6 +330,40 @@
                                             </div>
                                             {!! Form::close() !!}
                                         </div>
+
+
+
+
+
+                                        <div id = "profile_2" class="profile_2">
+                                            <div id = "profile_image" class="profile_image">
+                                                <div id = "profile_image_1" class="profile_image_1">
+                                            <img onclick="profile_large(event,{{ auth()->user()->id }})" src = "uploads/profiles/{{ auth()->user()->id }}.jpeg" alt = "not found" align="middle">
+                                                <div id = "profile_image_2" class="profile_image_2">
+                                                    {!! Form::open(['action' => 'ImageUploadController@storeProfileImage','enctype' => 'multipart/form-data']) !!}
+                                                        <label class="profile_image_choose">
+                                                            {!! Form::file('image', ['class' => 'profile_image_choose']) !!}
+                                                            Update
+                                                        </label>
+                                                </div>
+                                            </div>
+                                                </div>
+                                        </div>
+                                        <div id = "profile_image_2_preview" class="profile_image_2_preview">
+                                            <div id = "profile_image_2_text" class="profile_image_2_text">Preview</div>
+                                            <span id = "profile_image_2_upload" class="profile_image_2_upload ">{!! Form::submit('Upload', ['class' => ' profile_image_2_upload']) !!}</span>
+                                            @include('errors.list')
+                                            <span id = "profile_image_2_close" class="profile_image_2_close ">Cancel</span>
+                                            {!! Form::close()!!}
+                                        </div>
+
+
+
+
+
+
+
+<!-- edit-->
                                         @include('errors.list')
                                     </div>
                                 </div>
@@ -360,6 +394,13 @@
                                     <span class = "profile_3_form_skill_display_2">PHP</span>
                                     <span class = "profile_3_form_skill_display_3"> &times;</span>
                                 </div>
+                            </div>
+                            <input name = "profile_3_form_skill_input" id = "profile_3_form_skill_input" class = "profile_3_form_skill_input" placeholder="Enter your skill">
+                            <span id = "profile_3_form_skill_input_alert" class = "profile_3_form_skill_input_alert">Kindly enter something</span>
+                            <span id = "profile_3_form_skill_add" class = "profile_3_form_skill_add general_button">Add</span>
+                            <div id="Add Skill">
+                                <!--Add Skill-->
+
                             </div>
                             <div >
                                 <span id = "profile_3_cancel" class = "profile_3_cancel" onclick="profile_3_education(6);">Cancel</span>
