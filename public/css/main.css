@@ -78,9 +78,9 @@ a:hover{
     float:left;
     height: 50px;
     line-height: 50px;
-    margin-left:50px;
-    width:px;
+    margin-left:14%;
     text-align: center;
+    padding:0 0% 0 1%;
 }
 .top_nav_left div{
     display: inline-block;
@@ -89,6 +89,14 @@ a:hover{
     padding:0 10px 0 10px;
 }
 .top_nav_left img{
+    width:50px;
+    height:50px;
+}
+.top_nav_logo{
+    float:left;
+    margin-left:50px;
+}
+.top_nav_logo img{
     width:50px;
     height:50px;
 }
@@ -114,7 +122,6 @@ a:hover{
 .top_nav_right span{
     display: inline-block;
     color:white;
-    padding:0 10px 0 10px;
 }
 .top_nav_right {
 }
@@ -153,7 +160,7 @@ a:hover{
     box-shadow: none;
 }
 #search-results{
-    width:300px;
+    width:500px;
     display: none;
     max-height: 50vh;
     overflow-y:auto ;
@@ -161,7 +168,8 @@ a:hover{
     position:absolute;
     top:48px;
     z-index: 1000;
-    background-color: white;
+    border-radius:3px;
+    background-color: #f9f9f9;
     color:black;
 }
 .search-input-button{
@@ -184,6 +192,7 @@ a:hover{
     font-size:1em;
     font-weight:500;
     padding:5px;
+    border-bottom: 1px solid #f1f1f2;
 
 }
 .search-results-list:hover{
@@ -246,6 +255,10 @@ a:hover{
     overflow: hidden;
     border-radius:50%;
 }
+.nav_profile_image img{
+    width:39px;
+    height: auto;
+}
 
 /*top navigation bar ends*/
 
@@ -265,6 +278,7 @@ a:hover{
 .left_overlap_head_logo{
     width: 50px;
     height: 50px;
+    margin: 10px 0 0 0;
 }
 .left_overlap_toggle{
     -webkit-transform: translate3d(100%,0, 0);
@@ -302,6 +316,7 @@ a:hover{
     height:25vh;
     overflow-y:auto;
     margin: 1% 0 0 0;
+    color:white;
 }
 .left_overlap_list::-webkit-scrollbar-track
 {	border-radius: 5px;
@@ -356,7 +371,7 @@ a:hover{
     background:;
 }
 .main_body_content{
-    position: absolute;top:60px;left:20%;
+    position: absolute;top:60px;left:24%;
     /*margin:0 7% 0 1%;*/
     display: inline-block;
     vertical-align: text-top;
@@ -367,13 +382,14 @@ a:hover{
 /*main body => newsfeed/index general bar starts*/
 .newsfeed{
     text-align: left;
-    width:500px;
+    width:600px;
 }
 .newsfeed_form{
     background:white ;
     margin:1% 0 1% 0;
     padding:1%;
-    border: 1px solid #E5E5E5;
+    border: 1px solid #E5E5E5;border-radius:3px;
+    bor
 }
 .newsfeed_form_post{
     width:100%;
@@ -404,31 +420,29 @@ a:hover{
 }
 .newsfeed_content{
 
-    margin:0% 0 1% 0;
-    background:#f1f1F2;
-    border: 1px solid #f1f1f1;
+    margin:-45px 0 3% 0;
+
+    /*border: 1px solid #f1f1f1;*/
     border-radius: 2px;
 }
 #newsfeed_content_1_image{
     width:45px;
     height:45px;
     overflow: hidden;
-}
-.newsfeed_content_1_image_content{
-    top:0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
+    border-radius:50%;
+    margin:0 0 0 -50px  ;
+    display: inline-block;
+    vertical-align: top;
 }
 .newsfeed_content_1_image_content img{
     width:45px;
-    height:45px;
+    height: auto;
 }
 
 .newsfeed_content_1{
     width:100%;
-    padding:1%;
+    padding: 0 1% 0 1%;
+
 }
 .newsfeed_content_1_name{
     font-size:1.1em;
@@ -436,17 +450,27 @@ a:hover{
     color:#3C97D3;
     cursor: pointer;
 }
+.newsfeed_content_1_desig{
+    font-size: 0.85em;
+    color:black;
+    font-style: italic;
+}
 #newsfeed_content_1_name:hover{
     text-decoration: underline;
 }
 .newsfeed_content_2{
     width:100%;
+    margin:8px 0 0 0px  ;
+    background:#f9f9f9;
+    border-radius:3px;
+}
+.newsfeed_content_2_text{
     padding:1%;
+    width: 70%;
 }
 .newsfeed_content_3{
     width:100%;
     padding:1%;
-    border-bottom:1px solid #f9f9f9;
 }
 .newsfeed_content_3 div{
     display:inline-block;
@@ -467,11 +491,13 @@ a:hover{
 .newsfeed_content_5{
     width:100%;
     padding:1%;
+    border-top:1px solid #f9f9f9;
+    border-bottom:1px solid #f9f9f9;
 }
 .newsfeed_content_5 input{
     padding:3px;
     width: 80%;
-    height: 35px;
+    height: 30px;
     border:1px solid #f1f1f1;
     background: none;
     color:black;
@@ -484,8 +510,8 @@ a:hover{
     vertical-align: top;
 }
 .newsfeed_comment_content_image{
-    width:35px;
-    height:35px;
+    width:30px;
+    height:30px;
     overflow:hidden;
     line-height: 35px;
     border-radius: 2px;
@@ -493,8 +519,9 @@ a:hover{
 
 .newsfeed_comment_content_image img{
     display: block;
-    width:35px;
-    height: auto;
+    width:auto;
+    text-align: center;
+    height: 30px;
 }
 .newsfeed_comment_content_name{
     font-size:1em;
@@ -519,6 +546,13 @@ a:hover{
     font-size:0.8em;
     font-weight:100 ;
     color:black;
+    float: right;
+    font-style: italic;
+    vertical-align: bottom;
+    width: 100%;
+    float:right;
+    padding:1%;
+    text-align:right;
 }
 .newsfeed_content_1_more{
     float:right;
@@ -571,7 +605,6 @@ a:hover{
 .right{
     z-index: 85;
     border-top:1px solid #f1f1f1 ;
-
     background: white;
     position:fixed;
     top:60px;
@@ -601,13 +634,41 @@ a:hover{
 .right_ul_li{
 
 }
+.right_ul_content:nth-child(odd) {
+    background: #f5f5f5;
+}
+.right_ul_content:nth-child(even) {
+    background: #f9f9f9;
+}
 .right_ul_content{
     height:265px;
     overflow-y: auto;
     background: white;
 }
+.right_ul_content_imae{
+    width:39px;
+    height: 39px;
+    display:inline-block;
+    vertical-align: top;
+    overflow: hidden;
+    border-radius:50%;
+}
+.right_ul_content img{
+    width:39px;
+    height: auto;
+}
+.right_ul_content::-webkit-scrollbar-track
+{	border-radius: 5px;
+    background-color: none;
+}
+.right_ul_content::-webkit-scrollbar
+{
+    width: 4px;
+    background-color: none;
+    border-radius: 5px;
+}
+
 .right_ul_li_content{
-    background: white;
 }
 .right_ul_header{
     background: white;
@@ -616,7 +677,7 @@ a:hover{
     padding:3px;
     width: 100%;
     text-align: left;
-    font-size: 20px;
+    font-size: 17px;
     font-weight: 500;
     border-bottom: 1px solid #f1f1F2;
 
@@ -648,25 +709,6 @@ width:100%;
 }
 .right_message_navigation_li_active{
     background: #f9f9f9;
-}
-.right_message_navigation_li_image{
-    width: 40px;
-    height: 40px;
-    overflow: hidden;
-    display: inline-block;
-    vertical-align: middle;
-    border-radius: 50%;
-    top:0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    line-height: 40px;
-}
-.right_message_navigation_li_image img{
-    width: 40px;
-    height: auto;
-    transform: scale(1.8);
 }
 .right_message_navigation_li_name{
     overflow: hidden;
@@ -720,6 +762,7 @@ width:100%;
 .right_connection_content_2{
     width: 65%;
     font-size: 0.9em;
+    padding:1%;
 }
 .right_connection_content_3{
     font-size: 0.8em;
@@ -922,20 +965,11 @@ width:100%;
     overflow: hidden;
     display: inline-block;
     vertical-align: middle;
-    line-height: 40px;
     border-radius: 50%;
-}
-.message_navigation_li_image_content{
-    top:0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
 }
 .message_navigation_li_image_content img{
     width: 40px;
     height: auto;
-    transform: scale(1.8);
 }
 .message_navigation_li_name{
     overflow: hidden;

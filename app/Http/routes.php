@@ -57,6 +57,12 @@ Route::get('showConnectionRequest','ConnectionController@showConnectionRequest')
 Route::get('confirmConnectionNotification','ConnectionController@confirmConnectionNotification');
 Route::get('cancelConnectionNotification','ConnectionController@cancelConnectionNotification');
 
+//Skill Add, Delete, Boost
+Route::get('addSkill','SkillController@addSkill');
+Route::get('deleteSkill','SkillController@deleteSkill');
+Route::get('boostSkill','SkillController@boostSkill');
+Route::get('unBoostSkill','SkillController@unBoostSkill');
+
 
 //routes for Image upload
 Route::post('imageUpload','ImageUploadController@storeProfileImage');

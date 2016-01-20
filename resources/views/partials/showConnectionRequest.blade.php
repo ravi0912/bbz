@@ -1,4 +1,4 @@
-<div id = "right_ul_header" class = "right_ul_header">CONNECTIONS</div>
+<div id = "right_ul_header" class = "right_ul_header">CONNECTION REQUESTS</div>
 <div id = "right_ul_content" class = "right_ul_content">
     @if($user_connection_count > 0)
         @foreach($user_connection_requests as $user_connection_request)
@@ -6,7 +6,7 @@
             <div id = "right_connection" class = "right_connection">
                 <div id = "right_connection_content" class = "right_connection_content">
                    <!-- <a href="{{url('/showprofile/'.$user_connection_request->user_id_1)}}">-->
-                        <div id = "right_connection_content_1" class = "right_connection_content_1">
+                        <div id = "right_ul_content_imae" class = "right_ul_content_imae">
                             <img id = "" src = "{{ URL::asset('uploads/thumbnails/'.$user_connection_request->user_id_1.'.jpeg') }}">
                         </div>
                         <div id = "right_connection_content_2" class = "right_connection_content_2">
@@ -29,7 +29,7 @@
         @endforeach
     @else
         <div id = "right_connection_content_2" class = "right_connection_content_2">
-            No More Connection Request.
+            No request to show
         </div>
     @endif
 </div>

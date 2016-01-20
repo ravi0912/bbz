@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Comment;
 use App\Like;
+use App\Notification;
 use App\Status;
 use App\User;
 use Illuminate\Http\Request;
@@ -54,9 +55,10 @@ class StatusController extends Controller
         foreach($statuses as $status){
           $likes[$status->id] =  Like::where('status_id', $status->id)->count();
           $liked[$status->id] =  Like::whereStatus_idAndUser_id($status->id, \Auth::User()->id )->count();
+          $countComment[$status->id] = Comment::where('status_id',$status->id)->count();
         }
 
-        return view('status.index', ['statuses' => $statuses,'likes' => $likes,'liked'  => $liked]);
+        return view('status.index', ['statuses' => $statuses,'likes' => $likes,'liked'  => $liked,'countComment' => $countComment]);
     }
 
     /**
@@ -98,7 +100,7 @@ class StatusController extends Controller
         $statuses = Status::where('id', $id)->get();
         $likes =  Like::where('status_id', $id)->count();
         $liked =  Like::whereStatus_idAndUser_id($id, \Auth::User()->id )->count();
-
+       // return $statuses;
         return view('status.showStatus', ['statuses' => $statuses,'likes' => $likes,'liked'  => $liked]);
     }
 
@@ -134,6 +136,9 @@ class StatusController extends Controller
     public function destroy(Request $request)
     {
         Status::where('id',$request['status_id'])->delete();
+        Like::where('status_id',$request['status_id'])->delete();
+        Comment::where('status_id',$request['status_id'])->delete();
+        Notification::where('status_id',$request['status_id'])->delete();
         return redirect('/status');
     }
 }

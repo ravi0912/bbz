@@ -56,13 +56,17 @@
                                 @endif
                                 </div>
                                 {{--<div><img src = "{{ URL::asset('images/addcontact.png') }}"></div>--}}
-                                <div id = "profile_2_content_sendmessage" class = "profile_2_content_sendmessage"><img src = "{{ URL::asset('images/sendmessage.png') }}"></div>
+                                <div id = "profile_2_content_sendmessage" class = "profile_2_content_sendmessage" title="Click to Send Mail"><img src = "{{ URL::asset('images/sendmessage.png') }}"></div>
                             </div>
                             <div id = "profile_image" class="profile_image"><img onclick="profile_show_large(event,{{ $usr->id }})" width="100" height="100" src = "{{ URL::asset('uploads/profiles/'.$usr->id.'.jpeg') }}" alt = "{{ $usr->name }}"></div>
                             <div id = "profile_description" class="profile_description">
                                 <div id = "profile_name" class="profile_name">{{ $usr->name}}</div>
-                                <div id = "profile_type" class="profile_type">{{ $usr->designation}}, Hafeez Contractor</div>
-                                <div id = "profile_address" class="profile_address">Studio Apartments, Green city</div>
+                                <div id = "profile_type" class="profile_type">{{ $usr->designation}},
+                                    @foreach($profiles as $profile)
+                                        {{ $profile->current_designation }}</div>
+                                <div id = "profile_address" class="profile_address">{{ $profile->current_company}}</div>
+                                <div id = "profile_address" class="profile_address">{{ $profile->current_city }}, {{ $profile->current_state }}</div>
+                                @endforeach
                                 <a href="{{url('/showConnections/'.$usr->id)}}"><span id = "profile_connection" class="profile_connection">Connections: {{ $connections }}</span></a>
 
                                 <div id = "profile_1_form_head" class = "profile_pop">
@@ -153,22 +157,30 @@
                     <div id = "profile_3_content_header" class= "profile_3_content_header">Skill</div>
                     <div id = "profile_3_skill_content">
                         <div id = "profile_3_skill_content_display" class="profile_3_skill_content">
-                            <div id = "profile_3_skill_content_1" class="profile_3_sub_content">
 
-                                <div id = "profile_3_skill_content_school" class = "profile_3_sub_content_school">Pratap Public School</div>
-                                <div id = "profile_3_skill_content_timein" class = "profile_3_sub_content_timein">2014</div> -
-                                <div id = "profile_3_skill_content_timeout" class = "profile_3_sub_content_timeout">2015</div>
-                                <div id = "profile_3_skill_content_branch" class = "profile_3_sub_content_branch">branch</div>
-                                <div id = "profile_3_skill_content_degree" class = "profile_3_sub_content_degree">degree</div>
-                                <div id = "profile_3_skill_content_grade" class = "profile_3_sub_content_grade">grade</div>
-                                <div id = "profile_3_skill_content_description_1" class = "profile_3_sub_content_description_1">1</div>
-                                <div id = "profile_3_skill_content_description_2" class = "profile_3_sub_content_description_2">2</div>
+                            <div id = "profile_3_skill_content_1" class="profile_3_skill_sub_content">
+                                @if($skillsCount > 0)
+                                    @foreach($skills as $skill)
+                                        <div class="profile_3_skill_content_li">
+                                            <span class="profile_3_skill_content_li_1">{{ $skill->skill }}</span>
+                                                <span class="profile_3_skill_content_li_2">
+                                                    @if($boostCount[$skill->id] == 0)
+                                                    @else
+                                                        {{ $boostCount[$skill->id] }}
+                                                    @endif
+                                                </span>
+                                            @if($auth_boost[$skill->id] == 1)
+                                                <span class = "profile_3_form_skill_display_3" onclick="unBoostSkill(event,{{ $skill->id }},{{ $usr->id }})"> &#8211;</span>
+                                            @else
+                                                <span class = "profile_3_form_skill_display_3" onclick="boostSkill(event,{{ $skill->id }},{{ $usr->id }})"> &plus;</span>
+                                            @endif
+
+                                        </div>
+                                    @endforeach
+                                @endif
                             </div>
                         </div>
-
-
                     </div>
-                </div>
             </div>
         </div>
 
@@ -177,9 +189,7 @@
 
     {{--@include('partials.notification')--}}
     <script type="text/javascript" src ="{{ URL::asset('js/addconnection.js') }} "></script>
-    <script>
-
-    </script>
+        <script type="text/javascript" src ="{{ URL::asset('js/showProfile.js') }} "></script>
     <div id='profile_2_content_sendmessage_container_head' class='profile_2_content_sendmessage_container_head'>
 
         <div id='profile_2_content_sendmessage_container' class='profile_2_content_sendmessage_container'>

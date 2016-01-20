@@ -48,8 +48,7 @@ class ImageUploadController extends Controller
     public function storeProfileImage(PrepareImageUploadRequest $request)
     {
 
-        $image = $request->file('image');
-        $size = getimagesize($image);
+        $image = $request->file('image');        $size = getimagesize($image);
         $aspectratio = $size[0]/$size[1];
         $img_thumbnail = Image::make($image)->resize(30*$aspectratio,30);
         $img_profile = Image::make($image)->resize(160*$aspectratio,160);

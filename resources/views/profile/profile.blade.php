@@ -30,7 +30,7 @@
 
                         </div>
                         @if($profile_count == 1)
-                            <div id = "profile_1_edit" class = "profile_3_add general_button" onclick="profile_1_Show(event,{{ auth()->user()->id }});">Edit</div>
+                            <div id = "profile_1_edit" class = "profile_3_edit" onclick="profile_1_Show(event,{{ auth()->user()->id }});">Edit</div>
                         @else
                             <div id = "profile_1_edit" class = "profile_3_add general_button" onclick="profile_1_Add(event,{{ auth()->user()->id }});">Add</div>
                         @endif
@@ -51,6 +51,7 @@
                             <div id = "profile_type" class="profile_type">{{ auth()->user()->designation }},
                                 @foreach($profiles as $profile)
                                     {{ $profile->current_designation }}</div>
+                            <div id = "profile_address" class="profile_address">{{ $profile->current_company}}</div>
                             <div id = "profile_address" class="profile_address">{{ $profile->current_city }}, {{ $profile->current_state }}</div>
                             @endforeach
                             <a href="{{url('/showConnections/'.auth()->user()->id)}}"><span id = "profile_connection" class="profile_connection">Connections: {{ $connections }}</span></a>
@@ -280,7 +281,7 @@
                                         <div class = "profile_3_sub_content_image"><img src = "images/1.png"></div>
                                         <div class = "profile_3_sub_content_image"><img src = "images/logo.png"></div>
                                         <div class = "profile_3_sub_content_image"><img src = "images/addcontact.png"></div>
-                                        <div class = "profile_3_sub_content_image_add"><img src = "images/addcontact.png"></div>
+                                        <div class = "profile_3_sub_content_image"><img src = "images/addcontact.png"></div>
                                     </div>
                                 </div>
                             </div>
@@ -330,60 +331,6 @@
                                                 </div>
                                                 {!! Form::close() !!}
                                             </div>
-
-
-                                            {{--<style type="text/css">--}}
-
-                                            {{--.profile_ank{--}}
-                                            {{--transform: scale3d(0.5,0.5,1);--}}
-                                            {{--}--}}
-                                            {{--.profile_ank .profile_image{--}}
-                                            {{--width: 80px !important;--}}
-                                            {{--height: 80px !important;--}}
-
-                                            {{--}--}}
-
-                                            {{--</style>--}}
-
-                                            {{--<div id = "profile_2" class="profile_2 profile_ank">--}}
-                                            {{--<div id = "profile_image" class="profile_image">--}}
-                                            {{--<div id = "profile_image_1" class="profile_image_1 profile_image_1k">--}}
-                                            {{--<img onclick="profile_large(event,{{ auth()->user()->id }})" src = "uploads/profiles/{{ auth()->user()->id }}.jpeg" alt = "not found">--}}
-                                            {{--<div id = "profile_image_2" class="profile_image_2">--}}
-                                            {{--{!! Form::open(['action' => 'ImageUploadController@storeProfileImage','enctype' => 'multipart/form-data']) !!}--}}
-                                            {{--<label class="profile_image_choose">--}}
-                                            {{--{!! Form::file('image', ['class' => 'profile_image_choose']) !!}--}}
-                                            {{--Update--}}
-                                            {{--</label>--}}
-                                            {{--</div>--}}
-                                            {{--</div>--}}
-                                            {{--<div id = "profile_image_1" class="profile_image_1 profile_image_1k">--}}
-                                            {{--<img onclick="profile_large(event,{{ auth()->user()->id }})" src = "uploads/profiles/{{ auth()->user()->id }}.jpeg" alt = "not found">--}}
-                                            {{--<div id = "profile_image_2" class="profile_image_2">--}}
-                                            {{--{!! Form::open(['action' => 'ImageUploadController@storeProfileImage','enctype' => 'multipart/form-data']) !!}--}}
-                                            {{--<label class="profile_image_choose">--}}
-                                            {{--{!! Form::file('image', ['class' => 'profile_image_choose']) !!}--}}
-                                            {{--Update--}}
-                                            {{--</label>--}}
-                                            {{--</div>--}}
-                                            {{--</div>--}}
-                                            {{--</div>--}}
-                                            {{--</div>--}}
-                                            {{--<div id = "profile_image_2_preview" class="profile_image_2_preview">--}}
-                                            {{--<div id = "profile_image_2_text" class="profile_image_2_text">Preview</div>--}}
-                                            {{--<span id = "profile_image_2_upload" class="profile_image_2_upload ">{!! Form::submit('Upload', ['class' => ' profile_image_2_upload']) !!}</span>--}}
-                                            {{--@include('errors.list')--}}
-                                            {{--<span id = "profile_image_2_close" class="profile_image_2_close ">Cancel</span>--}}
-                                            {{--{!! Form::close()!!}--}}
-                                            {{--</div>--}}
-
-
-
-
-
-
-
-                                            <!-- edit-->
                                             @include('errors.list')
                                         </div>
                                     </div>
@@ -399,42 +346,42 @@
                     <div id = "profile_3_add" class = "profile_3_add general_button" onclick="profile_3_education(5);">Add</div>
                     <div id = "profile_3_skill_content">
                         <div id = "profile_3_skill_content_display" class="profile_3_skill_content">
-                            <div class="profile_3_skill_content_li">
-                                <span class="profile_3_skill_content_li_1">
-                                    C
-                                </span>
-                                <span class="profile_3_skill_content_li_2">
-                                    32
-                                </span>
-                            </div>
+
+                                <div id = "profile_3_skill_content_1" class="profile_3_skill_sub_content">
+                                    @if($skillsCount > 0)
+                                        @foreach($skills as $skill)
+                                            <div class="profile_3_skill_content_li">
+                                                <span class="profile_3_skill_content_li_1">{{ $skill->skill }}</span>
+                                                <span class="profile_3_skill_content_li_2">
+                                                    @if($boostCount[$skill->id] == 0)
+                                                    @else
+                                                        {{ $boostCount[$skill->id] }}
+                                                    @endif
+                                                </span>
+                                                <span class = "profile_3_form_skill_display_3" onclick="deleteSkill(event,{{ $skill->id }})"> &times;</span>
+                                            </div>
+                                        @endforeach
+                                    @endif
+                                </div>
                         </div>
                         <div id = "profile_3_skill_content_form" class="profile_3_sub_content_form">
                             <!-- //Form - skill edit -->
-                            <form>
-                                <input name = "profile_3_form_skill_input" id = "profile_3_form_skill_input" class = "profile_3_form_skill_input" placeholder="Enter your skill">
-                                <span id = "profile_3_form_skill_input_alert" class = "profile_3_form_skill_input_alert">Kindly enter something</span>
-                                <span id = "profile_3_form_skill_add" class = "profile_3_form_skill_add general_button">Add</span>
-
-                                <div id = "profile_3_form_skill_display" class = "profile_3_form_skill_display">
+                            <div class = "panel-body">
+                                <div>
+                                    <input name = "profile_3_form_skill_input" id = "profile_3_form_skill_input" class = "profile_3_form_skill_input" placeholder="Enter your skill">
+                                    <span id = "profile_3_form_skill_add" class = "profile_3_form_skill_add general_button" onclick="addSkill(event)">Submit</span>
+                                </div>
+                                {{--<div id = "profile_3_form_skill_display" class = "profile_3_form_skill_display">
                                     <div class = "profile_3_form_skill_display_content">
                                         <span class = "profile_3_form_skill_display_1">3</span>
                                         <span class = "profile_3_form_skill_display_2">PHP</span>
                                         <span class = "profile_3_form_skill_display_3"> &times;</span>
                                     </div>
-                                </div>
-                                <input name = "profile_3_form_skill_input" id = "profile_3_form_skill_input" class = "profile_3_form_skill_input" placeholder="Enter your skill">
-                                <span id = "profile_3_form_skill_input_alert" class = "profile_3_form_skill_input_alert">Kindly enter something</span>
-                                <span id = "profile_3_form_skill_add" class = "profile_3_form_skill_add general_button">Add</span>
-                                <div id="Add Skill">
-                                    <!--Add Skill-->
 
-                                </div>
-                                <div >
-                                    <span id = "profile_3_cancel" class = "profile_3_cancel" onclick="profile_3_education(6);">Cancel</span>
-                                </div>
-                            </form>
+                                </div> <br>--}}
+                                <span id = "profile_3_cancel" class = "profile_3_cancel" onclick="profile_3_education(6);">Cancel</span><br><br>
 
-                        </div>
+                            </div>
 
                     </div>
                 </div>
@@ -444,6 +391,8 @@
     </div>
 
     <script type="text/javascript">
+        //Image Preview
+        //Function for Reading image path
         function readURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
@@ -456,6 +405,8 @@
                 reader.readAsDataURL(input.files[0]);
             }
         }
+
+        //Updating image for preview
         $(function() {
             $("#profile_image_2 input:file").change(function (){
 //                var fileName = $(this).val();
@@ -470,7 +421,7 @@
             });
         });
     </script>
-
+    <script type="text/javascript" src = "{{ URL::asset('js/profile.js') }}" ></script>
     {{--@include('partials.notification')--}}
 
 @stop

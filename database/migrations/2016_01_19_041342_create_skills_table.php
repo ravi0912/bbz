@@ -14,10 +14,10 @@ class CreateSkillsTable extends Migration
     {
         Schema::create('skills', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id_1')->unsigned();
-            $table->foreign('user_id_1')->references('id')->on('users')->onDelete('cascade');
-            $table->integer('skill')->unsigned();
-            $table->foreign('user_endorsed')->references('id')->on('users')->onDelete('cascade');
+            $table->string('skill');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->integer('total_users_boost');
             $table->timestamps();
         });
     }

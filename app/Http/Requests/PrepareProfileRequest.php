@@ -28,8 +28,8 @@ class PrepareProfileRequest extends Request
             'current_city'        => '',
             'current_state'       => 'required',
             'current_designation' => '',
-            'date'                => 'integer|max:12',
-            'month'               => 'integer|max:31',
+            'date'                => 'integer|max:31',
+            'month'               => 'integer|max:12',
             'year'                => 'integer|max:9999'
         ];
     }

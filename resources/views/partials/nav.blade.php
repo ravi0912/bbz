@@ -1,27 +1,13 @@
-<nav class = "top_nav" >
-    <div class="top_nav_content">
-        <div class="top_nav_left">
-            <div class="">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle Navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="" id = "" href="/"><img src = "{{ URL::asset('images/logo/BBZlogo/bbzlogo_white.svg') }}"></a>
-            </div>
-
-
         @if (Auth::guest())
-            <div class="top_nav_right">
-                <span><a href="{{ url('/') }}">Home</a></span>
-                <span><a href="{{ url('/') }}">Blog</a></span>
-                <span><a href="{{ url('/') }}">About Us</a></span>
-                <span><a href="{{ url('/') }}">Contact Us</a></span>
-                <span id=""><a href="{{ url('/auth/login') }}" class="">Login</a></span>
-            </div>
+
 
         @else
+            <nav class = "top_nav" >
+                <div class="top_nav_content">
+            <div class="top_nav_logo">
+                <a class="" id = "" href="/"><img src = "{{ URL::asset('images/logo/BBZlogo/bbzlogo_white.svg') }}"></a>
+            </div>
+            <div class="top_nav_left">
                 <div class = "nav_input" >
                     <form class=" " role="search" action="{{ url('/searchResults') }}" method="GET" >
                         <!-- styling needed -->
@@ -46,7 +32,9 @@
                 {{--<div class = "nav_search" onclick = "show_nav_input();"><a href="#"><img id = "nav_search" src = "{{ URL::asset('images/logo/nav/SVG/search.svg') }}"></a></div>--}}
                 {{--<div class = "nav_settings"><a href="#"><img src = "{{ URL::asset('images/logo/nav/SVG/settings.svg') }}"></a></div>--}}
                 <div class = "nav_home" style = "color:white;font-size:1.1em;"><a style = "color:white;" href="{{ url('/') }}">Blogs</a></div>
-                <div class = "nav_home" style = "color:white;font-size:1.1em;"><a style = "color:white;"  href="{{ url('/profile') }}">Byelaws </a></div>
+                <div class = "nav_home" style = "color:white;font-size:1.1em;"><a style = "color:white;" href="{{ url('/') }}">ByeLaws</a></div>
+                <div class = "nav_home" style = "color:white;font-size:1.1em;"><a style = "color:white;" href="{{ url('/') }}">Home</a></div>
+                <div class = "nav_home" style = "color:white;font-size:1.1em;"><a style = "color:white;"  href="{{ url('/profile') }}">Profile </a></div>
                 {{--<li><a href="#"><span class="glyphicon glyphicon-user"></span></a></li>--}}
                 {{--<li>--}}
                     {{--<a href="{{ url('/viewAllMail') }}" onmousedown="mail_seen(event,{{ auth()->user()->id  }})"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span></a>--}}
@@ -56,13 +44,13 @@
                 <div class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                         <span id = "nav_profile_image" class = "nav_profile_image">
-                            <img src = "{{ URL::asset('uploads/thumbnails/'.auth()->user()->id.'.jpeg') }}" >
+                            <img src = "{{ URL::asset('uploads/profiles/'.auth()->user()->id.'.jpeg') }}" >
                         </span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-right" role="menu">
                         <li><a href="{{ url('/profile') }}">Profile</a></li>
                         <li><a href="{{url('/showConnections/'.auth()->user()->id)}}">Connections</a></li>
-                        <li><a href="#">Change Password</a></li>
+                        <li><a href="{{ url('/auth/reset') }}">Change Password</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="{{ url('/auth/logout') }}">Logout</a></li>
                     </ul>

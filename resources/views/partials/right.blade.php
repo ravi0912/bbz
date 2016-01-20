@@ -1,7 +1,7 @@
 
 <div id = "right" class = "right">
     <div id = "right_nav" class = "right_nav">
-        <div onmousedown = "load_right_ul_li_1(event);" class = "right_nav_active"><img id = "right_nav_1" src = "{{ URL::asset('images/logo/right/SVG/notification_off.svg') }}"></div>
+        <div  onmousedown = "load_right_ul_li_1(event);" class = "right_nav_active"><img onload="onLoadNotifications();" id = "right_nav_1" src = "{{ URL::asset('images/logo/right/SVG/notification_off.svg') }}"></div>
         <div onmousedown = "load_right_ul_li_2(event);"><a  ><img id = "right_nav_2" src = "{{ URL::asset('images/logo/right/SVG/message_off.svg') }}"></a>
             <!--<span class="badge badge-notify">3</span>--></div>
         <div onmousedown = "load_right_ul_li_3(event);"><img id = "right_nav_3" src = "{{ URL::asset('images/logo/right/SVG/request_off.svg') }}"></div>
@@ -98,7 +98,7 @@
                 $('#right_nav_2').attr('src', '{{ URL::asset('images/logo/right/SVG/message_off.svg') }}');
 
                 //Displaying messages
-                $(".right_ul_li").html('<div id = "right_ul_header" class = "right_ul_header">MESSAGE</div>');
+                $(".right_ul_li").html('<div id = "right_ul_header" class = "right_ul_header">MESSAGES</div>');
                 $(".right_ul_li").append('<div id = "right_ul_content" class = "right_ul_content"></div>');
                 var myDataRef11 = new Firebase('https://bbz-workstation.firebaseio.com/mailsviewone/{{ auth()->user()->id  }}');
 
@@ -120,7 +120,7 @@
                     var domain = window.location.host;
                     //.html in id to make it clear and do refresh
 
-                    $(".right_ul_content").prepend('<div id = "right_message_navigation_li" class = "right_message_navigation_li"><a href = "http://'+domain+'/showprofile/'+key+'"><div id ="message_navigation_li_image" class = "message_navigation_li_image"><div id ="message_navigation_li_image_content" class = "message_navigation_li_image_content"><img  src = "http://'+ domain +'/uploads/thumbnails/'+ key +'.jpeg " alt = "'+ key +'" align="middle"></div></div><div id = "right_message_navigation_li_name" class = "right_message_navigation_li_name">'+name+'</a></div><a href="{{ url('/viewAllMail') }}"><div id = "right_message_navigation_li_time" class = "right_message_navigation_li_time">'+date+'</div><div id = "right_message_navigation_li_mp" class = "right_message_navigation_li_mp" ><span id = "right_message_navigation_li_mp_1" class = "right_message_navigation_li_mp_1">'+name1+'</span><span id = "right_message_navigation_li_mp_2" class = "right_message_navigation_li_mp_2">'+text+'</span></div></div></a>');
+                    $(".right_ul_content").prepend('<div id = "right_message_navigation_li" class = "right_message_navigation_li"><a href = "http://'+domain+'/showprofile/'+key+'"><div id ="right_ul_content_imae" class = "right_ul_content_imae"><img  src = "http://'+ domain +'/uploads/thumbnails/'+ key +'.jpeg " alt = "'+ key +'" align="middle"></div><div id = "right_message_navigation_li_name" class = "right_message_navigation_li_name">'+name+'</a></div><a href="{{ url('/viewAllMail') }}"><div id = "right_message_navigation_li_time" class = "right_message_navigation_li_time">'+date+'</div><div id = "right_message_navigation_li_mp" class = "right_message_navigation_li_mp" ><span id = "right_message_navigation_li_mp_1" class = "right_message_navigation_li_mp_1">'+name1+'</span><span id = "right_message_navigation_li_mp_2" class = "right_message_navigation_li_mp_2">'+text+'</span></div></div></a>');
                 };
 
             }
@@ -149,4 +149,11 @@
             }
 
         }
+    function onLoadNotifications(){
+        var domain = window.location.host;
+        $.get('http://'+domain+'/showNotification', {
+        }, function (markup) {
+            $(".right_ul_li").html(markup);
+        });
+    }
 </script>

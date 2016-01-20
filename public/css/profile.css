@@ -1,12 +1,12 @@
 /*main body => profile page styling starts*/
 
 .profile{
-	text-align: left;
+    text-align: left;
 
 
 }
 .profile li{
-	text-decoration: none;	
+    text-decoration: none;
 }
 .profile_content{
     width:500px;
@@ -19,36 +19,36 @@
     cursor: pointer;
     padding:3px;
     margin: 3px;
-    background: #f1f1F2;
+    background: #f9f9f9;
     float: right;
 }
 .profile_1{
-	margin-left: ;
-	width:500px;
-	position: fixed;
-	z-index: 1;
-	background: white;
+    margin-left: ;
+    width:500px;
+    position: fixed;
+    z-index: 1;
+    background: white;
 }
 
 .profile_1 a{
-	text-decoration: none;
-	display: inline-block;
-	padding: 2%;
-	-webkit-transition: 0.1s ease;
-	transition:  0.1s ease;
+    text-decoration: none;
+    display: inline-block;
+    padding: 2%;
+    -webkit-transition: 0.1s ease;
+    transition:  0.1s ease;
 }
 .profile_1 a:hover{
-	text-decoration: none;
-	background: #f1f1f2;
+    text-decoration: none;
+    background: #f9f9f9;
 }
 .profile_1 a:active{
 
-	transform: scale(1.1);
+    transform: scale(1.1);
 }
 .profile_1_active{
-	text-decoration: none;
-	border-left: 1px solid red;
-	background: #f1f1f2;
+    text-decoration: none;
+    border-left: 1px solid red;
+    background: #f9f9f9;
 }
 #profile_1_edit{
     display: none;
@@ -71,7 +71,7 @@
 #profile_1_form{
     -webkit-animation-duration: 0.3s;
     -moz-animation-duration: 0.3s;
-    background:#f1f1f2;
+    background:#f9f9f9;
     overflow:auto;
     padding: 5px;
     border:1px solid #f1f1f1 ;
@@ -86,88 +86,88 @@
     margin: 7% 15% 7% 15%;
 }
 .profile_2{
-	background: #f1f1F2;
+    background: #f9f9f9;
 }
 .profile_2_content {
-	padding:1%;
-	vertical-align: text-top;
+    padding:1%;
+    vertical-align: text-top;
 }
 .profile_2_content_1 {
-	position: fixed;
-	margin-left: -40px;
+    position: fixed;
+    margin-left: -40px;
 }
 .profile_2_content_1 div {
-	text-align: center;
-	margin :0 5px 0 0;
+    text-align: center;
+    margin :0 5px 0 0;
 }
 .profile_2_content_1 div img{
-	width:25px;
-	height:25px;
-	margin:5px 5px 5px 0;
+    width:25px;
+    height:25px;
+    margin:5px 5px 5px 0;
 }
 .profile_image_update{
-	position:absolute;
+    position:absolute;
 }
 .profile_image_update_input{
-	background: black;
-	color:white;
-	border:none;
+    background: black;
+    color:white;
+    border:none;
 }
 .profile_2_content_in {
-	margin-top: 5%;
+    margin-top: 5%;
 }
 .profile_2_content ul li {
-	text-decoration: none;
-	display: block;
+    text-decoration: none;
+    display: block;
 }
 .profile_image{
-	width: 160px;
-	height: 160px;
-	overflow: hidden;
+    width: 160px;
+    height: 160px;
+    overflow: hidden;
 ;
-	display: inline-block;
-	vertical-align: text-top;
-	border-radius: 2px;
+    display: inline-block;
+    vertical-align: text-top;
+    border-radius: 2px;
 }
 .profile_image_1{
-	display: inline-block;
-	vertical-align: text-top;
-	-webkit-transition: 1s ease;
-	transition:  1s ease;
+    display: inline-block;
+    vertical-align: text-top;
+    -webkit-transition: 1s ease;
+    transition:  1s ease;
 }
 .profile_image_1 img{
-	display: inline-block;
-	vertical-align: text-top;
-	-webkit-transition: 1s ease;
-	transition:  1s ease;
+    display: inline-block;
+    vertical-align: text-top;
+    -webkit-transition: 1s ease;
+    transition:  1s ease;
     cursor: pointer;
 }
 input[type="file"] {
-	display: none;
+    display: none;
 }
 .profile_image_choose {
     width: 100%;
-	text-align: center;
-	padding: 2%;
-	display: inline-block;
-	cursor: pointer;
+    text-align: center;
+    padding: 2%;
+    display: inline-block;
+    cursor: pointer;
 }
 .profile_image_choose:hover {
-	text-decoration: underline;
+    text-decoration: underline;
 }
 .profile_image_2{
-	width:160px;
-	display: inline-block;
-	vertical-align: text-top;
-	color:white;
-	-webkit-transition: 0.5s ease;
-	transition:  0.5s ease;
-	cursor:pointer;
+    width:160px;
+    display: inline-block;
+    vertical-align: text-top;
+    color:white;
+    -webkit-transition: 0.5s ease;
+    transition:  0.5s ease;
+    cursor:pointer;
     background: rgba(0,0,0,0.5);
 }
 
 .profile_image_up{
-	transform: translate3d(0,-100%,0);
+    transform: translate3d(0,-100%,0);
 }
 .profile_image_2_preview{
     display: none;
@@ -199,19 +199,19 @@ input[type="file"] {
     text-align: center;
     color:black;
     padding:3px;
-    background: #f1f1F2;
+    background: #f9f9f9;
 }
 
 .profile_description{
     height: 160px;
-	display: inline-block;
-	vertical-align: text-top;
+    display: inline-block;
+    vertical-align: text-top;
 }
 .profile_name{
-	font-size:1.5em;
-	font-weight:600;
-	color:#48689a;
-	cursor:pointer;
+    font-size:1.5em;
+    font-weight:600;
+    color:#48689a;
+    cursor:pointer;
 }
 .profile_connection{
     float: right;
@@ -225,12 +225,12 @@ input[type="file"] {
     background-color: #e5e5e5;
 }
 .profile_name:hover{
-	text-decoration: underline;
+    text-decoration: underline;
 }
 .profile_3 {
-	z-index: 0;
-	position: relative;
-	margin-bottom: 50vh;
+    z-index: 0;
+    position: relative;
+    margin-bottom: 50vh;
 
 }
 /*.profile_3::-webkit-scrollbar-track
@@ -261,20 +261,20 @@ input[type="file"] {
 }*/
 
 .profile_3_add{
-	float: right;
-	padding: 1% 1% 1% 1%;
-	margin: 1%;
-	border-radius: 3px;
-	cursor: pointer;
+    float: right;
+    padding: 1% 1% 1% 1%;
+    margin: 1%;
+    border-radius: 3px;
+    cursor: pointer;
 }
 .profile_3_cancel{
-	padding:1%;
-	border-radius: 3px;
-	background:#d5d5d5;
-	cursor: pointer;
-	background: ;
-	color: ;
-	text-align: center;
+    padding:1%;
+    border-radius: 3px;
+    background:#d5d5d5;
+    cursor: pointer;
+    background: ;
+    color: ;
+    text-align: center;
 }
 .profile_3_edit{
     padding:1%;
@@ -283,59 +283,65 @@ input[type="file"] {
     float:right;
 }
 .profile_3_content{
-	margin: 1% 0 1% 0;
-	/*border:1px solid #F1F1F1;*/
-	border-radius:3px;
-	min-height: 100px;
-	background: #F1F1F2;
-	/*box-shadow:1px 1px 5px #D9D9D9;*/
+    margin: 1% 0 1% 0;
+    /*border:1px solid #F1F1F1;*/
+    border-radius:3px;
+    min-height: 100px;
+    background: #f9f9f9;
+    /*box-shadow:1px 1px 5px #D9D9D9;*/
 }
 .profile_3_content_header{
-	font-size: 1.8em;
-	font-weight: 600;
-	float: left;
-	display: block;
-	padding: 1%;
+    font-size: 1.8em;
+    font-weight: 500;
+    color:#3C97D3;
+    float: left;
+    display: block;
+    padding: 1%;
     clear: both;
 }
 .profile_3_sub_content{
-	clear: both;
-	padding: 1%;
-	border-bottom: 1px solid #e5e5e5;
+    clear: both;
+    padding: 1%;
+    border-bottom: 1px solid #e5e5e5;
+}
+.profile_3_skill_sub_content{
+    clear: both;
+    padding: 1%;
+    margin: 0 10% 0 0%;
 }
 .profile_3_sub_content_school{
-	font-size: 1.5em;
-	font-weight: 500;
+    font-size: 1.5em;
+    font-weight: 500;
 }
 .profile_3_sub_content_timein{
-	font-size: 0.9em;
+    font-size: 0.9em;
     font-style: italic;
-	display: inline-block;
+    display: inline-block;
 }
 .profile_3_sub_content_timeout{
-	font-size: 0.9em;
+    font-size: 0.9em;
     font-style: italic;
-	display: inline-block;
+    display: inline-block;
 }
 .profile_3_sub_content_branch{
-	font-size: 0.9em;
+    font-size: 0.9em;
 }
 .profile_3_sub_content_grade{
-	font-size: 0.9em;
+    font-size: 0.9em;
 }
 .profile_3_sub_content_degree{
-	font-size: 0.9em;
+    font-size: 0.9em;
 }
 .profile_3_sub_content_description_1{
-	font-size: 1em;
+    font-size: 1em;
 }
 .profile_3_sub_content_description_2{
-	font-size: 1em;
+    font-size: 1em;
 }
 .profile_3_sub_content_form{
-	display: none;
-	background: none;
-	clear: both;
+    display: none;
+    background: none;
+    clear: both;
     text-align: center;
 
 }
@@ -344,21 +350,28 @@ input[type="file"] {
     padding:3px;
 }
 .profile_3_form_content_sm{
-	width:40px;
+    width:40px;
     background: white;
 }
 .profile_3_form_content_sy{
-	width:40px;
+    width:40px;
     background: white;
 }
+.profile_3_project_content_gallery{
+
+}
 .profile_3_sub_content_image{
-	width: 180px;
-	height: 180px;
-	overflow: hidden;
-	display: inline-block;
-	vertical-align: text-top;
-	border-radius: 2px;
-	border:1px solid #f9f9f9;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: text-top;
+    border-radius: 2px;
+    border:1px solid #f9f9f9;
+}
+.profile_3_sub_content_image img{
+    width: 100%;
+    height:auto;
 }
 .profile_3_finish{
     opacity: 0.5;
@@ -372,8 +385,11 @@ input[type="file"] {
 #profile_3_project{
 	display: none
 }*/
+.panel-body{
+    padding:0 2% 0 2%;
+}
 .profile_3_form_content{
-	clear: both;
+    clear: both;
 
 }
 .profile_3_sub_content_form{
@@ -391,77 +407,78 @@ input[type="file"] {
     background: #f9f9f9;
     border-radius: 4px;
     padding:3px;
+    float: right;
 }
 .profile_3_form_skill_input{
 
-	background: white;
-	box-shadow: none;
-	display: inline-block;
-	padding: 1%;
+    background: white;
+    box-shadow: none;
+    display: inline-block;
+    padding: 1%;
 }
 .profile_3_form_skill_input_a{
-	border: 1px solid #E64D3C;
+    border: 1px solid #E64D3C;
 
 }
 .profile_3_form_skill_input_alert{
-	display: inline-block;
-	display: none;
-	position:relative;
-	top:0;right:-5px;
-	z-index:99;
-	background: #E64D3C;
-	color:white;
+    display: inline-block;
+    display: none;
+    position:relative;
+    top:0;right:-5px;
+    z-index:99;
+    background: #E64D3C;
+    color:white;
 
 }
 .profile_3_form_skill_add{
-	margin: 0 0 0 1%;
-	padding: 1%;
-	color:white;
-	border-radius:2px;
-	cursor: pointer;
+    margin: 0 0 0 1%;
+    padding: 1%;
+    color:white;
+    border-radius:2px;
+    cursor: pointer;
 }
 .profile_3_form_skill_display{
-	margin: 1%;
+    margin: 1%;
     text-align: left;
-	background: white;
+    background: white;
 
 }
 .profile_3_form_skill_display_content{
-	background: ;
-	border-radius: 5px;
-	display: inline-block;
-	padding:1%;
+    background: ;
+    border-radius: 5px;
+    display: inline-block;
+    padding:1%;
     margin:1%;
-    border: 1px solid #f1f1F2;
+    border: 1px solid #f9f9f9;
 }
 .profile_3_form_skill_display_content span{
 
 }
 .profile_3_form_skill_display_1{
-	display: inline-block;
+    display: inline-block;
 }
 .profile_3_form_skill_display_2{
-	display: inline-block;
+    display: inline-block;
 }
 .profile_3_form_skill_display_3{
-	float:right;
-	display: inline-block;
-	cursor: pointer;
+    float:right;
+    display: inline-block;
+    cursor: pointer;
 }
 .profile_3_form_skill_display_3_n{
-	float:right;
-	display: inline-block;
-	cursor: pointer;
+    float:right;
+    display: inline-block;
+    cursor: pointer;
 }
 .profile_3_form_skill_display_3:hover{
 
 }
 .skill_add{
-	display:inline-block;
-	padding:0;
-	background: none;
-	border: none;
-	width:auto;
+    display:inline-block;
+    padding:0;
+    background: none;
+    border: none;
+    width:auto;
     cursor: pointer;
 
 }

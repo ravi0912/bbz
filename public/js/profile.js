@@ -184,3 +184,31 @@ function profile_3_project_show(event,project_id){
     }
 
 }
+
+//Skill Add
+function addSkill(event){
+    if(event.which == 1) {
+        var skill = $("#profile_3_form_skill_input").val();
+        var domain = window.location.host;
+        $.get('http://'+domain+'/addSkill', {
+            skill : skill
+        }, function (markup) {
+            $("#profile_3_skill_content_1").html(markup);
+        });
+    }
+
+}
+
+//Skill Delete
+function deleteSkill(event,skill_id){
+    if(event.which == 1) {
+        var domain = window.location.host;
+        $.get('http://'+domain+'/deleteSkill', {
+            skill_id : skill_id
+        }, function (markup) {
+            $("#profile_3_skill_content_1").html(markup);
+        });
+    }
+
+}
+

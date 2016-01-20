@@ -1,0 +1,250 @@
+html, body{
+    width: 100%;
+
+}
+
+.ankur-section-heading{
+    font-size: 32px;
+    font-weight: normal;
+}
+
+body{
+    
+}
+
+#navbar{
+    background: #3C97D3;
+    color: #fff;
+}
+.container-fluid{
+    position:absolute;
+    top:20%;
+    left:0;
+    right:0;
+    bottom:0;
+    margin:auto;
+}
+#navbar *{
+    color: #fff;
+}
+
+div.ankur-section{
+    background: #3C97D3;
+    min-height:100vh;
+    margin:0;
+    padding:0;
+}
+#top{
+    z-index:10;
+    background: #3C97D3;
+}
+#top_1 a{
+    width: 160px;
+    text-align: center;
+    color: white;
+    border: 2px solid #fff;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 18px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+    margin-bottom:-80px;
+    position: relative;
+}
+
+#top_1 a:hover{
+    background: #3C97D3;
+    color: #608EC0;
+}
+
+#top_1{
+    text-align:center;
+    top:20%;
+    left: -4%;
+    position: absolute;
+}
+#top_text_image{
+    width:75%;
+}
+#top_scene{
+    position: absolute;
+    bottom:0;
+    right:0;
+    width:60%;
+    margin-bottom:-2.7%;
+    height:auto;
+}
+#about{
+    margin:0;
+    padding:0;
+    min-height:100vh;
+    z-index:20;
+    background-image: url("images/home_about.jpg");
+}
+#about_1{
+    width:100%;
+    margin:0% 0 0 0;
+    background: none;
+    position: relative;
+    color:white;
+}
+#about_1 h2 {
+    font-weight: bold ;
+    color:white;
+}
+#about_1_text{
+    width:40%;
+    padding:4% 2% 2% 2%;
+    background: #acd3ec;
+    color:black;
+    position:absolute;
+    top:0%;
+    left:0;
+    height:100%;
+    overflow:auto;
+    text-align: center;
+}
+#about_1_image{
+    width: 100%;
+
+}
+#about_readmore{
+    width: 160px;
+    text-align: center;
+    color: white;
+    border: 2px solid #fff;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 18px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+    margin-bottom:-80px;
+    position: relative;
+}
+#about div.row > div.col-lg-5{
+    background-color: rgba(255,255,255,1);
+    margin: 40px;
+    box-shadow: 0px 0px 25px #777;
+    padding: 30px 20px;
+}
+
+#about{
+    padding-top: 80px;
+}
+
+#about h2{
+    font-weight: normal;
+    text-align: center;
+    font-size: 30px;
+}
+
+#about p{
+    font-size: 16px;
+    line-height: 26px;
+}
+
+
+
+
+
+#navbar > ul > li > a:hover{
+    background-color: rgba(0,0,0,0.25);
+}
+
+#navbar > ul > li > a:focus{
+    background-color: rgba(0,0,0,0.25);
+}
+
+
+
+
+#faq{
+    z-index:20;
+    background: white;
+    padding:0 0 4% 0;
+}
+
+#faq p{
+    
+}
+
+#faq .dt p{
+    font-size: 18px;
+    margin-left: 40px;
+    margin-top: 20px;
+    padding-left: 20px;
+    font-weight: bold;
+
+    cursor: pointer;
+    border-left: 2px solid #777;
+}
+
+#faq .dd p{
+    font-size: 16px;
+    font-weight: normal;
+    margin-left: 60px;
+    padding-left: 20px;
+    border-left: 2px solid #777;
+}
+
+
+
+
+
+#contact{
+    background-color: gray;
+    z-index:20;
+    position:relative;
+}
+
+#contact legend{
+    text-align: center;
+    font-size: 32px;
+}
+#contact_content{
+    padding:6% 2% 2% 2%;
+}
+#contact_content_map{
+    display:inline-block;
+    vertical-align:top;
+}
+.contact_content_map{
+    width: 600px;
+    height:80vh;
+}
+#contact_content_form{
+    display:inline-block;
+    vertical-align:top;
+}
+#contact form{
+
+    width: 420px;
+    height:80vh;
+    overflow: auto;
+    background-color: #fff;
+    padding: 40px;
+    box-shadow: 0px 0px 25px #777;
+}
+
+#contact form label{
+    text-align: left;
+    margin: 10px 0px 5px -8px;
+}
+
+#contact form input, #contact form textarea{
+    display: block;
+    width: 100% !important;
+}
+
+
+
+
+
+footer{
+    padding: 60px;
+}
+footer *{
+    color:white;
+}

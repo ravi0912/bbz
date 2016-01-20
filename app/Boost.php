@@ -10,10 +10,11 @@ class Boost extends Model
 
     /**
      * The attributes that are mass assignable.
-     *
+     *user_id_1 is Auth->User
+     * user_id_2 who endorsed in skill
      * @var array
      */
-    protected $fillable = ['user_id','skill','user_endorsed'];
+    protected $fillable = ['skill_id','user_id_1','user_id_2'];
 
     public function user1()
     {
@@ -22,6 +23,11 @@ class Boost extends Model
 
     public function user2()
     {
-        return $this->belongsTo('App\User', 'user_endorsed');
+        return $this->belongsTo('App\User', 'user_id_2');
+    }
+
+    public function skill()
+    {
+        return $this->belongsTo('App\Skill', 'skill_id');
     }
 }

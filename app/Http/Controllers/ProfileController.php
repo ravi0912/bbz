@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Boost;
 use App\Connection;
 use App\Education;
 use App\Http\Requests\PrepareProfileRequest;
 use App\Profile;
+use App\Skill;
 use App\User;
 use App\Experience;
 use App\Http\Requests\PrepareEducationRequest;
@@ -39,8 +41,17 @@ class ProfileController extends Controller
         $profile_count = Profile::where('user_id', \Auth::User()->id)->count();
         $profiles = Profile::where('user_id', \Auth::User()->id)->get();
         $connections = Connection::whereUser_id_1AndConnection_status(\Auth::User()->id, 1 )->count() + Connection::whereUser_id_2AndConnection_status(\Auth::User()->id, 1 )->count();
+        $skills = Skill::where('user_id',\Auth::User()->id)->get();
+        $skillsCount = Skill::where('user_id',\Auth::User()->id)->count();
+        if($skillsCount > 0){
+            foreach($skills as $skill){
+                $boostCount[$skill->id] = Boost::whereSkill_idAndUser_id_1($skill->id,\Auth::User()->id)->count();
+            }
+        }else{
+            $boostCount = 0;
+        }
 
-        return view('profile.profile', ['educations' => $educations, 'projects' => $projects, 'experiences' => $experiences, 'connections' => $connections,'profile_count' => $profile_count,'profiles' => $profiles]);
+        return view('profile.profile', ['educations' => $educations, 'projects' => $projects, 'experiences' => $experiences, 'connections' => $connections,'profile_count' => $profile_count,'profiles' => $profiles,'skills' => $skills,'boostCount' => $boostCount,'skillsCount' => $skillsCount]);
     }
 
 
@@ -142,9 +153,22 @@ class ProfileController extends Controller
             $educations     = Education::where('user_id', $id)->orderBy('start_year', 'desc')->get();
             $projects       = Project::where('user_id', $id)->orderBy('start_year', 'desc')->get();
             $experiences    = Experience::where('user_id', $id)->orderBy('start_year', 'desc')->get();
+            $profiles = Profile::where('user_id', $id)->get();
             $connections = Connection::whereUser_id_1AndConnection_status($id, 1 )->count() + Connection::whereUser_id_2AndConnection_status($id, 1 )->count();
             $count_1 = Connection::whereUser_id_1AndUser_id_2(\Auth::User()->id, $id )->count();
             $count_2 = Connection::whereUser_id_1AndUser_id_2($id, \Auth::User()->id )->count();
+            $skills = Skill::where('user_id',$id)->get();
+            $skillsCount = Skill::where('user_id',$id)->count();
+
+            if($skillsCount > 0){
+                foreach($skills as $skill){
+                    $boostCount[$skill->id] = Boost::whereSkill_idAndUser_id_1($skill->id,$id)->count();
+                    $auth_boost[$skill->id] = Boost::whereSkill_idAndUser_id_1AndUser_id_2($skill->id,$id,\Auth::User()->id )->count();
+                }
+            }else{
+                $boostCount = 0;
+                $auth_boost = 0;
+            }
             if($count_1 == 1) {
                 $connection_statuses = Connection::whereUser_id_1AndUser_id_2(\Auth::User()->id, $id)->get();
                 foreach($connection_statuses as $connection_status){
@@ -168,7 +192,7 @@ class ProfileController extends Controller
                 $connect = 0; // No connection
             }
 
-            return view('profile.showprofile', ['educations' => $educations, 'projects' => $projects, 'experiences' => $experiences, 'userprofile' => $userprofile,'connect' => $connect,'connections' => $connections ]);
+            return view('profile.showprofile', ['educations' => $educations, 'projects' => $projects, 'experiences' => $experiences, 'userprofile' => $userprofile,'connect' => $connect,'connections' => $connections,'skills' => $skills, 'skillsCount' => $skillsCount ,'boostCount' => $boostCount,'auth_boost' => $auth_boost,'profiles' => $profiles ]);
 
         }
  }
