@@ -52,11 +52,19 @@ class StatusController extends Controller
 
 
         $statuses = Status::orderBy('created_at', 'desc')->get();
-        foreach($statuses as $status){
-          $likes[$status->id] =  Like::where('status_id', $status->id)->count();
-          $liked[$status->id] =  Like::whereStatus_idAndUser_id($status->id, \Auth::User()->id )->count();
-          $countComment[$status->id] = Comment::where('status_id',$status->id)->count();
+        $statusCount = Status::orderBy('created_at', 'desc')->count();
+        if($statusCount > 0){
+            foreach($statuses as $status){
+                $likes[$status->id] =  Like::where('status_id', $status->id)->count();
+                $liked[$status->id] =  Like::whereStatus_idAndUser_id($status->id, \Auth::User()->id )->count();
+                $countComment[$status->id] = Comment::where('status_id',$status->id)->count();
+            }
+        }else{
+            $likes =0;
+            $liked = 0;
+            $countComment = 0;
         }
+
 
         return view('status.index', ['statuses' => $statuses,'likes' => $likes,'liked'  => $liked,'countComment' => $countComment]);
     }
