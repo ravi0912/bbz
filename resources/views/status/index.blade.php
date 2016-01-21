@@ -13,15 +13,15 @@
                 {{--Hi {{ auth()->user()->name }}, Want to share something!!!--}}
             {{--</div>--}}
             <div class="newsfeed_form_1" id="newsfeed_form_1">
-                <span>
+                <div class="newsfeed_form_1_image" id="newsfeed_form_1_image">
                     <img src = "{{ URL::asset('uploads/thumbnails/'.auth()->user()->id.'.jpeg') }}" >
-                </span>
-                <span>
+                </div>
+                <div>
                     {!! Form::textarea('body', null, ['class' => 'newsfeed_textarea','rows' => '3','cols' => '45','placeholder' => 'Hi '. auth()->user()->name.', Want to share something!!! ']) !!}
-                </span>
+                </div>
             </div>
             <div class="newsfeed_form_post" id="newsfeed_form_post">
-                {!! Form::submit('Post', ['class' => 'newsfeed_poststatus general_button']) !!}
+                {!! Form::submit('Post', ['class' => 'general_button newsfeed_poststatus ']) !!}
             </div>
             {!! Form::close() !!}
         </div>

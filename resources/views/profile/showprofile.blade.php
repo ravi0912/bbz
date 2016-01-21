@@ -28,12 +28,12 @@
                                 <div id ="connection_show_image">
                                     @if($connect == 0)
                                         <div onclick="SentRequestMouseUp(event,{{ $usr->id }})">
-                                            <img src = "{{ URL::asset('images/addconnection.png') }} " alt="0" title="Send Request Connection">
+                                            <img class = "sp_img" src = "{{ URL::asset('images/addconnection.svg') }} " alt="0" title="Send Request Connection">
                                         </div>
                                     @endif
                                     @if($connect == 2)
                                         <div onclick="CancelRequestMouseUp(event,{{ $usr->id }})">
-                                            <img src = "{{ URL::asset('images/requestsent.png') }}" alt="2" title="Request Sent, Click for cancel Request">
+                                            <img class = "sp_img" src = "{{ URL::asset('images/requestsent.svg') }}" alt="2" title="Request Sent, Click for cancel Request">
                                         </div>
                                     @endif
                                 </div>
@@ -42,7 +42,7 @@
                                     {!! Form::open(['action' => 'ConnectionController@confirmConnection']) !!}
                                         <div class="form-group">
                                             <input type="hidden"  value="{{ $usr->id }}" name = "user_id_2">
-                                            <input type="image" src = "{{ URL::asset('images/confirmrequest.png') }}" alt="1" title="Confirm Request">
+                                            <input class = "sp_img" type="image" src = "{{ URL::asset('images/accept_request.svg') }}" alt="1" title="Confirm Request">
                                         </div>
                                     {!! Form::close() !!}
                                 @endif
@@ -50,7 +50,7 @@
                                     {!! Form::open(['action' => 'ConnectionController@removeConnection']) !!}
                                         <div class="form-group">
                                             <input type="hidden" value="{{ $usr->id }}" name = "user_id_2">
-                                            <input type="image" src = "{{ URL::asset('images/connected.png') }}" alt="3" title="Connected, Click to remove from connection">
+                                            <input class = "sp_img" type="image" src = "{{ URL::asset('images/accepted.svg') }}" alt="3" title="Connected, Click to remove from connection">
                                         </div>
                                     {!! Form::close() !!}
                                 @endif
@@ -58,7 +58,11 @@
                                 {{--<div><img src = "{{ URL::asset('images/addcontact.png') }}"></div>--}}
                                 <div id = "profile_2_content_sendmessage" class = "profile_2_content_sendmessage" title="Click to Send Mail"><img src = "{{ URL::asset('images/sendmessage.png') }}"></div>
                             </div>
-                            <div id = "profile_image" class="profile_image"><img onclick="profile_show_large(event,{{ $usr->id }})" width="100" height="100" src = "{{ URL::asset('uploads/profiles/'.$usr->id.'.jpeg') }}" alt = "{{ $usr->name }}"></div>
+                            <div id = "profile_image" class="profile_image">
+
+                                <div id = "profile_image_1" class="profile_image_1">
+                                    <img onclick="profile_show_large(event,{{ $usr->id }})" width="100" height="100" src = "{{ URL::asset('uploads/profiles/'.$usr->id.'.jpeg') }}" alt = "{{ $usr->name }}">                                </div>
+                            </div>
                             <div id = "profile_description" class="profile_description">
                                 <div id = "profile_name" class="profile_name">{{ $usr->name}}</div>
                                 <div id = "profile_type" class="profile_type">{{ $usr->designation}},
@@ -141,11 +145,11 @@
                                     <div id = "profile_3_project_content_school" class = "profile_3_sub_content_school">{{ $project->name }}</div>
                                     <div id = "profile_3_project_content_school" class = "profile_3_sub_content_school">{{ $project->occupation }}</div>
                                     <div id = "profile_3_project_content_timein" class = "profile_3_sub_content_timein">{{ $project->start_month }}/{{ $project->start_year }}</div> -
-                                    <div id = "profile_3_project_content_timeout" class = "profile_3_sub_content_timeout">{{ $project->finish_month }}/{{ $project->finish_year }}</div>
-                                    <div id = "profile_3_project_content_branch" class = "profile_3_sub_content_branch"> <a href="{{ $project->url }}" target="_blank">link</a> </div>
-                                    <div id = "profile_3_project_content_degree" class = "profile_3_sub_content_degree">{{ $project->address }}</div>
-                                    <div id = "profile_3_project_content_grade" class = "profile_3_sub_content_grade">{{ $project->team_members }}</div>
+                                    <div id = "profile_3_project_content_timeout" class = "profile_3_sub_content_timeout">{{ $project->finish_month }}/{{ $project->finish_year }}</div> |
+                                    <div id = "profile_3_project_content_degree" class = "profile_3_sub_content_degree">{{ $project->address }}</div><br>
+                                    <div id = "profile_3_project_content_grade" class = "profile_3_sub_content_grade">{{ $project->team_members }}</div><br>
                                     <div id = "profile_3_project_content_description_1" class = "profile_3_sub_content_description_1">{{ $project->address }}</div>
+                                    <div id = "profile_3_project_content_branch" class = "profile_3_sub_content_branch"> <a title="Click to see Project" href="{{ $project->url }}" target="_blank">Project Link</a> </div>
                                     <div id = "profile_3_project_content_description_2" class = "profile_3_sub_content_description_2">{{ $project->description }}</div>
                                 </div>
                             </div>
@@ -161,23 +165,40 @@
                             <div id = "profile_3_skill_content_1" class="profile_3_skill_sub_content">
                                 @if($skillsCount > 0)
                                     @foreach($skills as $skill)
-                                        <div class="profile_3_skill_content_li">
-                                            <span class="profile_3_skill_content_li_1">{{ $skill->skill }}</span>
-                                                <span class="profile_3_skill_content_li_2">
-                                                    @if($boostCount[$skill->id] == 0)
-                                                    @else
-                                                        {{ $boostCount[$skill->id] }}
-                                                    @endif
-                                                </span>
-                                            @if($auth_boost[$skill->id] == 1)
-                                                <span class = "profile_3_form_skill_display_3" onclick="unBoostSkill(event,{{ $skill->id }},{{ $usr->id }})"> &#8211;</span>
-                                            @else
-                                                <span class = "profile_3_form_skill_display_3" onclick="boostSkill(event,{{ $skill->id }},{{ $usr->id }})"> &plus;</span>
-                                            @endif
+                                        {{--<div class="profile_3_skill_content_li">--}}
+                                            {{--<span class="profile_3_skill_content_li_1">{{ $skill->skill }}</span>--}}
+                                                {{--<span class="profile_3_skill_content_li_2">--}}
+                                                    {{--@if($boostCount[$skill->id] == 0)--}}
+                                                    {{--@else--}}
+                                                        {{--{{ $boostCount[$skill->id] }}--}}
+                                                    {{--@endif--}}
+                                                {{--</span>--}}
+                                            {{--@if($auth_boost[$skill->id] == 1)--}}
+                                                {{--<span class = "profile_3_form_skill_display_3" onclick="unBoostSkill(event,{{ $skill->id }},{{ $usr->id }})"> &#8211;</span>--}}
+                                            {{--@else--}}
+                                                {{--<span class = "profile_3_form_skill_display_3" onclick="boostSkill(event,{{ $skill->id }},{{ $usr->id }})"> &plus;</span>--}}
+                                            {{--@endif--}}
 
+                                        {{--</div>--}}
+                                        <div class="profile_3_skill_content_li">
+                                            <div class="profile_3_skill_content_li_1">
+                                                <div class="profile_3_skill_content_li_1_1">{{ $skill->skill }}</div>
+                                                @if($auth_boost[$skill->id] == 1)
+                                                    <div id = "profile_3_skill_content_li_1_2_sp_unboost" class = "profile_3_skill_content_li_1_2" onclick="unBoostSkill(event,{{ $skill->id }},{{ $usr->id }})"> &#8211;</div>
+                                                @else
+                                                    <div id = "profile_3_skill_content_li_1_2_sp_boost" class = "profile_3_skill_content_li_1_2" onclick="boostSkill(event,{{ $skill->id }},{{ $usr->id }})"> &plus;</div>
+                                                @endif                                        </div>
+
+                                            <div class="profile_3_skill_content_li_2">
+                                                @if($boostCount[$skill->id] == 0)
+                                                @else
+                                                    <div id="profile_3_skill_content_li_2_1_sp" class="profile_3_skill_content_li_2_1">{{ $boostCount[$skill->id] }}</div>
+                                                @endif
+                                            </div>
                                         </div>
                                     @endforeach
                                 @endif
+
                             </div>
                         </div>
                     </div>
@@ -191,9 +212,11 @@
     <script type="text/javascript" src ="{{ URL::asset('js/addconnection.js') }} "></script>
         <script type="text/javascript" src ="{{ URL::asset('js/showProfile.js') }} "></script>
     <div id='profile_2_content_sendmessage_container_head' class='profile_2_content_sendmessage_container_head'>
-
+<span id = "close_sendmessage_container" class = "profile_pop_close">
+                            <img src = "{{ URL::asset('images/close.png') }}" width = "25" height = "25">
+            </span>
         <div id='profile_2_content_sendmessage_container' class='profile_2_content_sendmessage_container'>
-            <span id = "close_sendmessage_container" class = "close_sendmessage_container">close</span>
+
             <div id='profile_2_message_input' class='profile_2_message_input'>
 
                 <div id='profile_2_message_input_main' class='profile_2_message_input_main'>

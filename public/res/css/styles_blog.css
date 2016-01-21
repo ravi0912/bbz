@@ -1,0 +1,234 @@
+html, body{
+    height: 100%;
+    width: 100%;
+    font-family: Raleway;
+}
+
+.ankur-section-heading{
+    font-size: 32px;
+    font-weight: normal;
+}
+
+body{
+
+}
+.blog_pop{
+
+    display: none;
+    border:1px solid #f1f1f1 ;
+    z-index: 101;
+    position: fixed;
+    background-color:rgba(0, 0, 0, 0.5);
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+.blog_1_form{
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 2% 4% 2% 4%;
+    height:90%;
+    width:75%;
+    overflow: auto;
+    position: relative;
+
+}
+.blog_1_form_image{
+    width:100%;
+    height:250px;
+    overflow: hidden;
+}
+.blog_1_form_image img{
+    width:100%;
+    height:auto;
+}
+.blog_1_form_content{
+    text-align: justify ;
+    background-color: white;
+    padding:1% 2% 1% 2%;
+    overflow: auto;
+}
+.blog_1_form_content img{
+    padding: 8px;
+}
+.blog_1_form_content ol li{
+    font-size:1.4em;
+    font-weight:500;
+}
+.blog_pop_close{
+    cursor: pointer;
+    padding:3px;
+    position:absolute;
+    right:0;
+    /*background: #f9f9f9;*/
+
+}
+.blog_wrap{
+    margin:70px 0 0 12%;
+}
+#navbar{
+    background-color: #608EC0;
+    color: #fff;
+}
+
+#navbar *{
+    color: #fff;
+}
+
+div.ankur-section{
+    min-height: 95%;
+    width: 100%;
+    padding: 2.5% 0%;
+}
+
+div.ankur-section:nth-child(odd){
+    background-color: #EEEEEE;
+}
+
+div.ankur-section:nth-child(even){
+    background-color: #fff;
+}
+
+div.ankur-section:nth-child(2){
+    margin-top: 50px;
+    background-color: #608EC0;
+}
+
+div.ankur-section:nth-child(2) > div > *{
+    display: block;
+    margin: auto;
+}
+
+div.ankur-section:nth-child(2) > div > img{
+    max-width: 100%;
+}
+
+div.ankur-section:nth-child(2) > div > a{
+    width: 160px;
+    text-align: center;
+    color: white;
+    border: 2px solid #fff;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 18px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+    margin-bottom:-80px;
+    position: relative;
+}
+
+div.ankur-section:nth-child(2) > div > a:hover{
+    background-color: white;
+    color: #608EC0;
+}
+
+
+
+
+#about{
+    background-image: repeating-linear-gradient(45deg, #EEEEEE 0px, #EEEEEE 35px, #D0D0D0 35px, #D0D0D0 70px);
+}
+
+#about div.row > div.col-lg-5{
+    background-color: rgba(255,255,255,1);
+    margin: 40px;
+    box-shadow: 0px 0px 25px #777;
+    padding: 30px 20px;
+}
+
+#about{
+    padding-top: 80px;
+}
+
+#about h2{
+    font-weight: normal;
+    text-align: center;
+    font-size: 30px;
+}
+
+#about p{
+}
+
+
+
+
+
+#navbar > ul > li > a:hover{
+    background-color: rgba(0,0,0,0.25);
+}
+
+#navbar > ul > li > a:focus{
+    background-color: rgba(0,0,0,0.25);
+}
+
+
+
+
+#faq{
+
+}
+
+#faq p{
+
+}
+
+#faq .dt p{
+    font-size: 18px;
+    margin-left: 40px;
+    margin-top: 20px;
+    padding-left: 20px;
+    cursor: pointer;
+    border-left: 2px solid #777;
+}
+
+#faq .dd p{
+    font-size: 16px;
+    margin-left: 60px;
+    padding-left: 20px;
+    border-left: 2px solid #777;
+}
+
+
+
+
+
+#contact{
+    background-color: gray;
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.5) 35px, rgba(255,255,255,.5) 70px);
+}
+
+#contact legend{
+    text-align: center;
+    font-size: 32px;
+}
+
+#contact form{
+    max-width: 420px;
+    background-color: #fff;
+    margin: 80px auto;
+    padding: 40px;
+    box-shadow: 0px 0px 25px #777;
+}
+
+#contact form label{
+    text-align: left;
+    margin: 10px 0px 5px -8px;
+}
+
+#contact form input, #contact form textarea{
+    display: block;
+    width: 100% !important;
+}
+
+
+
+
+
+footer{
+    padding: 60px;
+}

@@ -194,6 +194,8 @@ function addSkill(event){
             skill : skill
         }, function (markup) {
             $("#profile_3_skill_content_1").html(markup);
+            $("#profile_3_form_skill_input").val("");
+
         });
     }
 
@@ -211,4 +213,8 @@ function deleteSkill(event,skill_id){
     }
 
 }
+
+//$("#profile_3_skill_content_li_1_2_p_delete").hover(function () {
+//    $(this).html("delete");
+//});
 

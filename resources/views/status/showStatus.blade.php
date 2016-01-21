@@ -3,8 +3,7 @@
 
 @section('content')
 @foreach ($statuses as $status)
-    <br><br><br><br><br>
-    <div id = "newsfeed main_body_content" class = "newsfeed main_body_content">
+    <div id = "newsfeed main_body_content" class = "newsfeed main_body_content" style="margin-top:1%;">
         <div id = "newsfeed_content_1_image" class = "">
             <div id = "newsfeed_content_1_image_content " class = "newsfeed_content_1_image_content ">
                 <a href="{{url('/showprofile/'.$status->user_id)}}">
@@ -71,6 +70,7 @@
                     <img id="comment_img_{{ $status->id }}" src = "{{ URL::asset('images/logo/lcs/comment.svg') }}">
                 </div>
                 <div id="share" class = "newsfeed_content_3_lcs">
+                    {{--count comments--}}
                     <img src = "{{ URL::asset('images/logo/lcs/share.svg') }}">
                 </div>
             </div>

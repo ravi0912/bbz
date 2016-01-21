@@ -82,6 +82,7 @@
                 $.get('http://'+domain+'/showNotification', {
                 }, function (markup) {
                     $(".right_ul_li").html(markup);
+
                 });
 
             }

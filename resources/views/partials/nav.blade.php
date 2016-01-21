@@ -2,12 +2,17 @@
 
 
         @else
-            <nav class = "top_nav" >
-                <div class="top_nav_content">
+<nav class = "top_nav" >
+    <div class="top_nav_content">
             <div class="top_nav_logo">
                 <a class="" id = "" href="/"><img src = "{{ URL::asset('images/logo/BBZlogo/bbzlogo_white.svg') }}"></a>
             </div>
             <div class="top_nav_left">
+                <div class="top_nav_left_a">
+                <div class = "nav_home" style = "color:white;font-size:1.1em;"><a style = "color:white;" href="{{ url('/blogs') }}">Blogs</a></div>
+                <div class = "nav_home" style = "color:white;font-size:1.1em;"><a style = "color:white;" href="{{ url('/byelaws') }}">ByeLaws</a></div>
+                <div class = "nav_home" style = "color:white;font-size:1.1em;"><a style = "color:white;" href="{{ url('/tender') }}">Tender</a></div>
+                    </div>
                 <div class = "nav_input" >
                     <form class=" " role="search" action="{{ url('/searchResults') }}" method="GET" >
                         <!-- styling needed -->
@@ -26,13 +31,12 @@
 
                     </form>
                 </div>
-        </div>
+            </div>
             <div class="top_nav_right">
 
                 {{--<div class = "nav_search" onclick = "show_nav_input();"><a href="#"><img id = "nav_search" src = "{{ URL::asset('images/logo/nav/SVG/search.svg') }}"></a></div>--}}
                 {{--<div class = "nav_settings"><a href="#"><img src = "{{ URL::asset('images/logo/nav/SVG/settings.svg') }}"></a></div>--}}
-                <div class = "nav_home" style = "color:white;font-size:1.1em;"><a style = "color:white;" href="{{ url('/') }}">Blogs</a></div>
-                <div class = "nav_home" style = "color:white;font-size:1.1em;"><a style = "color:white;" href="{{ url('/') }}">ByeLaws</a></div>
+
                 <div class = "nav_home" style = "color:white;font-size:1.1em;"><a style = "color:white;" href="{{ url('/') }}">Home</a></div>
                 <div class = "nav_home" style = "color:white;font-size:1.1em;"><a style = "color:white;"  href="{{ url('/profile') }}">Profile </a></div>
                 {{--<li><a href="#"><span class="glyphicon glyphicon-user"></span></a></li>--}}

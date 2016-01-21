@@ -73,7 +73,7 @@ function profile_3_education (x) {
 		var p = 'profile_3_skill';
 		var di = h.concat(p,d);
 		var fo = h.concat(p,f);
-		$(di).hide();
+		//$(di).hide();
 
 		$(fo).show();
 		$(fo).addClass("animated fadeIn");

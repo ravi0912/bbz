@@ -22,6 +22,7 @@
         window.location.href = "{{ url('/status') }}";
     </script>
 @endif
+
     <div class="navbar-wrapper">
         <div class="container">
 
@@ -198,7 +199,7 @@
 
         </div>
         <div id="contact_content_form">
-            <form class="form-horizontal" id="contact_form">
+            {!! Form::open(['action' => 'PagesController@contactUs','class' => 'form-horizontal','id' => 'contact_form']) !!}
 
                 <fieldset>
 
@@ -218,18 +219,18 @@
                     <!-- Textarea -->
                     <div class="form-group">
                         <label class="col-md-4 control-label">Message</label>
-                        <textarea class="form-control" id="msg" name="msg" cols="24" rows="" style="width: 297px; height: 100px;" placeholder = "Enter your message here"></textarea>
+                        <textarea class="form-control" id="msg" name="message" cols="24" rows="" style="width: 297px; height: 100px;" placeholder = "Enter your message here"></textarea>
                     </div>
 
                     <!-- Button -->
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="submit"></label>
                         <div class="col-md-4">
-                            <button id="submit" name="submit" class="btn btn-primary">Send Message</button>
+                            <button onclick="success(event)" id="submit" name="submit" class="btn btn-primary">Send Message</button>
                         </div>
                     </div>
                 </fieldset>
-            </form>
+            {!! Form::close() !!}
         </div>
     </center>
 
@@ -249,9 +250,13 @@
         var yOffset = window.pageYOffset;
         topDiv.style.posTop = "0px "+ (yOffset / speed) + "px";
     }
+
+
+    function success(event){
+        alert('Your message is recorded. Thanx!');
+    }
 </script>
 
-<script type="text/javascript" src="res/js/jquery.min.js"></script>
-<script type="text/javascript" src="res/js/bootstrap.min.js"></script>
+
 <script type="text/javascript" src="res/js/jquery.easing.min.js"></script>
 <script type="text/javascript" src="res/js/scrolling-nav.js"></script>

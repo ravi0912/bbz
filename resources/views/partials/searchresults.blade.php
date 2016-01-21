@@ -5,11 +5,15 @@
         </br></br>
         @if($searchResults > 0)
             @foreach($searchs as $u)
-            <div id = "newsfeed_content" class = "newsfeed_content">
-                <div id = "newsfeed_content_1" class = "newsfeed_content_1">
-                    <div id = "newsfeed_content_1_image" class = "newsfeed_content_1_content"><img src = "{{ URL::asset('uploads/thumbnails/'.$u->id.'.jpeg') }}" ></div>
+            <div id = "right_connection" class = "right_connection">
+                <div id = "right_connection_content" class = "right_connection_content">
+                    <div id = "right_ul_content_imae" class = "right_ul_content_imae">
+                        <img src = "{{ URL::asset('uploads/thumbnails/'.$u->id.'.jpeg') }}" >
+                    </div>
                     <a href="{{ url('/showprofile/'. $u->id)  }}" >
-                        <div id = "newsfeed_content_1_description" class = "newsfeed_content_1_content"> {{ $u->name }}</div>
+                        <div id = "right_connection_content_2" class = "right_connection_content_2">
+                            {{ $u->name }}
+                        </div>
                     </a>
                 </div>
 

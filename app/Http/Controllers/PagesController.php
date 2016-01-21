@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Contactus;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Laracasts\Flash\Flash;
+
 
 class PagesController extends Controller
 {
@@ -15,5 +18,21 @@ class PagesController extends Controller
        // Flash::overlay('Welcome back toimprove your business !', 'Hey');
         return view('pages.home');
 
+    }
+
+    /**
+     * Saving contact us
+     *
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function contactUs(Request $request)
+    {
+        Contactus::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'message' => $request['message']
+        ]);
+        //Flash::success('Your Message is recorded successfully!');
+        return redirect('/home');
     }
 }

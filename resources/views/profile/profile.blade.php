@@ -67,7 +67,9 @@
                         {!! Form::close()!!}
                     </div>
                     <div id = "profile_1_form_head" class = "profile_pop">
-                        <span id = "profile_pop_close" class = "profile_pop_close">Close</span>
+                        <span id = "profile_pop_close" class = "profile_pop_close">
+                            <img src = "{{ URL::asset('images/close.png') }}" width = "25" height = "25">
+                        </span>
 
                         <div id = "profile_1_form" class = "profile_1_form">
 
@@ -115,11 +117,11 @@
                                 <div id = "profile_3_education_content_1" class="profile_3_sub_content">
                                     <div id = "profile_3_education_edit" class = "profile_3_education_edit profile_3_edit" onclick="profile_3_education_show(event,{{ $education->id }});">Edit</div>
                                     <div id = "profile_3_education_content_school" class = "profile_3_sub_content_school">{{ $education->school }}</div>
-                                    <div id = "profile_3_education_content_timein" class = "profile_3_sub_content_timein">{{ $education->start_year }}</div> -
-                                    <div id = "profile_3_education_content_timeout" class = "profile_3_sub_content_timeout">{{ $education->finish_year }}</div>
                                     <div id = "profile_3_education_content_branch" class = "profile_3_sub_content_branch">{{ $education->branch }}</div>
                                     <div id = "profile_3_education_content_degree" class = "profile_3_sub_content_degree">{{ $education->degree }}</div>
-                                    <div id = "profile_3_education_content_grade" class = "profile_3_sub_content_grade">{{ $education->grade }}</div>
+                                    <div id = "profile_3_education_content_grade" class = "profile_3_sub_content_grade">{{ $education->grade }}</div><br>
+                                    <div id = "profile_3_education_content_timein" class = "profile_3_sub_content_timein">{{ $education->start_year }}</div> -
+                                    <div id = "profile_3_education_content_timeout" class = "profile_3_sub_content_timeout">{{ $education->finish_year }}</div>
                                     <div id = "profile_3_education_content_description_1" class = "profile_3_sub_content_description_1">{{ $education->experience }}</div>
                                     <div id = "profile_3_education_content_description_2" class = "profile_3_sub_content_description_2">{{ $education->description }}</div>
                                 </div>
@@ -191,7 +193,7 @@
                                     <div id = "profile_3_experience_edit" class = "profile_3_experience_edit profile_3_edit" onclick="profile_3_experience_show(event,{{ $experience->id }});">Edit</div>
                                     <div id = "profile_3_experience_content_school" class = "profile_3_sub_content_school">{{ $experience->company_name }}</div>
                                     <div id = "profile_3_experience_content_branch" class = "profile_3_sub_content_branch">{{ $experience->title }}</div>
-                                    <div id = "profile_3_experience_content_branch" class = "profile_3_sub_content_branch">{{ $experience->location }}</div>
+                                    <div id = "profile_3_experience_content_branch" class = "profile_3_sub_content_branch">{{ $experience->location }}</div><br>
                                     <div id = "profile_3_experience_content_timein" class = "profile_3_sub_content_timein">{{ $experience->start_year }}</div> -
                                     @if($experience->working == 1)
                                         <div id = "profile_3_experience_content_timeout" class = "profile_3_sub_content_timeout">Working</div>
@@ -270,11 +272,11 @@
                                     <div id = "profile_3_project_content_school" class = "profile_3_sub_content_school">{{ $project->name }}</div>
                                     <div id = "profile_3_project_content_school" class = "profile_3_sub_content_school">{{ $project->occupation }}</div>
                                     <div id = "profile_3_project_content_timein" class = "profile_3_sub_content_timein">{{ $project->start_month }}/{{ $project->start_year }}</div> -
-                                    <div id = "profile_3_project_content_timeout" class = "profile_3_sub_content_timeout">{{ $project->finish_month }}/{{ $project->finish_year }}</div>
-                                    <div id = "profile_3_project_content_branch" class = "profile_3_sub_content_branch"> <a href="{{ $project->url }}" target="_blank">link</a> </div>
-                                    <div id = "profile_3_project_content_degree" class = "profile_3_sub_content_degree">{{ $project->address }}</div>
-                                    <div id = "profile_3_project_content_grade" class = "profile_3_sub_content_grade">{{ $project->team_members }}</div>
-                                    <div id = "profile_3_project_content_description_1" class = "profile_3_sub_content_description_1">{{ $project->address }}</div>
+                                    <div id = "profile_3_project_content_timeout" class = "profile_3_sub_content_timeout">{{ $project->finish_month }}/{{ $project->finish_year }}</div> |
+                                    <div id = "profile_3_project_content_degree" class = "profile_3_sub_content_degree">{{ $project->address }}</div><br>
+                                    <div id = "profile_3_project_content_grade" class = "profile_3_sub_content_grade">{{ $project->team_members }}</div><br>
+
+                                    <div id = "profile_3_project_content_branch" class = "profile_3_sub_content_branch"> <a title="Click to see Project" href="{{ $project->url }}" target="_blank">Project Link</a> </div>
                                     <div id = "profile_3_project_content_description_2" class = "profile_3_sub_content_description_2">{{ $project->description }}</div>
                                     <div id = "profile_3_project_content_gallery" class = "profile_3_sub_content_gallery">
                                         <div id = "profile_3_sub_content_header" class = "profile_3_sub_content_header">Gallery</div>
@@ -314,7 +316,7 @@
         ),'', ['placeholder'=>'MM','class' => 'profile_3_form_content_sm']) !!}/{!! Form::text('finish_year', '', ['placeholder'=>'YYYY','class' => 'profile_3_form_content_sy']) !!}
                                                 </div>
                                                 <div class="form-group">
-                                                    {!! Form::text('url', '', ['placeholder'=>'URL','class' => 'profile_3_form_content']) !!}
+                                                    {!! Form::text('url', '', ['placeholder'=>'URL','class' => 'profile_3_form_content','title' => "http://www.google.com"]) !!}
                                                 </div>
                                                 <div class="form-group">
                                                     {!! Form::text('team_members', '', ['placeholder'=>'Team Members','class' => 'profile_3_form_content']) !!}
@@ -351,25 +353,28 @@
                                     @if($skillsCount > 0)
                                         @foreach($skills as $skill)
                                             <div class="profile_3_skill_content_li">
-                                                <span class="profile_3_skill_content_li_1">{{ $skill->skill }}</span>
-                                                <span class="profile_3_skill_content_li_2">
+                                                <div class="profile_3_skill_content_li_1">
+                                                    <div class="profile_3_skill_content_li_1_1">{{ $skill->skill }}</div>
+                                                    <div id = "profile_3_skill_content_li_1_2_p_delete" class = "profile_3_skill_content_li_1_2" onclick="deleteSkill(event,{{ $skill->id }})"> &times;</div>
+                                                </div>
+
+                                                <div class="profile_3_skill_content_li_2">
                                                     @if($boostCount[$skill->id] == 0)
                                                     @else
-                                                        {{ $boostCount[$skill->id] }}
+                                                        <div class="profile_3_skill_content_li_2_1">{{ $boostCount[$skill->id] }}</div>
                                                     @endif
-                                                </span>
-                                                <span class = "profile_3_form_skill_display_3" onclick="deleteSkill(event,{{ $skill->id }})"> &times;</span>
+                                                </div>
                                             </div>
+
                                         @endforeach
                                     @endif
                                 </div>
                         </div>
                         <div id = "profile_3_skill_content_form" class="profile_3_sub_content_form">
-                            <!-- //Form - skill edit -->
-                            <div class = "panel-body">
-                                <div>
+                                <div id = "profile_3_skill_input" class="profile_3_skill_input">
                                     <input name = "profile_3_form_skill_input" id = "profile_3_form_skill_input" class = "profile_3_form_skill_input" placeholder="Enter your skill">
                                     <span id = "profile_3_form_skill_add" class = "profile_3_form_skill_add general_button" onclick="addSkill(event)">Submit</span>
+                                    <span id = "profile_3_cancel" class = "profile_3_cancel" onclick="profile_3_education(6);">Cancel</span>
                                 </div>
                                 {{--<div id = "profile_3_form_skill_display" class = "profile_3_form_skill_display">
                                     <div class = "profile_3_form_skill_display_content">
@@ -379,9 +384,6 @@
                                     </div>
 
                                 </div> <br>--}}
-                                <span id = "profile_3_cancel" class = "profile_3_cancel" onclick="profile_3_education(6);">Cancel</span><br><br>
-
-                            </div>
 
                     </div>
                 </div>

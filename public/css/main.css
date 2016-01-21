@@ -6,7 +6,6 @@ body{
     transition:  0.5s;
     overflow-x: auto;
     font-family: Raleway;
-    background: ;
 }
 textarea {
     border: none;
@@ -76,25 +75,27 @@ a:hover{
 }
 .top_nav_left{
     float:left;
-    height: 50px;
+    width:60%;
     line-height: 50px;
-    margin-left:14%;
-    text-align: center;
-    padding:0 0% 0 1%;
+    text-align: left;
+}
+.top_nav_left_a{
 }
 .top_nav_left div{
     display: inline-block;
     vertical-align: middle;
     line-height: normal;
-    padding:0 10px 0 10px;
 }
 .top_nav_left img{
     width:50px;
     height:50px;
 }
+.top_nav_left div{
+    margin:0 10px 0 10px;
+}
 .top_nav_logo{
+    width:10%;
     float:left;
-    margin-left:50px;
 }
 .top_nav_logo img{
     width:50px;
@@ -102,10 +103,10 @@ a:hover{
 }
 .top_nav_right{
     float:right;
-
+    width:20%;
     height: 50px;
     line-height: 50px;
-    text-align: center;
+    text-align: right;
 }
 .top_nav_right input{
     border:none;
@@ -135,16 +136,17 @@ a:hover{
     height:22px;
 }
 .nav_input{
-
+    margin: 0 0 0 20px;
 }
 
 .search-input{
-    height:30px;
     border-radius:4px;
     background-color: white;
     padding:5px;
     border:1px solid #f1f1f1;
-    text-align: center;
+    text-align: left;
+    width:100%;
+    margin: 0 0 0 0px;
 
 
 
@@ -154,13 +156,13 @@ a:hover{
 }
 .search-input input{
     color:black;
-    width:500px;
+    width:400px;
 }
 #search-input:focus{
     box-shadow: none;
 }
 #search-results{
-    width:500px;
+    width:30%;
     display: none;
     max-height: 50vh;
     overflow-y:auto ;
@@ -174,8 +176,8 @@ a:hover{
 }
 .search-input-button{
     border:none;
-    background: none;
     outline: none;
+    background: none;
     -webkit-transition: 0.1s ease;
     transition:  0.1s ease;
 }
@@ -388,13 +390,20 @@ a:hover{
     background:white ;
     margin:1% 0 1% 0;
     padding:1%;
-    border: 1px solid #E5E5E5;border-radius:3px;
-    bor
+    border: 1px solid #E5E5E5;
+    border-radius:3px;
+    position: relative;
 }
-.newsfeed_form_post{
-    width:100%;
+.newsfeed_form_1_image{
+    width:30px;
     height:30px;
+    overflow: hidden;
+    border-radius: 3px;
 
+}
+.newsfeed_form_1 div{
+    display: inline-block;
+    vertical-align: top;
 }
 .newsfeed_header{
 }
@@ -411,12 +420,14 @@ a:hover{
     border: none;
     box-shadow:none;
 }
-.newsfeed_form_1 span{
-    display: inline-block;
-    vertical-align: top;
-}
 .newsfeed_poststatus{
-    float: right;
+    padding:3px 5px 3px 5px;
+    border-radius: 3px;
+    background: #3C97D3;
+    color:white;
+    position: absolute;
+    right:5px;
+    bottom:5px;
 }
 .newsfeed_content{
 
@@ -760,17 +771,28 @@ width:100%;
     vertical-align: middle;
 }
 .right_connection_content_2{
-    width: 65%;
-    font-size: 0.9em;
+    width: 50%;
+    font-size: 1em;
     padding:1%;
+}
+.right_ul_content_imae img{
+    width:100%;
+    height: auto;
 }
 .right_connection_content_3{
     font-size: 0.8em;
 }
+.right_connection_content_3 span{
+   padding:5px;
+    cursor: pointer;
+    border-radius: 50%;
+    background: white;
+    margin:0 5px 0 0;
+    float: right;
+}
 .right_connection_content_3 span img{
-    margin: 0 4px 0 0;
     width:14px;
-    height:14px;
+    height: auto;
 }
 .right_connection_confirm{
     color: black;
@@ -876,7 +898,7 @@ width:100%;
     top:0;
     right:0;
 }
-@media (max-width: 850px) {
+@media (max-width: 1200px) {
     .right_ul{
         display: none;
     }
@@ -966,6 +988,7 @@ width:100%;
     display: inline-block;
     vertical-align: middle;
     border-radius: 50%;
+    margin:0 10px 0 0;
 }
 .message_navigation_li_image_content img{
     width: 40px;
@@ -1028,14 +1051,8 @@ width:100%;
     float: right;
     text-align: right;
 }
-.messagesDiv_list_image_me{
-    width: 40px;
-    height: 40px;
-    overflow: hidden;
-    display: inline-block;
-    vertical-align: top;
-    border-radius: 50%;
-}
+
+
 .messagesDiv_list_content_me{
     max-width:70%;
     min-width:200px;
@@ -1048,6 +1065,18 @@ width:100%;
 
     background:none;
 
+}
+.messagesDiv_list_image_me{
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: top;
+    border-radius: 50%;
+}
+.messagesDiv_list_image_me img{
+    width: 40px;
+    height: auto;
 }
 .messagesDiv_list_content_me_sub{
     float: right;
@@ -1064,6 +1093,10 @@ width:100%;
     display: inline-block;
     vertical-align: top;
     border-radius: 50%;
+}
+.messagesDiv_list_image img{
+    width: 40px;
+    height: auto;
 }
 .messagesDiv_list_content{
     max-width:70%;
@@ -1096,6 +1129,7 @@ width:100%;
 }
 .message_input_main{
     border:1px solid #f1f1f1;
+    padding:3px;
 }
 .message_input_main label{
     padding: 0 0 0 3px;
@@ -1137,6 +1171,9 @@ width:100%;
     display: inline-block;
     vertical-align: middle;
     border-radius: 50%;
+}
+.message_input_image img{
+
 }
 
 /*message ends*/

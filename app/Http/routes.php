@@ -78,6 +78,13 @@ Route::get('index', function()
         return redirect()->action('StatusController@index');
     }
 });
+
+//Feature Controller
+Route::get('byelaws','FeatureController@byelaws');
+Route::get('tender','FeatureController@tender');
+Route::get('blogs','FeatureController@blogs');
+Route::post('contactUs','PagesController@contactUs');
+
 // routes for status
 Route::resource('status', 'StatusController');
 Route::get('showstatus/{id}','StatusController@show');

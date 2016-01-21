@@ -9,7 +9,7 @@
     text-decoration: none;
 }
 .profile_content{
-    width:500px;
+    width:600px;
 }
 .profile_1_form{
     background: white;
@@ -18,13 +18,13 @@
 .profile_pop_close{
     cursor: pointer;
     padding:3px;
-    margin: 3px;
-    background: #f9f9f9;
+    margin: 1%;
+    /*background: #f9f9f9;*/
     float: right;
 }
 .profile_1{
     margin-left: ;
-    width:500px;
+    width:600px;
     position: fixed;
     z-index: 1;
     background: white;
@@ -100,7 +100,12 @@
     text-align: center;
     margin :0 5px 0 0;
 }
-.profile_2_content_1 div img{
+.profile_2_content_1 img{
+    width:25px;
+    height:25px;
+    margin:5px 5px 5px 0;
+}
+.sp_img{
     width:25px;
     height:25px;
     margin:5px 5px 5px 0;
@@ -136,6 +141,8 @@
     transition:  1s ease;
 }
 .profile_image_1 img{
+    width: 160px;
+    height:auto;
     display: inline-block;
     vertical-align: text-top;
     -webkit-transition: 1s ease;
@@ -230,7 +237,7 @@ input[type="file"] {
 .profile_3 {
     z-index: 0;
     position: relative;
-    margin-bottom: 50vh;
+    margin: 1% 0 80vh 0
 
 }
 /*.profile_3::-webkit-scrollbar-track
@@ -274,7 +281,7 @@ input[type="file"] {
     cursor: pointer;
     background: ;
     color: ;
-    text-align: center;
+    width:auto;
 }
 .profile_3_edit{
     padding:1%;
@@ -283,15 +290,15 @@ input[type="file"] {
     float:right;
 }
 .profile_3_content{
-    margin: 1% 0 1% 0;
-    /*border:1px solid #F1F1F1;*/
+    border-bottom:1px solid #F1F1F1;
     border-radius:3px;
     min-height: 100px;
     background: #f9f9f9;
+    margin-bottom: 1%;
     /*box-shadow:1px 1px 5px #D9D9D9;*/
 }
 .profile_3_content_header{
-    font-size: 1.8em;
+    font-size: 1.2em;
     font-weight: 500;
     color:#3C97D3;
     float: left;
@@ -302,7 +309,6 @@ input[type="file"] {
 .profile_3_sub_content{
     clear: both;
     padding: 1%;
-    border-bottom: 1px solid #e5e5e5;
 }
 .profile_3_skill_sub_content{
     clear: both;
@@ -310,12 +316,13 @@ input[type="file"] {
     margin: 0 10% 0 0%;
 }
 .profile_3_sub_content_school{
-    font-size: 1.5em;
-    font-weight: 500;
+    font-size: 1.1em;
+    font-weight: 600;
 }
 .profile_3_sub_content_timein{
     font-size: 0.9em;
-    font-style: italic;
+    font-style: ;
+    clear: both;
     display: inline-block;
 }
 .profile_3_sub_content_timeout{
@@ -324,13 +331,16 @@ input[type="file"] {
     display: inline-block;
 }
 .profile_3_sub_content_branch{
-    font-size: 0.9em;
+    font-size: 1em;
+    display: inline-block;
 }
 .profile_3_sub_content_grade{
-    font-size: 0.9em;
+    font-size: 1em;
+    display: inline-block;
 }
 .profile_3_sub_content_degree{
-    font-size: 0.9em;
+    font-size: 1em;
+    display: inline-block;
 }
 .profile_3_sub_content_description_1{
     font-size: 1em;
@@ -398,16 +408,38 @@ input[type="file"] {
     display: inline-block;
 }
 .profile_3_skill_content_li_1{
-    background: #f9f9f9;
+    background: white;
     border-radius: 4px;
-    padding:3px;
+    margin:3px 0px 3px 0px;
+    font-weight: bold;.
+}
+.profile_3_skill_content_li_1_2{
+    background: white;
+    cursor: pointer;
+    padding:3px 9px 3px 9px;
+    font-weight: bold;.
+}
+.profile_3_skill_content_li_1_2:hover{
+    background: #f1f1f2;
+}
+.profile_3_skill_content_li_1_1{
+    background: white;
+    border-radius: 4px;
+    padding:3px 0px 3px 9px;
     font-weight: bold;.
 }
 .profile_3_skill_content_li_2{
     background: #f9f9f9;
     border-radius: 4px;
     padding:3px;
-    float: right;
+}
+.profile_3_skill_input{
+    text-align: left;
+    padding: 1%;
+}
+.profile_3_form_skill_display_3{
+    display: inline-block;
+    cursor: pointer;
 }
 .profile_3_form_skill_input{
 
@@ -459,11 +491,6 @@ input[type="file"] {
 }
 .profile_3_form_skill_display_2{
     display: inline-block;
-}
-.profile_3_form_skill_display_3{
-    float:right;
-    display: inline-block;
-    cursor: pointer;
 }
 .profile_3_form_skill_display_3_n{
     float:right;
