@@ -28,7 +28,7 @@
                                 <div id ="connection_show_image">
                                     @if($connect == 0)
                                         <div onclick="SentRequestMouseUp(event,{{ $usr->id }})">
-                                            <img class = "sp_img" src = "{{ URL::asset('images/addconnection.svg') }} " alt="0" title="Send Request Connection">
+                                            <img class = "sp_img" src = "{{ URL::asset('images/add.svg') }} " alt="0" title="Send Request Connection">
                                         </div>
                                     @endif
                                     @if($connect == 2)
