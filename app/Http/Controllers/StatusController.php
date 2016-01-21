@@ -8,7 +8,6 @@ use App\Notification;
 use App\Status;
 use App\User;
 use Illuminate\Http\Request;
-
 use App\Http\Requests\PrepareStatusRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
