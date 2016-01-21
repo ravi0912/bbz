@@ -16,7 +16,7 @@
                 @foreach($bylaws as $bylaw)
                     <tr>
                         <td>{{ $bylaw->city }}</td>
-                        <td><a href="{{ $bylaw->link }}">{{ $bylaw->description }}</a></td>
+                        <td><a href="{{ $bylaw->link }}" target="_blank">{{ $bylaw->description }}</a></td>
                         <td>{{ $bylaw->issuing_authority }}</td>
                     </tr>
                 @endforeach

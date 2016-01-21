@@ -53,8 +53,10 @@ class ImageUploadController extends Controller
         $img_thumbnail = Image::make($image)->resize(30*$aspectratio,30);
         $img_profile = Image::make($image)->resize(160*$aspectratio,160);
         $imgname = \Auth::User()->id;
-        $img_thumbnail->save('uploads/thumbnails/'.$imgname.".jpeg");
-        $img_profile->save('uploads/profiles/'.$imgname.".jpeg");
+        $path_thumbnail = public_path('uploads/thumbnails/'.$imgname.".jpeg");
+        $path_profile = public_path('uploads/profiles/'.$imgname.".jpeg");
+        $img_thumbnail->save($path_thumbnail);
+        $img_profile->save($path_profile);
 
         //return $img->response('jpeg');
         /*Image::configure(array('driver' => 'imagick'));
