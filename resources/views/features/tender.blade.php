@@ -9,40 +9,20 @@
             <div class="col-lg-7 text-center blog_wrap">
                 <table class="table table-bordered">
                     <tr>
-                        <th>Heading 1</th>
-                        <th>Heading 2</th>
-                        <th>Heading 3</th>
-                        <th>Heading 4</th>
-                        <th>Heading 5</th>
+                        <th>Location</th>
+                        <th>Title</th>
+                        <th>Opening Date</th>
+                        <th>Closing Date</th>
+                        {{--<th>Heading 5</th>--}}
                     </tr>
-                    <tr>
-                        <td>Column 1</td>
-                        <td>Column 2</td>
-                        <td>Column 3</td>
-                        <td>Column 4</td>
-                        <td>Column 5</td>
-                    </tr>
-                    <tr>
-                        <td>Column 1</td>
-                        <td>Column 2</td>
-                        <td>Column 3</td>
-                        <td>Column 4</td>
-                        <td>Column 5</td>
-                    </tr>
-                    <tr>
-                        <td>Column 1</td>
-                        <td>Column 2</td>
-                        <td>Column 3</td>
-                        <td>Column 4</td>
-                        <td>Column 5</td>
-                    </tr>
-                    <tr>
-                        <td>Column 1</td>
-                        <td>Column 2</td>
-                        <td>Column 3</td>
-                        <td>Column 4</td>
-                        <td>Column 5</td>
-                    </tr>
+                    @foreach($tenders as $tender)
+                        <tr>
+                            <td>{{ $tender->city }}| {{ $tender->state }}</td>
+                            <td><a href="{{ $tender->link }}" target="_blank">{{ $tender->title }}</a></td>
+                            <td>{{ $tender->open_date }}</td>
+                            <td>{{ $tender->close_date }}</td>
+                        </tr>
+                    @endforeach
                 </table>
             </div>
     </center>

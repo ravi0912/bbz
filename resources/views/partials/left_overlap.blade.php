@@ -6,9 +6,9 @@
         <div class = "left_overlap_list">
             <a href="{{ url('/profile') }}"><div style = "color:white;">PROFILE</div></a>
             <a href="{{url('/showConnections/'.auth()->user()->id)}}"><div style = "color:white;">CONNECTIONS</div></a>
-            <a href="{{url('/showConnections/'.auth()->user()->id)}}"><div style = "color:white;">BLOGS</div></a>
-            <a href="{{url('/showConnections/'.auth()->user()->id)}}"><div style = "color:white;">BYELAWS</div></a>
-            <a href="{{url('/showConnections/'.auth()->user()->id)}}"><div style = "color:white;">TENDERS</div></a>
+            <a href="{{url('/blogs')}}"><div style = "color:white;">BLOGS</div></a>
+            <a href="{{url('/byelaws')}}"><div style = "color:white;">BYELAWS</div></a>
+            <a href="{{url('/tender')}}"><div style = "color:white;">TENDERS</div></a>
         </div>
         <br><div class="left_overlap_header"><b>bbz</b> marketplace</div>
         <div class = "left_overlap_social_images">

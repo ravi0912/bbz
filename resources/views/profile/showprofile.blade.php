@@ -28,12 +28,12 @@
                                 <div id ="connection_show_image">
                                     @if($connect == 0)
                                         <div onclick="SentRequestMouseUp(event,{{ $usr->id }})">
-                                            <img class = "sp_img" src = "{{ URL::asset('images/add.svg') }} " alt="0" title="Send Request Connection">
+                                            <input class = "sp_img" type="image"  src = "{{ URL::asset('images/add.svg') }} " alt="0" title="Send Request Connection">
                                         </div>
                                     @endif
                                     @if($connect == 2)
                                         <div onclick="CancelRequestMouseUp(event,{{ $usr->id }})">
-                                            <img class = "sp_img" src = "{{ URL::asset('images/requestsent.svg') }}" alt="2" title="Request Sent, Click for cancel Request">
+                                            <input class = "sp_img" type="image"  src = "{{ URL::asset('images/sent.svg') }}" alt="2" title="Request Sent, Click for cancel Request">
                                         </div>
                                     @endif
                                 </div>

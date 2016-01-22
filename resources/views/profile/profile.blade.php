@@ -278,13 +278,13 @@
 
                                     <div id = "profile_3_project_content_branch" class = "profile_3_sub_content_branch"> <a title="Click to see Project" href="{{ $project->url }}" target="_blank">Project Link</a> </div>
                                     <div id = "profile_3_project_content_description_2" class = "profile_3_sub_content_description_2">{{ $project->description }}</div>
-                                    <div id = "profile_3_project_content_gallery" class = "profile_3_sub_content_gallery">
+                                    {{--<div id = "profile_3_project_content_gallery" class = "profile_3_sub_content_gallery">
                                         <div id = "profile_3_sub_content_header" class = "profile_3_sub_content_header">Gallery</div>
                                         <div class = "profile_3_sub_content_image"><img src = "images/1.png"></div>
                                         <div class = "profile_3_sub_content_image"><img src = "images/logo.png"></div>
                                         <div class = "profile_3_sub_content_image"><img src = "images/addcontact.png"></div>
                                         <div class = "profile_3_sub_content_image"><img src = "images/addcontact.png"></div>
-                                    </div>
+                                    </div>--}}
                                 </div>
                             </div>
                         @endforeach
