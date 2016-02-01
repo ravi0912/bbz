@@ -17,8 +17,12 @@ class CreateTendersTable extends Migration
             $table->string('city');
             $table->string('state');
             $table->string('link');
+            $table->string('ownership');
+            $table->string('description');
+            $table->string('industry');
             $table->string('product_category');
-            $table->string('relevant_to');
+            $table->string('issuing_authority');
+            $table->string('estimated_value');
             $table->string('title');
             $table->date('open_date');
             $table->date('close_date');

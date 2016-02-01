@@ -69,10 +69,10 @@
                 <div id="comment_show_click_{{ $status->id }}" class = "newsfeed_content_3_lcs" onmouseup="CommentMouseUp(event,{{ $status->id }})">
                     <img id="comment_img_{{ $status->id }}" src = "{{ URL::asset('images/logo/lcs/comment.svg') }}">
                 </div>
-                <div id="share" class = "newsfeed_content_3_lcs">
-                    {{--count comments--}}
+                {{--<div id="share" class = "newsfeed_content_3_lcs">
+                    --}}{{--count comments--}}{{--
                     <img src = "{{ URL::asset('images/logo/lcs/share.svg') }}">
-                </div>
+                </div>--}}
             </div>
 
             <div id = "newsfeed_content_5" class = "newsfeed_content_5">
