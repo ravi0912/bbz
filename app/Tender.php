@@ -13,6 +13,6 @@ class Tender extends Model
      *
      * @var array
      */
-    protected $fillable = ['city','state','link','product_category','relevant_to','title','open_date','close_date'];
+    protected $fillable = ['city','state','description','ownership','industry','issuing_authority','estimated_value','link','product_category','title','open_date','close_date'];
 
 }

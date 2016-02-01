@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Boost;
+use App\Notification;
 use App\Skill;
 use Illuminate\Http\Request;
 
@@ -56,6 +57,7 @@ class SkillController extends Controller
                 'user_id_1' => $request['user_id_1'],
                 'user_id_2' => \Auth::User()->id
             ]);
+
             $total_boosts = Skill::whereIdAndUser_id($request['skill_id'], $request['user_id_1'])->get();
             foreach ($total_boosts as $total_boost) {
                 $numberOfBoosts = $total_boost->total_users_boost + 1;
@@ -76,7 +78,7 @@ class SkillController extends Controller
 
             return view('partials.boostUpdated', ['skills' => $skills, 'boostCount' => $boostCount, 'skillsCount' => $skillsCount, 'user_id_1' => $request['user_id_1'],'auth_boost' => $auth_boost]);
         }else{
-            return 'We are hiring You!!!';
+            return 'If you are here. Then We are hiring You!!!';
         }
 
     }

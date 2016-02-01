@@ -228,7 +228,6 @@
                         <button id="" class="general_button" onmousedown="sendMail({{ $usr->id }},event)">
                             Send
                         </button>
-
                     </div>
                 </div>
             </div>

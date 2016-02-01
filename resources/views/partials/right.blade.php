@@ -121,12 +121,12 @@
                     var domain = window.location.host;
                     //.html in id to make it clear and do refresh
 
-                    $(".right_ul_content").prepend('<div id = "right_message_navigation_li" class = "right_message_navigation_li"><a href = "http://'+domain+'/showprofile/'+key+'"><div id ="right_ul_content_imae" class = "right_ul_content_imae"><img  src = "http://'+ domain +'/uploads/thumbnails/'+ key +'.jpeg " alt = "'+ key +'" align="middle"></div><div id = "right_message_navigation_li_name" class = "right_message_navigation_li_name">'+name+'</a></div><a href="{{ url('/viewAllMail') }}"><div id = "right_message_navigation_li_time" class = "right_message_navigation_li_time">'+date+'</div><div id = "right_message_navigation_li_mp" class = "right_message_navigation_li_mp" ><span id = "right_message_navigation_li_mp_1" class = "right_message_navigation_li_mp_1">'+name1+'</span><span id = "right_message_navigation_li_mp_2" class = "right_message_navigation_li_mp_2">'+text+'</span></div></div></a>');
+                    $(".right_ul_content").prepend('<div id = "right_message_navigation_li" class = "right_message_navigation_li"><a href = "http://'+domain+'/showprofile/'+key+'"><div id ="right_ul_content_imae" class = "right_ul_content_imae"><img  src = "http://'+ domain +'/uploads/thumbnails/'+ key +'.jpeg " alt = "'+ key +'" align="middle"></div><div id = "right_message_navigation_li_name" class = "right_message_navigation_li_name">'+name+'</a></div><a href="http://'+domain+'/viewAllMail/'+key+'"><div id = "right_message_navigation_li_time" class = "right_message_navigation_li_time">'+date+'</div><div id = "right_message_navigation_li_mp" class = "right_message_navigation_li_mp" ><span id = "right_message_navigation_li_mp_1" class = "right_message_navigation_li_mp_1">'+name1+'</span><span id = "right_message_navigation_li_mp_2" class = "right_message_navigation_li_mp_2">'+text+'</span></div></div></a>');
                 };
 
             }
 
-            $(".right_ul_li").append('<a href="{{ url('/viewAllMail') }}"><div id = "right_ul_more" class = "right_ul_more">more</div></a>');
+            $(".right_ul_li").append('<a href="{{ url('/viewAllMail/0') }}"><div id = "right_ul_more" class = "right_ul_more">more</div></a>');
         }
         //Connection request data
         function load_right_ul_li_3(event) {

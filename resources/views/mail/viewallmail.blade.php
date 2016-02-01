@@ -2,18 +2,18 @@
 @extends('app')
 
 @section('content')
-    <link href="{{ URL::asset('css/message.css') }}" rel = "stylesheet">
+    <link href="{{ URL::asset('css/message.css') }}" rel = "stylesheet" >
     <div id = "message main_body_content" class = "message main_body_content">
         <div id = "message_navigation" class = "message_navigation" >
             <div id = "message_navigation_header" class = "message_navigation_header">
                 <span>All Messages</span>
             </div>
-            <div id = "message_navigation_ul" class = "message_navigation_ul">
+            <div id = "message_navigation_ul" class = "message_navigation_ul" >
                 <!-- Side message panel -->
 
             </div>
         </div>
-        <div id='message_display' class='message_display'>
+        <div id='message_display' class='message_display' >
                 <!-- centre message display -->
 
 
@@ -56,8 +56,27 @@
 //            $('#message_navigation_li')[0].scrollTop = $('#message_navigation_li')[0].scrollHeight;
             $("#message_navigation_ul").prepend('<div id = "message_navigation_li" class = "message_navigation_li" onclick = "load_message(event,'+key+');" ><a href = "{{ url('/showprofile/') }}/'+key+'"><div id ="message_navigation_li_image" class = "message_navigation_li_image"><div id ="message_navigation_li_image_content" class = "message_navigation_li_image_content"><img  src = "http://'+ domain +'/uploads/thumbnails/'+ key +'.jpeg " alt = "'+ key +'" align="middle"></div></div><div id = "message_navigation_li_name" class = "message_navigation_li_name">'+name+'</a></div><br><div id = "message_navigation_li_time" class = "message_navigation_li_time">'+date+'</div><div id = "message_navigation_li_mp" class = "message_navigation_li_mp" ><span id = "message_navigation_li_mp_1" class = "message_navigation_li_mp_1">'+name1+'</span><span id = "message_navigation_li_mp_2" class = "message_navigation_li_mp_2">'+text+'</span></div></div><br>');
         };
+
+
+        //viewing message
+        window.onload = function(){
+            var id = '{{ $id }}';
+            var domain = window.location.host;
+            //$("#like_show_click_".concat(status_id)).hide();
+            //$("#message_input").show();
+            $.get('http://'+domain+'/sendMail', {
+                id: id,
+            }, function (markup) {
+                //alert();
+                $('#message_display').html(markup);
+                $("#message_input_subject").focus();
+            });
+
+
+        }
+
     </script>
-    <script type="text/javascript" src = "{{ URL::asset('js/message.js') }}"></script>
+    <script type="text/javascript" src = "{{ URL::asset('js/message.js') }}" ></script>
 
     {{--@include('partials.notification')--}}
 @stop

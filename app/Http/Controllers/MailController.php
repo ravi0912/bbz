@@ -19,9 +19,10 @@ class MailController extends Controller
      * Auth User all mail view
      */
 
-    public function viewAllMail()
+    public function viewAllMail($id)
     {
-        return view('mail.viewallmail');
+
+        return view('mail.viewallmail',['id' => $id]);
     }
 
 

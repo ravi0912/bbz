@@ -32,7 +32,7 @@ Route::get('/', function()
 
 //routes for mail
 Route::get('sendMail','MailController@sendMail');
-Route::get('viewAllMail','MailController@viewAllMail');
+Route::get('viewAllMail/{id}','MailController@viewAllMail');
 
 // routes for search
 Route::get('executeSearch','SearchController@executeSearch');
@@ -108,7 +108,17 @@ Route::post('profile/educationUpdate', 'ProfileController@educationUpdate');
 Route::post('profile/experienceUpdate', 'ProfileController@experienceUpdate');
 Route::post('profile/projectUpdate', 'ProfileController@projectUpdate');
 
+//routes for auth
 Route::controllers([
    'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController'
 ]);
+
+//routes for admin
+Route::get('dfbdfdwisdybcmzmaoie25327dbsjc67819818ds8789781nsanan1839138nadjk3230239020232wwug', 'AdminController@admin');
+Route::post('pinAuth', 'AdminController@pinAuth');
+Route::get('dataFeed', 'AdminController@dataFeed');
+Route::get('viewAdminByelaws','AdminController@viewAdminByelaws');
+Route::post('addAdminByelaws','AdminController@addAdminByelaws');
+Route::get('viewAdminTenders','AdminController@viewAdminTenders');
+Route::post('addAdminTenders','AdminController@addAdminTenders');
