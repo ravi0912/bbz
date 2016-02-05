@@ -8,6 +8,10 @@ use App\Http\Requests\PrepareImageUploadRequest;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Input;
+use Validator;
+use Session;
+use File;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\ImageManagerStatic as Image;
@@ -68,6 +72,36 @@ class ImageUploadController extends Controller
         );*/
 
        return redirect('/profile');
+    }
+
+    public function storeProjectImage(Request $request)
+    {
+        $files = Input::file('images');
+        $file_count = count($files);
+        $pathAuth = public_path('uploads/projects/'.\Auth::User()->id);
+        File::makeDirectory($pathAuth, $mode = 0777, true, true);
+        $path = public_path('uploads/projects/'.\Auth::User()->id.'/'.$request['project_id']);
+        File::makeDirectory($path, $mode = 0777, true, true);
+
+        $uploadcount = 0;
+        foreach($files as $file) {
+            $rules = array('file' => 'required|mimes:png,gif,jpeg'); //'required|mimes:png,gif,jpeg,txt,pdf,doc'
+            $validator = Validator::make(array('file'=> $file), $rules);
+            if($validator->passes()){
+                $destinationPath = $path;
+                $imgname = ++$uploadcount.'.jpeg';
+                $upload_success = $file->move($destinationPath, $imgname);
+            }
+        }
+        if($uploadcount == $file_count){
+            Session::flash('success', 'Upload successfully');
+            return redirect('/profile');
+        }
+        else {
+            return redirect('/profile')->withInput()->withErrors($validator);
+        }
+
+        //return redirect('/profile');
     }
 
     /**
