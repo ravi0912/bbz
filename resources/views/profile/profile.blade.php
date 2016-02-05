@@ -265,10 +265,24 @@
                     <div id = "profile_3_content_header" class= "profile_3_content_header">Project</div>
                     <div id = "profile_3_add" class = "profile_3_add general_button" onclick="profile_3_education(7);">Add</div>
                     <div id = "profile_3_project_content">
+                        @if(Session::has('success'))
+                            <div class="alert-box success">
+                                <h2>{!! Session::get('success') !!}</h2>
+                            </div>
+                        @endif
                         @foreach ($projects as $project)
                             <div id = "profile_3_project_content_display" class="profile_3_project_content">
                                 <div id = "profile_3_project_content_1" class="profile_3_sub_content">
                                     <div id = "profile_3_project_edit" class = "profile_3_project_edit profile_3_edit" onclick="profile_3_project_show(event,{{ $project->id }});">Edit</div>
+                                    <div >
+                                        {!! Form::open(['action' => 'ImageUploadController@storeProjectImage','files'=>true])!!}
+                                            <div class="form-group">
+                                                {!! Form::hidden('project_id', $project->id) !!}
+                                            </div>
+                                            {!! Form::file('images[]', ['multiple'=>true,'style' =>'display:block']) !!}
+                                            {!! Form::submit('Submit') !!}
+                                        {!! Form::close() !!}
+                                    </div>
                                     <div id = "profile_3_project_content_school" class = "profile_3_sub_content_school">{{ $project->name }}</div>
                                     <div id = "profile_3_project_content_school" class = "profile_3_sub_content_school">{{ $project->occupation }}</div>
                                     <div id = "profile_3_project_content_timein" class = "profile_3_sub_content_timein">{{ $project->start_month }}/{{ $project->start_year }}</div> -
@@ -278,13 +292,16 @@
 
                                     <div id = "profile_3_project_content_branch" class = "profile_3_sub_content_branch"> <a title="Click to see Project" href="{{ $project->url }}" target="_blank">Project Link</a> </div>
                                     <div id = "profile_3_project_content_description_2" class = "profile_3_sub_content_description_2">{{ $project->description }}</div>
-                                    {{--<div id = "profile_3_project_content_gallery" class = "profile_3_sub_content_gallery">
+                                    <div id = "profile_3_project_content_gallery" class = "profile_3_sub_content_gallery">
                                         <div id = "profile_3_sub_content_header" class = "profile_3_sub_content_header">Gallery</div>
-                                        <div class = "profile_3_sub_content_image"><img src = "images/1.png"></div>
-                                        <div class = "profile_3_sub_content_image"><img src = "images/logo.png"></div>
-                                        <div class = "profile_3_sub_content_image"><img src = "images/addcontact.png"></div>
-                                        <div class = "profile_3_sub_content_image"><img src = "images/addcontact.png"></div>
-                                    </div>--}}
+                                        <?php
+                                        $dirname = "uploads/projects/".auth()->user()->id."/".$project->id.'/';
+                                        $images = glob($dirname."*.jpeg");
+                                        foreach($images as $image) {
+                                                    echo '<div class = "profile_3_sub_content_image"><img src = "'.$image.'"></div>';
+                                                }
+                                            ?>
+                                    </div>
                                 </div>
                             </div>
                         @endforeach

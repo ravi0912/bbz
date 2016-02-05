@@ -66,6 +66,8 @@ Route::get('unBoostSkill','SkillController@unBoostSkill');
 
 //routes for Image upload
 Route::post('imageUpload','ImageUploadController@storeProfileImage');
+Route::post('storeProjectImage','ImageUploadController@storeProjectImage');
+
 
 
 Route::get('index', function()
