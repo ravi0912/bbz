@@ -116,11 +116,11 @@ $('#profile_pop_close').click(
 
 
 //Profile Pic Enlarge
-function profile_large(event,user_id) {
+function profile_large(event,link) {
         if(event.which == 1) {
             $("#profile_1_form_head").show();
             $("#profile_1_form").addClass("animated zoomIn");
-            $("#profile_1_form").html('<div id = "profile_image_1" class="profile_image_1"><img  src = "uploads/profiles/' + user_id + '.jpeg" alt = "not found" align="middle"></div>');
+            $("#profile_1_form").html('<div id = "profile_image_1_zoom" class="profile_image_1_zoom"><img  src = "'+link+'" alt = "not found" align="middle"></div>');
         }
 }
 
