@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 
 use App\Http\Requests\PrepareImageUploadRequest;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -51,11 +52,11 @@ class ImageUploadController extends Controller
      */
     public function storeProfileImage(PrepareImageUploadRequest $request)
     {
-
-        $image = $request->file('image');        $size = getimagesize($image);
+        $image = $request->file('image');
+        $size = getimagesize($image);
         $aspectratio = $size[0]/$size[1];
         $img_thumbnail = Image::make($image)->resize(30*$aspectratio,30);
-        $img_profile = Image::make($image)->resize(200*$aspectratio,200);
+        $img_profile = Image::make($image);
         $imgname = \Auth::User()->id;
         $path_thumbnail = public_path('uploads/thumbnails/'.$imgname.".jpeg");
         $path_profile = public_path('uploads/profiles/'.$imgname.".jpeg");
@@ -85,12 +86,14 @@ class ImageUploadController extends Controller
 
         $uploadcount = 0;
         foreach($files as $file) {
-            $rules = array('file' => 'required|mimes:png,gif,jpeg'); //'required|mimes:png,gif,jpeg,txt,pdf,doc'
+            $rules = array('file' => 'required|mimes:png,gif,jpeg,jpg,JPG,GIF,PNG,JPEG'); //'required|mimes:png,gif,jpeg,'
             $validator = Validator::make(array('file'=> $file), $rules);
             if($validator->passes()){
-                $destinationPath = $path;
-                $imgname = ++$uploadcount.'.jpeg';
-                $upload_success = $file->move($destinationPath, $imgname);
+                $mytime = Carbon::now();
+                $destinationPath = $path.'/'.++$mytime.'.jpeg';
+                $img_project = Image::make($file);
+                $imgname =
+                $upload_success = $img_project->save($destinationPath);
             }
         }
         if($uploadcount == $file_count){
