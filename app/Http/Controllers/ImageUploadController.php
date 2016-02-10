@@ -56,7 +56,7 @@ class ImageUploadController extends Controller
         $size = getimagesize($image);
         $aspectratio = $size[0]/$size[1];
         $img_thumbnail = Image::make($image)->resize(30*$aspectratio,30);
-        $img_profile = Image::make($image);
+        $img_profile = Image::make($image)->resize(800*$aspectratio,800);
         $imgname = \Auth::User()->id;
         $path_thumbnail = public_path('uploads/thumbnails/'.$imgname.".jpeg");
         $path_profile = public_path('uploads/profiles/'.$imgname.".jpeg");
