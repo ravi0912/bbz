@@ -11,7 +11,7 @@
                 <div class="top_nav_left_a">
                 <div class = "nav_home" style = "color:white;font-size:1.1em;"><a style = "color:white;" href="{{ url('/blogs') }}">Blogs</a></div>
                 <div class = "nav_home" style = "color:white;font-size:1.1em;"><a style = "color:white;" href="{{ url('/byelaws') }}">ByeLaws</a></div>
-                <div class = "nav_home" style = "color:white;font-size:1.1em;"><a style = "color:white;" href="{{ url('/tender') }}">Tender</a></div>
+                <div class = "nav_home" style = "color:white;font-size:1.1em;"><a style = "color:white;" href="{{ url('/tender') }}">Tenders</a></div>
                     </div>
                 <div class = "nav_input" >
                     <form class=" " role="search" action="{{ url('/searchResults') }}" method="GET" >
