@@ -149,6 +149,18 @@
     transition:  1s ease;
     cursor: pointer;
 }
+
+.profile_image_1_zoom img{
+    width: 444px;
+    height:auto;
+    display: inline-block;
+    vertical-align: text-top;
+    -webkit-transition: 1s ease;
+    transition:  1s ease;
+    cursor: pointer;
+    margin-left: 230px;
+}
+
 input[type="file"] {
     display: none;
 }
@@ -382,6 +394,11 @@ input[type="file"] {
 .profile_3_sub_content_image img{
     width: 100%;
     height:auto;
+    display: inline-block;
+    vertical-align: text-top;
+    -webkit-transition: 1s ease;
+    transition:  1s ease;
+    cursor: pointer;
 }
 .profile_3_finish{
     opacity: 0.5;

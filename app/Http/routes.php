@@ -124,3 +124,7 @@ Route::get('viewAdminByelaws','AdminController@viewAdminByelaws');
 Route::post('addAdminByelaws','AdminController@addAdminByelaws');
 Route::get('viewAdminTenders','AdminController@viewAdminTenders');
 Route::post('addAdminTenders','AdminController@addAdminTenders');
+Route::get('showEditAdminTenders/{id}','AdminController@showEditAdminTenders');
+Route::post('updateAdminTenders','AdminController@updateAdminTenders');
+Route::get('showEditAdminByelaws/{id}','AdminController@showEditAdminByelaws');
+Route::post('updateAdminByelaws','AdminController@updateAdminByelaws');

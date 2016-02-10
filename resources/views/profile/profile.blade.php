@@ -32,11 +32,11 @@
                         @if($profile_count == 1)
                             <div id = "profile_1_edit" class = "profile_3_edit" onclick="profile_1_Show(event,{{ auth()->user()->id }});">Edit</div>
                         @else
-                            <div id = "profile_1_edit" class = "profile_3_add general_button" onclick="profile_1_Add(event,{{ auth()->user()->id }});">Add</div>
+                            <div id = "profile_1_edit" class = "profile_3_add general_button" onclick="rofile_1_Add(event,{{ auth()->user()->id }});">Add</div>
                         @endif
                         <div id = "profile_image" class="profile_image">
                             <div id = "profile_image_1" class="profile_image_1">
-                                <img onclick="profile_large(event,{{ auth()->user()->id }})" src = "uploads/profiles/{{ auth()->user()->id }}.jpeg" alt = "not found" align="middle">
+                                <img onclick='profile_large(event,"uploads/profiles/{{ auth()->user()->id }}.jpeg")' src = "uploads/profiles/{{ auth()->user()->id }}.jpeg" alt = "not found" align="middle">
                             </div>
                             <div id = "profile_image_2" class="profile_image_2">
                                 {!! Form::open(['action' => 'ImageUploadController@storeProfileImage','enctype' => 'multipart/form-data']) !!}
@@ -293,12 +293,13 @@
                                     <div id = "profile_3_project_content_branch" class = "profile_3_sub_content_branch"> <a title="Click to see Project" href="{{ $project->url }}" target="_blank">Project Link</a> </div>
                                     <div id = "profile_3_project_content_description_2" class = "profile_3_sub_content_description_2">{{ $project->description }}</div>
                                     <div id = "profile_3_project_content_gallery" class = "profile_3_sub_content_gallery">
-                                        <div id = "profile_3_sub_content_header" class = "profile_3_sub_content_header">Gallery</div>
                                         <?php
-                                        $dirname = "uploads/projects/".auth()->user()->id."/".$project->id.'/';
+                                        $dirname = "uploads/projects/".auth()->user()->id."/".$project->id."/";
                                         $images = glob($dirname."*.jpeg");
+                                            //echo $dirname;
                                         foreach($images as $image) {
-                                                    echo '<div class = "profile_3_sub_content_image"><img src = "'.$image.'"></div>';
+                                                    $image1 = "'".$image."'";
+                                                    echo '<div class = "profile_3_sub_content_image" onclick="profile_large(event,'.$image1.')"><img src = "'.$image.'"></div>';
                                                 }
                                             ?>
                                     </div>

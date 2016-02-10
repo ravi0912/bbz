@@ -26,13 +26,13 @@ class PrepareTendersRequest extends Request
         return [
             'state' => 'required',
             'city'       => 'required',
-            'description'  => 'required',
-            'ownership'  => 'required',
-            'industry' => 'required',
+            'description'  => '',
+            'ownership'  => '',
+            'industry' => '',
             'product_category' => '',
             'title' => 'required',
             'link'   => 'required|url',
-            'issuing_authority' => 'required',
+            'issuing_authority' => '',
             'estimated_value' => '',
             'open_date' => 'date',
             'close_date' => 'date'

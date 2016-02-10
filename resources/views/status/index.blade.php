@@ -5,13 +5,8 @@
     <div id = "newsfeed main_body_content" class = "newsfeed main_body_content">
 
         <div class="newsfeed_form" id="newsfeed_form">
-            <!--<img src="/images/logo.jpg" alt="jf">
 
-            -->
-            {!! Form::open(['action' => 'StatusController@store']) !!}
-            {{--<div class="newsfeed_header">--}}
-                {{--Hi {{ auth()->user()->name }}, Want to share something!!!--}}
-            {{--</div>--}}
+            {!! Form::open(['action' => 'StatusController@store','files'=>true]) !!}
             <div class="newsfeed_form_1" id="newsfeed_form_1">
                 <div class="newsfeed_form_1_image" id="newsfeed_form_1_image">
                     <img src = "{{ URL::asset('uploads/thumbnails/'.auth()->user()->id.'.jpeg') }}" >
@@ -20,6 +15,7 @@
                     {!! Form::textarea('body', null, ['class' => 'newsfeed_textarea','rows' => '3','cols' => '45','placeholder' => 'Hi '. auth()->user()->name.', Want to share something!!! ']) !!}
                 </div>
             </div>
+                {{--{!! Form::file('images[]', ['multiple'=>true,'style' =>'display:block']) !!}--}}
             <div class="newsfeed_form_post" id="newsfeed_form_post">
                 {!! Form::submit('Post', ['class' => 'general_button newsfeed_poststatus ']) !!}
             </div>

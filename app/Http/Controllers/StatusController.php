@@ -9,12 +9,11 @@ use App\Status;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\PrepareStatusRequest;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManagerStatic as Image;
+use Input;
+use Validator;
+use Session;
+use File;
 
 class StatusController extends Controller
 {
@@ -43,7 +42,7 @@ class StatusController extends Controller
                 $size = getimagesize($image);
                 $aspectratio = $size[0]/$size[1];
                 $img_thumbnail = Image::make($image)->resize(30*$aspectratio,30);
-                $img_profile = Image::make($image)->resize(160*$aspectratio,160);
+                $img_profile = Image::make($image)->resize(200*$aspectratio,200);
                 $imgname = \Auth::User()->id;
                 $path_thumbnail = public_path('uploads/thumbnails/'.$imgname.".jpeg");
                 $path_profile = public_path('uploads/profiles/'.$imgname.".jpeg");
@@ -94,8 +93,32 @@ class StatusController extends Controller
             'body' => $request['body'],
 
         ]);
+        $statuses = Status::where('user_id',\Auth::User()->id)->orderBy('updated_at', 'desc')->first();
+        $status_id = $statuses->id;
+        $files = Input::file('images');
+        $file_count = count($files);
+        $pathAuth = public_path('uploads/statuses/'.\Auth::User()->id);
+        File::makeDirectory($pathAuth, $mode = 0777, true, true);
+        $path = public_path('uploads/statuses/'.\Auth::User()->id.'/'.$status_id);
+        File::makeDirectory($path, $mode = 0777, true, true);
 
-        return redirect('/status');
+        $uploadcount = 0;
+        foreach($files as $file) {
+            $rules = array('file' => 'required|mimes:png,gif,jpeg'); //'required|mimes:png,gif,jpeg,txt,pdf,doc'
+            $validator = Validator::make(array('file'=> $file), $rules);
+            if($validator->passes()){
+                $destinationPath = $path;
+                $imgname = ++$uploadcount.'.jpeg';
+                $upload_success = $file->move($destinationPath, $imgname);
+            }
+        }
+        if($uploadcount == $file_count){
+            Session::flash('success', 'Upload successfully');
+            return redirect('/status');
+        }
+        else {
+            return redirect('/status')->withInput()->withErrors($validator);
+        }
     }
 
     /**

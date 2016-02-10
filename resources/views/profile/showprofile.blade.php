@@ -151,10 +151,19 @@
                                     <div id = "profile_3_project_content_description_1" class = "profile_3_sub_content_description_1">{{ $project->address }}</div>
                                     <div id = "profile_3_project_content_branch" class = "profile_3_sub_content_branch"> <a title="Click to see Project" href="{{ $project->url }}" target="_blank">Project Link</a> </div>
                                     <div id = "profile_3_project_content_description_2" class = "profile_3_sub_content_description_2">{{ $project->description }}</div>
+                                    <div id = "profile_3_project_content_gallery" class = "profile_3_sub_content_gallery">
+                                        <?php
+                                            $dirname = "uploads/projects/".$usr->id."/".$project->id."/";
+                                            $images = glob($dirname."*.jpeg",GLOB_BRACE);
+
+                                            foreach($images as $image) {
+                                                echo '<div class = "profile_3_sub_content_image"><img src = "../'.$image.'"></div>';
+                                            }
+                                        ?>
+                                    </div>
                                 </div>
                             </div>
                         @endforeach
-
                     </div>
                 </div>
                 <div id = "profile_3_skill" class="profile_3_content">
