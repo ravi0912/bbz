@@ -3,7 +3,7 @@
 @section('content')
     <div id = "newsfeed main_body_content" class = "newsfeed main_body_content">
         </br></br>
-        @if($searchResults > 0)
+        @if($searchs)
             @foreach($searchs as $u)
             <div id = "right_connection" class = "right_connection">
                 <div id = "right_connection_content" class = "right_connection_content">

@@ -56,6 +56,9 @@ Route::get('showConnections/{id}','ConnectionController@show');
 Route::get('showConnectionRequest','ConnectionController@showConnectionRequest');
 Route::get('confirmConnectionNotification','ConnectionController@confirmConnectionNotification');
 Route::get('cancelConnectionNotification','ConnectionController@cancelConnectionNotification');
+Route::get('peopleMayKnow/{id}','ConnectionController@peopleMayKnow');
+Route::get('allPeopleMayKnow/{id}','ConnectionController@allPeopleMayKnow');
+
 
 //Skill Add, Delete, Boost
 Route::get('addSkill','SkillController@addSkill');

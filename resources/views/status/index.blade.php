@@ -12,14 +12,15 @@
                     <img src = "{{ URL::asset('uploads/thumbnails/'.auth()->user()->id.'.jpeg') }}" >
                 </div>
                 <div>
-                    {!! Form::textarea('body', null, ['class' => 'newsfeed_textarea','rows' => '3','cols' => '45','placeholder' => 'Hi '. auth()->user()->name.', Want to share something!!! ']) !!}
+                    {!! Form::textarea('body', '', ['class' => 'newsfeed_textarea','rows' => '3','cols' => '45','placeholder' => 'Hi '. auth()->user()->name.', Want to share something!!! ']) !!}
                 </div>
             </div>
-                {{--{!! Form::file('images[]', ['multiple'=>true,'style' =>'display:block']) !!}--}}
+                {!! Form::file('images[]', ['multiple'=>true,'style' =>'display:block']) !!}
             <div class="newsfeed_form_post" id="newsfeed_form_post">
                 {!! Form::submit('Post', ['class' => 'general_button newsfeed_poststatus ']) !!}
             </div>
             {!! Form::close() !!}
+            @include('errors.list')
         </div>
         @foreach ($statuses as $status)
 

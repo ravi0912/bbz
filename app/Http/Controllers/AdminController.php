@@ -145,7 +145,7 @@ class AdminController extends Controller
 
     public function updateAdminByelaws(PrepareByeLawsRequest $request)
     {
-        Tender::where('id' ,$request['id'])->update([
+        Bylaws::where('id' ,$request['id'])->update([
             'city' => $request['city'],
             'link' => $request['link'],
             'issuing_authority' => $request['issuing_authority'],

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Connection;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -29,16 +30,16 @@ class ConnectionController extends Controller
 
             ]);
 
-            if(\Auth::User()->id != $request['user_id_2'])
+           /* if(\Auth::User()->id != $request['user_id_2'])
             {
-                $notify =   \Auth::User()->name.' sent your connection request.';
+                $notify =   \Auth::User()->name.' sent you connection request.';
                 Notification::create([
                     'user_id'   => $request['user_id_2'],
                     'status_id' => 0,
                     'notification' => $notify,
 
                 ]);
-            }
+            }*/
         }
         return view('partials.connection',['connect' => 2, 'usr' => $request['user_id_2'], 'showprofile' => 1,'connectionNotification'=>0]);
     }
@@ -52,7 +53,6 @@ class ConnectionController extends Controller
             Connection::whereUser_id_1AndUser_id_2($request['user_id_2'] ,\Auth::User()->id)->update(['connection_status' => 1]);
 
             //Connection Notification
-
         return redirect('/showprofile/'.$request['user_id_2']);
     }
 
@@ -82,7 +82,7 @@ class ConnectionController extends Controller
     public function show($id){
         $user_id_1_connections = Connection::whereUser_id_1AndConnection_status($id, 1)->get();
         $user_id_2_connections = Connection::whereUser_id_2AndConnection_status($id, 1)->get();
-        //return $user_id_2_connections;
+        //return $user_id_1_connections;
         return view('connection.showConnection',['user_id_1_connections' => $user_id_1_connections, 'user_id_2_connections' => $user_id_2_connections]);
     }
 
@@ -108,5 +108,29 @@ class ConnectionController extends Controller
     public function cancelConnectionNotification(Request $request){
         Connection::whereUser_id_1AndUser_id_2($request['user_id_2'] ,\Auth::User()->id)->delete();
         return view('partials.connection',['connect' => 3, 'usr' => $request['user_id_2'],'showprofile' => 0,'connectionNotification'=>1]);
+    }
+
+    /**
+     * 5 People you may know
+     * @return mixed
+     */
+    public function peopleMayKnow(){
+        $user_id_1_connections = Connection::whereUser_id_1AndConnection_status(\Auth::User()->id, 1)->select('user_id_2')->get();
+        $user_id_2_connections = Connection::whereUser_id_2AndConnection_status(\Auth::User()->id, 1)->select('user_id_1')->get();
+        $result = array_merge($user_id_1_connections->toArray(), $user_id_2_connections->toArray());
+        $peopleMayKnow = User::whereNotIn('id', $result)->take(5)->get();
+        return $peopleMayKnow;
+    }
+
+    /**
+     * All People you may know
+     * @return mixed
+     */
+    public function allPeopleMayKnow(){
+        $user_id_1_connections = Connection::whereUser_id_1AndConnection_status(\Auth::User()->id, 1)->select('user_id_2')->get();
+        $user_id_2_connections = Connection::whereUser_id_2AndConnection_status(\Auth::User()->id, 1)->select('user_id_1')->get();
+        $result = array_merge($user_id_1_connections->toArray(), $user_id_2_connections->toArray());
+        $peopleMayKnow = User::whereNotIn('id', $result)->get();
+        return $peopleMayKnow;
     }
 }
