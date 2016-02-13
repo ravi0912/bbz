@@ -236,7 +236,6 @@
 
 
 </div>
-
 <footer>
     <p class="pull-right"><a class="page-scroll" href="#top">Back to top</a></p>
     <p>&copy; 2016, BuildBlockz Inc. &middot; <a href="">Privacy Policy</a> &middot; <a href="">Terms &amp; Conditions</a> &middot; <a href="">Web Developer</a></p>
