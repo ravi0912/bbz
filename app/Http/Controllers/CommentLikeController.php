@@ -38,6 +38,10 @@ class CommentLikeController extends Controller
                 'user_id'   => $user_id,
                 'user_id_2' => \Auth::User()->id,
                 'status_id' => $status_id,
+                'pages_id' => 0,
+                'group_id' => 0,
+                'skill_id' => 0,
+                'viewed_profile_id' => 0,
                 'notification' => $notify,
 
             ]);
@@ -79,6 +83,10 @@ class CommentLikeController extends Controller
                 'user_id'   => $user_id,
                 'user_id_2' => \Auth::User()->id,
                 'status_id' => $status_id,
+                'pages_id' => 0,
+                'group_id' => 0,
+                'skill_id' => 0,
+                'viewed_profile_id' => 0,
                 'notification' => $notify,
 
             ]);

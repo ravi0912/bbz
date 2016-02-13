@@ -48,11 +48,10 @@
                         </div>
                         <div id = "profile_description" class="profile_description">
                             <div id = "profile_name" class="profile_name">{{ auth()->user()->name }}</div>
-                            <div id = "profile_type" class="profile_type">{{ auth()->user()->designation }},
-                                @foreach($profiles as $profile)
-                                    {{ $profile->current_designation }}</div>
-                            <div id = "profile_address" class="profile_address">{{ $profile->current_company}}</div>
-                            <div id = "profile_address" class="profile_address">{{ $profile->current_city }}, {{ $profile->current_state }}</div>
+                            <div id = "profile_type" class="profile_type">{{ auth()->user()->designation }}</div>
+                            @foreach($profiles as $profile)
+                                <div id = "profile_address" class="profile_address">{{ $profile->current_designation }} at {{ $profile->current_company}}</div>
+                                <div id = "profile_address" class="profile_address">{{ $profile->current_city }}, {{ $profile->current_state }}</div>
                             @endforeach
                             <a href="{{url('/showConnections/'.auth()->user()->id)}}"><span id = "profile_connection" class="profile_connection">Connections: {{ $connections }}</span></a>
                         </div>

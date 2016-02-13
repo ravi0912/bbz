@@ -8,7 +8,7 @@
         <div class="col-lg-7 text-center blog_wrap">
             <table class="table table-bordered">
                 <tr>
-                    <td><b>City</b></td>
+                    <td><b>City/State</b></td>
                     <td><b><a href="">Document Description</a></b></td>
                     <td><b>Issuing Authority</b></td>
                 </tr>

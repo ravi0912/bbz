@@ -4,7 +4,7 @@
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('res/css/bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('res/css/bootstrap-theme.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('res/css/styles.css') }}">
-@endsection
+
 <div class="navbar-wrapper">
     <div class="container">
 
@@ -90,3 +90,5 @@
         </div>
     </div>
 </div>
+
+@stop

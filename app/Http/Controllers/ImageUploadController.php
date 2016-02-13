@@ -92,7 +92,6 @@ class ImageUploadController extends Controller
                 $mytime = Carbon::now();
                 $destinationPath = $path.'/'.++$mytime.'.jpeg';
                 $img_project = Image::make($file);
-                $imgname =
                 $upload_success = $img_project->save($destinationPath);
             }
         }

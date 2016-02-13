@@ -7,6 +7,7 @@ use App\Like;
 use App\Notification;
 use App\Status;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Requests\PrepareStatusRequest;
 use Intervention\Image\ImageManagerStatic as Image;
@@ -88,37 +89,41 @@ class StatusController extends Controller
      */
     public function store(PrepareStatusRequest $request)
     {
+        $files = Input::file('images');
+        if($files !== false){
+            $photo = 1;//error
+        }else{
+            $photo = 0;
+        }
         Status::create([
             'user_id' => \Auth::User()->id,
             'body' => $request['body'],
-
+            'photo' => $photo,
+            '$video' => 0
         ]);
+
         $statuses = Status::where('user_id',\Auth::User()->id)->orderBy('updated_at', 'desc')->first();
         $status_id = $statuses->id;
-        $files = Input::file('images');
         $file_count = count($files);
-        $pathAuth = public_path('uploads/statuses/'.\Auth::User()->id);
-        File::makeDirectory($pathAuth, $mode = 0777, true, true);
-        $path = public_path('uploads/statuses/'.\Auth::User()->id.'/'.$status_id);
-        File::makeDirectory($path, $mode = 0777, true, true);
+        if($files !== false){
+            $pathAuth = public_path('uploads/statuses/'.\Auth::User()->id);
+            File::makeDirectory($pathAuth, $mode = 0777, true, true);
+            $path = public_path('uploads/statuses/'.\Auth::User()->id.'/'.$status_id);
+            File::makeDirectory($path, $mode = 0777, true, true);
 
-        $uploadcount = 0;
-        foreach($files as $file) {
-            $rules = array('file' => 'required|mimes:png,gif,jpeg'); //'required|mimes:png,gif,jpeg,txt,pdf,doc'
-            $validator = Validator::make(array('file'=> $file), $rules);
-            if($validator->passes()){
-                $destinationPath = $path;
-                $imgname = ++$uploadcount.'.jpeg';
-                $upload_success = $file->move($destinationPath, $imgname);
+            $uploadcount = 0;
+            foreach($files as $file) {
+                $rules = array('file' => 'required|mimes:png,gif,jpeg'); //'required|mimes:png,gif,jpeg,txt,pdf,doc'
+                $validator = Validator::make(array('file'=> $file), $rules);
+                if($validator->passes()){
+                    $mytime = Carbon::now();
+                    $destinationPath = $path.'/'.++$mytime.'.jpeg';
+                    $img_project = Image::make($file);
+                    $upload_success = $img_project->save($destinationPath);
+                }
             }
         }
-        if($uploadcount == $file_count){
-            Session::flash('success', 'Upload successfully');
-            return redirect('/status');
-        }
-        else {
-            return redirect('/status')->withInput()->withErrors($validator);
-        }
+        return redirect('/status');
     }
 
     /**

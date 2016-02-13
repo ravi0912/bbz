@@ -140,6 +140,7 @@ return [
         Laracasts\Commander\CommanderServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        TomLingham\Searchy\SearchyServiceProvider::class,
 
 
         /*
@@ -203,6 +204,7 @@ return [
         'Html'      => Illuminate\Html\HtmlFacade::class,
         'Flash'     => Laracasts\Flash\Flash::class,
         'Image'     => Intervention\Image\Facades\Image::class,
+        'Searchy' => TomLingham\Searchy\Facades\Searchy::class,
 
     ],
 
