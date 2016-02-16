@@ -21,6 +21,15 @@ class PagesController extends Controller
     }
 
     /**
+     * Redirect to blog
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function blogs(){
+
+        return view('pages.blogs');
+    }
+
+    /**
      * Saving contact us
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector

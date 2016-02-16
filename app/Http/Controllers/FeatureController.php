@@ -16,14 +16,7 @@ class FeatureController extends Controller
         $this->middleware('auth');
     }
 
-    /**
-     * Redirect to blog
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function blogs(){
 
-        return view('pages.blogs');
-    }
 
     /**
      * Tender

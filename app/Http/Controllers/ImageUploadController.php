@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 
 use App\Http\Requests\PrepareImageUploadRequest;
+use App\Profile;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -57,20 +58,33 @@ class ImageUploadController extends Controller
         $aspectratio = $size[0]/$size[1];
         $img_thumbnail = Image::make($image)->resize(30*$aspectratio,30);
         $img_profile = Image::make($image)->resize(800*$aspectratio,800);
-        $imgname = \Auth::User()->id;
+        $imgname = Carbon::now();
         $path_thumbnail = public_path('uploads/thumbnails/'.$imgname.".jpeg");
         $path_profile = public_path('uploads/profiles/'.$imgname.".jpeg");
         $img_thumbnail->save($path_thumbnail);
         $img_profile->save($path_profile);
 
-        //return $img->response('jpeg');
-        /*Image::configure(array('driver' => 'imagick'));
-        Image::make($image)->resize(300, 200);
+        /*$count = Profile::where('id', \Auth::User()->id)->count();
+        if($count == 0)
+        {
+            Profile::create([
+                'user_id'             =>   \Auth::User()->id,
+                'current_company'     =>   '',
+                'current_city'        =>   '',
+                'current_state'       =>   '',
+                'current_designation' =>   '',
+                'date'                =>   '',
+                'month'               =>   '',
+                'year'                =>   '',
+                'current_profile_image'=>  $imgname,
+                'current_cover_image' =>   '',
 
-
-       /* $request->file('image')->move(
-            base_path() . '/public/images/uploads/', $imageName
-        );*/
+            ]);
+        }else{
+            Profile::where('id', \Auth::User()->id)->update([
+                'current_profile_image'=>  $imgname,
+            ]);
+        }*/
 
        return redirect('/profile');
     }

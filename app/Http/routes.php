@@ -5,6 +5,7 @@
  */
 
 Route::get('home', 'PagesController@home');
+Route::get('blogs','PagesController@blogs');
 
 
 /*
@@ -87,7 +88,6 @@ Route::get('index', function()
 //Feature Controller
 Route::get('byelaws','FeatureController@byelaws');
 Route::get('tender','FeatureController@tender');
-Route::get('blogs','FeatureController@blogs');
 Route::post('contactUs','PagesController@contactUs');
 
 // routes for status
@@ -131,3 +131,10 @@ Route::get('showEditAdminTenders/{id}','AdminController@showEditAdminTenders');
 Route::post('updateAdminTenders','AdminController@updateAdminTenders');
 Route::get('showEditAdminByelaws/{id}','AdminController@showEditAdminByelaws');
 Route::post('updateAdminByelaws','AdminController@updateAdminByelaws');
+
+//routes for Pages
+Route::get('createPageForm','WorkstationPageController@createPageForm');
+Route::get('showCreatePageForm','WorkstationPageController@showCreatePageForm');
+Route::post('createPage','WorkstationPageController@create');
+Route::get('requestSubcategory','WorkstationPageController@requestSubcategory');
+Route::get('showPage/{id}','WorkstationPageController@show');

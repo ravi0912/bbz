@@ -210,9 +210,9 @@ class ProfileController extends Controller
             'current_city'        =>   $request['current_city'],
             'current_state'       =>   $request['current_state'],
             'current_designation' =>   $request['current_designation'],
-            'date'                 =>   $request['date'],
-            'month'                 =>   $request['month'],
-            'year'                 =>   $request['year'],
+            'date'                =>   $request['date'],
+            'month'               =>   $request['month'],
+            'year'                =>   $request['year'],
         ]);
 
         return redirect('/profile');

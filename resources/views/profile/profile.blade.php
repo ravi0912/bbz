@@ -10,7 +10,7 @@
 
     <div id = "profile main_body_content" class = "profile main_body_content">
         <div id = "profile_content" class = "profile_content">
-
+            @include('errors.list')
             <div id = "profile_1" class="profile_1">
                 <a class = "profile_1_active" href="#profile_image" ><div  onclick = "profile_education();">Home</div></a>
                 <a href="#profile_3_education" ><div onclick = "profile_education();">Education</div></a>
@@ -46,6 +46,7 @@
                                 </label>
                             </div>
                         </div>
+
                         <div id = "profile_description" class="profile_description">
                             <div id = "profile_name" class="profile_name">{{ auth()->user()->name }}</div>
                             <div id = "profile_type" class="profile_type">{{ auth()->user()->designation }}</div>
@@ -99,7 +100,7 @@
                                 {!! Form::submit('Submit', ['class' => 'general_button ','id' => 'ok']) !!}
                             </div>
                             {!! Form::close() !!}
-                            @include('errors.list')
+
                         </div>
                     </div>
                 </div>
@@ -172,7 +173,7 @@
                                                 {!! Form::close() !!}
 
                                             </div>
-                                            @include('errors.list')
+
                                         </div>
                                     </div>
                                 </div>
@@ -250,7 +251,7 @@
                                                 </div>
                                                 {!! Form::close() !!}
                                             </div>
-                                            @include('errors.list')
+
                                         </div>
                                     </div>
                                 </div>
@@ -264,11 +265,6 @@
                     <div id = "profile_3_content_header" class= "profile_3_content_header">Project</div>
                     <div id = "profile_3_add" class = "profile_3_add general_button" onclick="profile_3_education(7);">Add</div>
                     <div id = "profile_3_project_content">
-                        @if(Session::has('success'))
-                            <div class="alert-box success">
-                                <h2>{!! Session::get('success') !!}</h2>
-                            </div>
-                        @endif
                         @foreach ($projects as $project)
                             <div id = "profile_3_project_content_display" class="profile_3_project_content">
                                 <div id = "profile_3_project_content_1" class="profile_3_sub_content">
@@ -350,7 +346,7 @@
                                                 </div>
                                                 {!! Form::close() !!}
                                             </div>
-                                            @include('errors.list')
+
                                         </div>
                                     </div>
                                 </div>

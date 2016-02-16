@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class PrepareProfileRequest extends Request
+class PreparePageMakeRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,13 +24,13 @@ class PrepareProfileRequest extends Request
     public function rules()
     {
         return [
-            'current_company'     => '',
-            'current_city'        => '',
-            'current_state'       => '',
-            'current_designation' => '',
-            'date'                => 'integer|max:31',
-            'month'               => 'integer|max:12',
-            'year'                => 'integer|max:9999'
+            'pages_category_id'      => 'required|integer',
+            'pages_subcategory_id'   => 'required|integer',
+            'type_id'                => 'required|integer',
+            'name'                   => 'required',
+            'specialities'           => '',
+            'headquarter'            => '',
+            'content'                => '',
         ];
     }
 }

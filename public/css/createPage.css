@@ -1,0 +1,40 @@
+.option {
+    height:100px;
+    width:100px;
+    position: absolute;
+    top:98px;
+    left:33%;
+
+}
+.option_wrapper {
+    top:50px;
+    border:2px solid #6262ff;
+    height:300px;
+    width:90%;
+}
+
+.col-md-4 {
+    position:relative;
+}
+
+.option_inner_wrapper {
+    height:285px;
+    width:97%;
+    margin:5px 5px 10px 5px;
+    cursor:pointer;
+    z-index: 100;
+    background-color: #fafafa;
+}
+
+.option_inner_wrapper:hover {
+    background-color: #cfcfcf;
+}
+/*modal size */
+
+.modal-dialog {
+    width:80%;
+}
+
+.modal-body  {
+    height:400px;
+}
