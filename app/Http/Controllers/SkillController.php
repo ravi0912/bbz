@@ -63,7 +63,7 @@ class SkillController extends Controller
                 'user_id_2' => \Auth::User()->id
             ]);
             $skill = Skill::whereId($request['skill_id'])->pluck('skill');
-            $notify =   \Auth::User()->name.' boost you in '.$skill;
+            $notify =   \Auth::User()->name.' boosted you in '.$skill;
             Notification::create([
                 'user_id'   => $request['user_id_1'],
                 'user_id_2' => \Auth::User()->id,

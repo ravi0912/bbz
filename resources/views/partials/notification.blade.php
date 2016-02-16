@@ -5,7 +5,11 @@
 
             <div id = "right_notification" class = "right_notification">
                 <div id = "right_notification_content" class = "right_notification_content">
-                    <a href="{{url('/showstatus/'.$notification->status_id)}}">
+                    @if($notification->status_id !=0 )
+                        <a href="{{url('/showstatus/'.$notification->status_id)}}">
+                    @else
+                        <a href="{{url('/profile#profile_3_project')}}">
+                    @endif
                         <div id = "right_ul_content_imae" class = "right_ul_content_imae">
                             <img id = "" src = "{{ URL::asset('uploads/thumbnails/'.$notification->user_id_2.'.jpeg') }}">
                         </div>

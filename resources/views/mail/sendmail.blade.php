@@ -59,7 +59,7 @@
         </div>
     </div>
     <div id = "message_input_image" class = "message_input_image">
-        <img  src = "uploads/profiles/{{ auth()->user()->id }}.jpeg" alt = "not found" align="middle">
+        <img  src = "{{ URL::asset('uploads/profiles/'.auth()->user()->id.'.jpeg') }}" alt = "not found" align="middle">
     </div>
 </div>
 
