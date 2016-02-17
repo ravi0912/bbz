@@ -89,7 +89,8 @@ class StatusController extends Controller
      */
     public function store(PrepareStatusRequest $request)
     {
-        $files = Input::file('images');
+        //$files = Input::file('images');
+        $files = false;
         if($files !== false){
             $photo = 1;//error
         }else{
@@ -98,14 +99,16 @@ class StatusController extends Controller
         Status::create([
             'user_id' => \Auth::User()->id,
             'body' => $request['body'],
+            'page_id' => null,
             'photo' => $photo,
             '$video' => 0
         ]);
 
-        $statuses = Status::where('user_id',\Auth::User()->id)->orderBy('updated_at', 'desc')->first();
-        $status_id = $statuses->id;
+
         $file_count = count($files);
         if($files !== false){
+            $statuses = Status::where('user_id',\Auth::User()->id)->orderBy('updated_at', 'desc')->first();
+            $status_id = $statuses->id;
             $pathAuth = public_path('uploads/statuses/'.\Auth::User()->id);
             File::makeDirectory($pathAuth, $mode = 0777, true, true);
             $path = public_path('uploads/statuses/'.\Auth::User()->id.'/'.$status_id);

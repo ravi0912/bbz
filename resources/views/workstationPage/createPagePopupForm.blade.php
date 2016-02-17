@@ -20,13 +20,13 @@
 <div class="modal-body">
     <div class="modal_form_content">
         {!! Form::open(['action' => 'WorkstationPageController@create','class' => 'horizontal', 'role' => 'form']) !!}
-
+            <input type="hidden" name="pages_category_id" value="{{ $page_category_id }}">
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                     <label for="select1">Category</label>
-                    <select id="select1" class="form-control">
+                    <select id="select1" class="form-control" name="pages_subcategory_id">
                        @foreach($subcategory as $s)
-                            <option>{{ $s->page_subcategory }}</option>
+                            <option value="{{ $s->id }}">{{ $s->page_subcategory }}</option>
                        @endforeach
                     </select>
                 </div>
@@ -34,9 +34,9 @@
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                     <label for="select1">Type</label>
-                    <select id="select1" class="form-control">
+                    <select id="select1" class="form-control" name="type_id">
                         @foreach($type as $t)
-                            <option>{{ $t->page_type }}</option>
+                            <option value="{{ $t->id }}">{{ $t->page_type }}</option>
                         @endforeach
                     </select>
                 </div>

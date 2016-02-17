@@ -24,8 +24,8 @@ class CreatePagesTable extends Migration
             $table->string('specialities');
             $table->string('headquarter');
             $table->longText('content');
-            $table->string('page_profile_image');
-            $table->string('page_cover_image');
+            $table->string('page_profile_image')->nullable();
+            $table->string('page_cover_image')->nullable();
             $table->timestamps();
         });
     }

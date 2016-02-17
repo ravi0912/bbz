@@ -138,3 +138,4 @@ Route::get('showCreatePageForm','WorkstationPageController@showCreatePageForm');
 Route::post('createPage','WorkstationPageController@create');
 Route::get('requestSubcategory','WorkstationPageController@requestSubcategory');
 Route::get('showPage/{id}','WorkstationPageController@show');
+Route::post('storeStatusPage','WorkstationPageController@store');

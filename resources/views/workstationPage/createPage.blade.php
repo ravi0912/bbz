@@ -10,7 +10,7 @@
         <!--mdl CDN-->
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.indigo-pink.min.css">
-        <script defer src="https://code.getmdl.io/1.1.1/material.min.js"></script>
+        <script defer src="https://Route::post('createPage','WorkstationPageController@create');code.getmdl.io/1.1.1/material.min.js"></script>
 
 
         <!--my css file-->
@@ -22,7 +22,7 @@
                 @foreach($category as $c)
                     <div class="col-md-4">
                         <div class="option_wrapper" id="option_wrapper">
-                            <div class="option_inner_wrapper" data-toggle="modal" data-target="#option1">9085855947
+                            <div class="option_inner_wrapper" data-toggle="modal" data-target="#option1">
                                 <div class="option" id="option">
                                     {{ $c->page_category  }}
                                     {{--<i class="material-icons" style="margin:35px;font-size:40px">add</i>--}}
@@ -34,7 +34,7 @@
             </div>
         </div>
     </div>
-
+    @include('errors.list')
     <!--modal contents-->
     <div class="container-fluid">
         <!--modal 1(option1)-->
