@@ -131,6 +131,9 @@ Route::get('showEditAdminTenders/{id}','AdminController@showEditAdminTenders');
 Route::post('updateAdminTenders','AdminController@updateAdminTenders');
 Route::get('showEditAdminByelaws/{id}','AdminController@showEditAdminByelaws');
 Route::post('updateAdminByelaws','AdminController@updateAdminByelaws');
+Route::post('createBlog','BlogController@store');
+Route::get('createBlogForm','BlogController@blogForm');
+
 
 //routes for Pages
 Route::get('createPageForm','WorkstationPageController@createPageForm');
@@ -139,3 +142,8 @@ Route::post('createPage','WorkstationPageController@create');
 Route::get('requestSubcategory','WorkstationPageController@requestSubcategory');
 Route::get('showPage/{id}','WorkstationPageController@show');
 Route::post('storeStatusPage','WorkstationPageController@store');
+
+
+//routes for blog
+Route::get('blog','BlogController@index');
+Route::get('viewBlog/{id}','BlogController@show');

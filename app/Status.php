@@ -15,12 +15,16 @@ class Status extends Model
      *
      * @var array
      */
-    protected $fillable = ['user_id','body','page_id','photo','video'];
+    protected $fillable = ['user_id','body','page_id','post_as_admin_page','photo','video'];
 
     public function user()
     {
         return $this->belongsTo('App\User');
     }
 
+    public function page()
+    {
+        return $this->belongsTo('App\Pages');
+    }
 
 }

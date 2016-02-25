@@ -12,7 +12,8 @@
         "laracasts/flash": "~1.0",
         "intervention/image": "^2.3",
         "swiftmailer/swiftmailer": "^5.4",
-        "tom-lingham/searchy" : "2.*"
+        "tom-lingham/searchy" : "2.*",
+        "aws/aws-sdk-php": " ~3.0"
             },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

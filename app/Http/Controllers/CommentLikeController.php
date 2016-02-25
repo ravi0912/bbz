@@ -33,12 +33,18 @@ class CommentLikeController extends Controller
 
         if(\Auth::User()->id != $user_id)
         {
-            $notify =   \Auth::User()->name.' commented on your post.';
+            $page_id = $request['page_id'];
+            if($page_id){
+                $notify =   \Auth::User()->name.' commented on your post in '.$request['page_name'];
+            }else{
+                $notify =   \Auth::User()->name.' commented on your post.';
+            }
+
             Notification::create([
                 'user_id'   => $user_id,
                 'user_id_2' => \Auth::User()->id,
                 'status_id' => $status_id,
-                'pages_id' => 0,
+                'pages_id' => $page_id,
                 'group_id' => 0,
                 'skill_id' => 0,
                 'viewed_profile_id' => 0,

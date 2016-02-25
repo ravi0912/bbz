@@ -50,9 +50,9 @@ function CommentMouseUp(event,status_id){
 
 }
 
-function comment_execute_keyUp(event,status_id,user_id,auth_id) {
-    if (event.keyCode == 13){
+function comment_execute_keyUp(event,status_id,user_id,auth_id,page_id,page_name) {
 
+    if (event.keyCode == 13){
         //Sending notification to user_id in fire base
         if(auth_id != user_id){
             var myDataRef = new Firebase('https://bbz-workstation.firebaseio.com/notification/'+user_id);
@@ -70,6 +70,8 @@ function comment_execute_keyUp(event,status_id,user_id,auth_id) {
         var comment_body = $(comment_id).val();
         $("#comments_show_".concat(status_id)).show();
          $.get('http://'+domain+'/executeComment', {
+         page_name: page_name,
+         page_id: page_id,
          status_id: status_id,
          user_id:user_id,
          comment_body: comment_body

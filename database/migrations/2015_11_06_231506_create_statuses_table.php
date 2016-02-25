@@ -21,6 +21,7 @@ class CreateStatusesTable extends Migration
             $table->foreign('page_id')->references('id')->on('pages')->onDelete('cascade');
             $table->integer('group_id')->unsigned()->nullable();
             $table->foreign('group_id')->references('id')->on('groups')->onDelete('cascade');
+            $table->integer('post_as_admin_page');
             $table->boolean('photo');
             $table->boolean('video');
             $table->timestamps();
