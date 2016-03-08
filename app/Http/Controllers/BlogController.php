@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Input;
+use Validator;
+use File;
+
+use Intervention\Image\ImageManagerStatic as Image;
 
 class BlogController extends Controller
 {
@@ -46,10 +51,31 @@ class BlogController extends Controller
 
     public function store(Request $request)
     {
+        $files = Input::file('images');
         Blog::create([
             'heading' => $request['heading'],
             'body' => $request['body']
         ]);
+
+        $file_count = count($files);
+        if($files !== false){
+            $blog = Blog::orderBy('updated_at', 'desc')->first();
+
+            $pathAuth = public_path('uploads/blogs/'.$blog->id);
+            File::makeDirectory($pathAuth, $mode = 0777, true, true);
+
+            $uploadcount = 0;
+            $i=0;
+            foreach($files as $file) {
+                $rules = array('file' => 'required|mimes:png,gif,jpeg,jpg,JPG,GIF,PNG,JPEG'); //'required|mimes:png,gif,jpeg,'
+                $validator = Validator::make(array('file'=> $file), $rules);
+                if($validator->passes()){
+                    $destinationPath = $pathAuth.'/'.++$i.'.jpeg';
+                    $img_blog = Image::make($file);
+                    $upload_success = $img_blog->save($destinationPath);
+                }
+            }
+        }
         return view('adminAuth.addBlog');
     }
 

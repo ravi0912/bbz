@@ -236,19 +236,14 @@
 
 
 </div>
-<<<<<<< HEAD
-=======
 <div>
     <h3 class="">&nbsp;&nbsp;&nbsp;Team Members</h3>
     <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Karan Rajwanshi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ravi Kumar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Jitendra Choudhary&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Amrit Lenka&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tulika Agrawal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Swapnil Agrawal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vishal Kumar </div>
 </div>
 <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Founder&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Founder&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Founder&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Founder&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Founder&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tech Advisor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tech Advisor</div>
-<<<<<<< HEAD
+
 <footer style = "background: #3C97D3;">
-=======
->>>>>>> e8eaaefb05b15a8c12da44841353455a54db0466
 <footer>
->>>>>>> fa945b6c5f412dda08982af7efea7a2d11efcea1
     <p class="pull-right"><a class="page-scroll" href="#top">Back to top</a></p>
     <p>&copy; 2016, BuildBlockz Inc. &middot; <a href="">Privacy Policy</a> &middot; <a href="">Terms &amp; Conditions</a> &middot; <a href="">Web Developer</a></p>
 </footer>

@@ -44,4 +44,15 @@ class PagesController extends Controller
         //Flash::success('Your Message is recorded successfully!');
         return redirect('/home');
     }
+
+    public function linkpreview(){
+
+        return view('pages.linkpreview');
+    }
+
+    public function ajaxlinkpreview(){
+
+        return view('pages.ajaxlinkpreview');
+    }
+
 }

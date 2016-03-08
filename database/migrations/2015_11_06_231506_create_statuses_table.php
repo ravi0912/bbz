@@ -24,6 +24,7 @@ class CreateStatusesTable extends Migration
             $table->integer('post_as_admin_page');
             $table->boolean('photo');
             $table->boolean('video');
+            $table->boolean('link_preview');
             $table->timestamps();
         });
     }

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 
 class ConnectionController extends Controller
 {
@@ -30,16 +31,14 @@ class ConnectionController extends Controller
 
             ]);
 
-           /* if(\Auth::User()->id != $request['user_id_2'])
-            {
-                $notify =   \Auth::User()->name.' sent you connection request.';
-                Notification::create([
-                    'user_id'   => $request['user_id_2'],
-                    'status_id' => 0,
-                    'notification' => $notify,
 
-                ]);
-            }*/
+            //Send Mail for Connection Request
+
+            $user = User::whereId($request['user_id_2'])->first();
+            Mail::send('emails.connectionRequest',$user, function ($message) use ($user) {
+                $message->to($user->email,$user->name)->subject('Connection Request');
+            });
+
         }
         return view('partials.connection',['connect' => 2, 'usr' => $request['user_id_2'], 'showprofile' => 1,'connectionNotification'=>0]);
     }
@@ -51,6 +50,12 @@ class ConnectionController extends Controller
      */
     public function confirmConnection(Request $request){
             Connection::whereUser_id_1AndUser_id_2($request['user_id_2'] ,\Auth::User()->id)->update(['connection_status' => 1]);
+        //Send Mail for Connection Confirm
+        $data = [];
+        $user = User::whereId($request['user_id_2'])->first();
+        Mail::send('emails.connectionConfirm',$data, function ($message) use ($user) {
+            $message->to($user->email,$user->name)->subject('Connection Accepted');
+        });
 
             //Connection Notification
         return redirect('/showprofile/'.$request['user_id_2']);
@@ -99,6 +104,15 @@ class ConnectionController extends Controller
      */
     public function confirmConnectionNotification(Request $request){
         Connection::whereUser_id_1AndUser_id_2($request['user_id_2'] ,\Auth::User()->id)->update(['connection_status' => 1]);
+
+
+        //Send Mail for Connection Confirm
+
+
+        $user = User::whereId($request['user_id_2'])->first();
+        Mail::send('emails.connectionRequest',$user, function ($message) use ($user) {
+            $message->to($user->email,$user->name)->subject('Connection Request');
+        });
         return view('partials.connection',['connect' => 2, 'usr' => $request['user_id_2'],'showprofile' => 0,'connectionNotification'=>1]);
     }
 

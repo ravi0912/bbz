@@ -99,12 +99,13 @@ class ImageUploadController extends Controller
         File::makeDirectory($path, $mode = 0777, true, true);
 
         $uploadcount = 0;
+        $mytime = Carbon::now();
         foreach($files as $file) {
             $rules = array('file' => 'required|mimes:png,gif,jpeg,jpg,JPG,GIF,PNG,JPEG'); //'required|mimes:png,gif,jpeg,'
             $validator = Validator::make(array('file'=> $file), $rules);
             if($validator->passes()){
                 $mytime = Carbon::now();
-                $destinationPath = $path.'/'.++$mytime.'.jpeg';
+                $destinationPath = $path.'/'.$mytime.'_'.$string = str_random(40).'.jpeg';
                 $img_project = Image::make($file);
                 $upload_success = $img_project->save($destinationPath);
             }

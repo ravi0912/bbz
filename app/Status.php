@@ -15,7 +15,7 @@ class Status extends Model
      *
      * @var array
      */
-    protected $fillable = ['user_id','body','page_id','post_as_admin_page','photo','video'];
+    protected $fillable = ['user_id','body','page_id','post_as_admin_page','photo','video','link_preview'];
 
     public function user()
     {

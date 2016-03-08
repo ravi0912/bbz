@@ -6,7 +6,10 @@ use App\Comment;
 use App\Like;
 
 use App\Notification;
+use App\Status;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -49,8 +52,16 @@ class CommentLikeController extends Controller
                 'skill_id' => 0,
                 'viewed_profile_id' => 0,
                 'notification' => $notify,
-
             ]);
+
+            //Send Mail for Comments to user_id
+            $data = Status::whereId($status_id)->first();
+            $data->comment = $comment_body;
+            $data->notify = $notify;
+            $user = User::whereId($user_id)->first();
+            Mail::send('emails.commentLike', $data,function ($message) use ($user) {
+                $message->to($user->email,$user->name)->subject('Comment in your Status');
+            });
         }
 
 
@@ -96,6 +107,15 @@ class CommentLikeController extends Controller
                 'notification' => $notify,
 
             ]);
+
+            //Send Mail for Comments to user_id
+            $data = Status::whereId($status_id)->first();
+            $data->comment = '';
+            $data->notify = $notify;
+            $user = User::whereId($user_id)->first();
+            Mail::send('emails.commentLike', $data,function ($message) use ($user) {
+                $message->to($user->email,$user->name)->subject('Comment in your Status');
+            });
         }
         $likes =  Like::where('status_id', $status_id)->count();
         return view('partials.like', ['likes' => $likes,'liked' => $liked,'status_id'=> $status_id,'user_id'=>$user_id,]);

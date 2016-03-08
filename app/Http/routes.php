@@ -92,7 +92,7 @@ Route::post('contactUs','PagesController@contactUs');
 
 // routes for status
 Route::resource('status', 'StatusController');
-Route::get('showstatus/{id}','StatusController@show');
+Route::get('showStatus/{id}','StatusController@show');
 Route::post('destroy','StatusController@destroy');
 
 //routes for Profile Data Add
@@ -142,6 +142,8 @@ Route::post('createPage','WorkstationPageController@create');
 Route::get('requestSubcategory','WorkstationPageController@requestSubcategory');
 Route::get('showPage/{id}','WorkstationPageController@show');
 Route::post('storeStatusPage','WorkstationPageController@store');
+Route::get('linkpreview','PagesController@linkpreview');
+Route::get('ajaxlinkpreview','PagesController@ajaxlinkpreview');
 
 
 //routes for blog

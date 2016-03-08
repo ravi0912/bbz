@@ -4,17 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Comment;
 use App\Like;
+use App\LinkPreview;
+use App\LinkPreviewRelation;
 use App\Notification;
 use App\Status;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Requests\PrepareStatusRequest;
+use Illuminate\Support\Facades\Mail;
 use Intervention\Image\ImageManagerStatic as Image;
 use Input;
 use Validator;
 use Session;
 use File;
+use App\MetaParser;
 
 class StatusController extends Controller
 {
@@ -49,6 +53,13 @@ class StatusController extends Controller
                 $path_profile = public_path('uploads/profiles/'.$imgname.".jpeg");
                 $img_thumbnail->save($path_thumbnail);
                 $img_profile->save($path_profile);
+
+            //Mail for Welcome
+            $data=[];
+            $user = \Auth::User();
+            Mail::send('emails.welcome', $data,function ($message) use ($user) {
+                $message->to($user->email,$user->name)->subject('Welcome to Buildblockz.com');
+            });
         }
 
 
@@ -89,26 +100,89 @@ class StatusController extends Controller
      */
     public function store(PrepareStatusRequest $request)
     {
-        //$files = Input::file('images');
-        $files = false;
+
+        $files = Input::file('images');
+        //$files = false;
         if($files !== false){
             $photo = 1;//error
         }else{
             $photo = 0;
         }
+
+        //Parse status body to find 1st Link
+        //$url containing the 1st url
+        $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
+        $text = $request['body'];
+        $text = str_replace( "www.", "http://www.", $text );
+        $text = str_replace( "http://http://www.", "http://www.", $text );
+        $text = str_replace( "https://http://www.", "https://www.", $text );
+        preg_match_all($reg_exUrl, $text, $matches);
+        $url = $matches[0][0];
+
+        if($url != ''){
+            $link_preview = 1;
+        }else{
+            $link_preview = 0;
+        }
+        //Status Create
         Status::create([
             'user_id' => \Auth::User()->id,
             'body' => $request['body'],
             'post_as_admin_page' => 0,
             'page_id' => null,
             'photo' => $photo,
-            '$video' => 0
+            'video' => 0,
+            'link_preview' => $link_preview
         ]);
+        $statuses = Status::where('user_id',\Auth::User()->id)->orderBy('updated_at', 'desc')->first();
+        //Parseing the page and storing in table
+        $body = file_get_contents($url);
+        $parser = (new MetaParser($body, $url));
+        $data = $parser->getDetails();
+        $data['favicon'];
 
+        $url_count = LinkPreview::where('link',$url)->count();
+        if($url_count == 0){
+            LinkPreview::create([
+                'link' => $url,
+                'meta_description' => $data['meta']['description'],
+                'first_image' => $data['images'][0],
+                'open_graph_title' => $data['openGraph']['title'],
+                'open_graph_type' => $data['openGraph']['type'],
+                'open_graph_image' => $data['openGraph']['image'],
+                'title' => $data['title'],
+            ]);
+
+            $url_get_id = LinkPreview::where('link',$url)->first();
+            LinkPreviewRelation::create([
+                'status_id' => $statuses->id,
+                'comment_id' => 0,
+                'mail_id' => 0,
+                'link_preview_id' => $url_get_id->id,
+            ]);
+        }else{
+            LinkPreview::where('link',$url)->update([
+                'meta_description' => $data['meta']['description'],
+                'first_image' => $data['images'][0],
+                'open_graph_title' => $data['openGraph']['title'],
+                'open_graph_type' => $data['openGraph']['type'],
+                'open_graph_image' => $data['openGraph']['image'],
+                'title' => $data['title'],
+            ]);
+            $url_get_id = LinkPreview::where('link',$url)->first();
+            LinkPreviewRelation::create([
+                'status_id' => $statuses->id,
+                'comment_id' => 0,
+                'mail_id' => 0,
+                'link_preview_id' => $url_get_id->id,
+            ]);
+        }
+
+
+        //Saving Images in uploads/statuses folder
 
         $file_count = count($files);
         if($files !== false){
-            $statuses = Status::where('user_id',\Auth::User()->id)->orderBy('updated_at', 'desc')->first();
             $status_id = $statuses->id;
             $pathAuth = public_path('uploads/statuses/'.\Auth::User()->id);
             File::makeDirectory($pathAuth, $mode = 0777, true, true);
