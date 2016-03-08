@@ -101,6 +101,7 @@ class WorkstationPageController extends Controller
         Status::create([
             'user_id' => \Auth::User()->id,
             'body' => $request['body'],
+            'post_as_admin_page' => $request['post_as_admin_page'],
             'page_id' => $request['page_id'],
             'photo' => $photo,
             '$video' => 0

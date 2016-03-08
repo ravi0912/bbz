@@ -15,11 +15,11 @@
 
 	<!-- Fonts -->
 
-	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 	<link href="{{ URL::asset('css/main.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('css/right.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('css/animate.min.css') }}" rel="stylesheet">
-	<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+
 	<style>
 		body{
 			font-family: Raleway;

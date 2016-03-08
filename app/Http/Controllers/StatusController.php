@@ -99,6 +99,7 @@ class StatusController extends Controller
         Status::create([
             'user_id' => \Auth::User()->id,
             'body' => $request['body'],
+            'post_as_admin_page' => 0,
             'page_id' => null,
             'photo' => $photo,
             '$video' => 0

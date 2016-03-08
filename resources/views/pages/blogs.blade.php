@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="res/css/bootstrap-theme.min.css">
     <link rel="stylesheet" type="text/css" href="res/css/styles_blog.css">
 
+
     <style type="text/css">
         .blog-entry{
             margin: 20px;
@@ -172,11 +173,12 @@
 
             <div class="blog_wrap">
 
-
                 <div class="blog-entry">
                     <div>
+
                         <h1>Top 5 Modern Architectural Marvels of India</h1>
-                        <p> Construction and architecture have risen to a new level altogether with great minds working enthusiastically towards building India with amazing structures. India prides itself on having some of the most contemporary designs for offices, especially in the IT sector.
+                        <p>
+                            Construction and architecture have risen to a new level altogether with great minds working enthusiastically towards building India with amazing structures. India prides itself on having some of the most contemporary designs for offices, especially in the IT sector.
  </p>
                         <a onclick = "blog_open(1);">READ MORE</a>
                     </div>
@@ -242,6 +244,21 @@
             </div>
             <div id = "blog_1_form_content" class = "blog_1_form_content">
                 <h1>Top 5 Indian Architectural Marvels</h1>
+
+                <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";?>" target="_blank">
+                    Share on Facebook
+                </a>
+
+                <a href="ttps://www.linkedin.com/cws/share?url=<?php echo $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";?>" target="_blank">
+                    Share on Linkedin
+                </a>
+
+                <a href="https://twitter.com/share?url=<?php echo $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";?>" target="_blank">
+                    Share on Twitter
+                </a>
+
+
+
                 <p>
                     Construction and architecture have risen to a new level altogether with great minds working enthusiastically towards
                     building India with amazing structures. India prides itself on having some of the most contemporary designs for
@@ -358,6 +375,7 @@
 
                 <i>Sources</i>: <a href="http://www.ibef.org/industry/indian-real-estate-industry-analysis-presentation">IBEF</a>,
                 <a href="http://business.mapsofindia.com/india-real-estate/boom.html#sthash.rAzDNqPg.dpuf">Maps of India</a>
+
             </div>
         </div>
     </div>
@@ -549,6 +567,11 @@
             $(".blog_pop").hide();
         }
     </script>
+
+
+
+
+
     <script type="text/javascript" src="res/js/jquery.min.js"></script>
     <script type="text/javascript" src="res/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="res/js/jquery.easing.min.js"></script>
