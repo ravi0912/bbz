@@ -1,0 +1,152 @@
+/*navigation bar css*/
+
+a {
+	color:#000;
+}
+
+
+.navbar {
+	border: 1px solid #6262ff;
+	height:80px;
+	width:100%;
+	position: relative;
+}
+
+.brand {
+	border: 1px solid #6262ff;
+	height:80px;
+	width:15%;
+	position: absolute;
+	left:0px;
+}
+
+.brandlogo {
+	position: absolute;
+	border: 1px solid #6262ff;
+	height:80px;
+	width:100%;
+}
+
+.navbar_section {
+	position: absolute;
+	height:30px;
+}
+.navbar_section1 {
+	width:80px;
+	left:300px;
+	top:40px;
+}
+.btn {
+	width: 80px;
+	height: 30px;
+	padding: 2px;
+}
+
+.btn-default {
+	border-radius: 13%;
+}
+
+.navbar_section2 {
+	width:340px;
+	left:390px;
+	top:40px;
+}
+
+.navbar_section3 {
+	width:80px;
+	left:1260px;
+	top:40px;
+}
+
+.logout {
+	background-color: #fff;
+	border:1px solid #76d7df;
+}
+
+/*side bar css*/
+
+.sidebar_wrapper {
+	margin-left: 10px;
+}
+
+
+.sidebar {
+	list-style: none;
+}
+
+.list_item_wrapper {
+	width:150px;
+	
+}
+
+.list_item {
+	
+	padding: 3px;
+	}
+
+.list_item1.active {
+	border:1px solid #000;
+	border-radius: 20px / 36px ;
+}
+.list_item2.active {
+	border:1px solid #000;
+	border-radius: 20px / 36px ;
+}
+.list_item3.active {
+	border:1px solid #000;
+	border-radius: 20px / 36px ;
+}
+.list_item4.active {
+	border:1px solid #000;
+	border-radius: 20px / 36px ;
+}
+
+.list_item_name:focus {
+	text-decoration: none;
+}
+.list_item_name:hover {
+	text-decoration: none;
+}
+
+.optionbuttons {
+	height:116px;
+	position: relative;
+}
+.option_item {
+	
+	height:33px;
+	width:96%;
+	padding: 8px;
+	position: absolute;
+	background-color: #ff0010;
+}
+.options {
+	margin-left: 15px;
+	color:#fff;
+}
+.options:hover {
+	color:#fff;
+	text-decoration: none;
+}
+.options:focus {
+	color:#fff;
+	text-decoration: none;
+}
+
+/* table section*/
+
+.table_wrapper {
+	border:1px solid black;
+	height:500px;
+	overflow: scroll;
+}
+
+.mdl-data-table {
+	width:100%;
+}
+.dropdown-toggle:focus {
+	text-decoration: none;
+}
+.dropdown-toggle:hover {
+	text-decoration: none;
+}

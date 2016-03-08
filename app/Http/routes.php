@@ -146,6 +146,12 @@ Route::get('linkpreview','PagesController@linkpreview');
 Route::get('ajaxlinkpreview','PagesController@ajaxlinkpreview');
 
 
+
+
+
+
+
 //routes for blog
 Route::get('blog','BlogController@index');
 Route::get('viewBlog/{id}','BlogController@show');
+
