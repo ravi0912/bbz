@@ -1,0 +1,52 @@
+.navbar-default{
+  background-color: #6262ff;
+  height: 80px;
+  border-bottom: none;
+}
+#settings{
+  margin-top:10px;
+  color: #fff;
+}
+
+.left_section {
+	height:200px;
+	width:100%;
+}
+
+.middle_section_wrapper {
+	margin-left: 20px;
+
+}
+
+.mdl-tabs__panel {
+	border: 1px solid #6262ff;
+	height:600px;
+}
+
+.mdl-tabs__tab {
+	border: 1px solid #6262ff;
+}
+
+.mdl-tabs__tab:hover {
+	text-decoration: none;
+}
+a:focus {
+	text-decoration: none;
+}
+
+.file_input {
+	border:1px solid #6262ff;
+	height:100px;
+	width:98%;
+	margin-top:3px;
+	margin-left:5px;
+}
+
+.content {
+	background-color: #f5f5f5;
+	width:420px;
+}
+
+.icon {
+	color:#6262ff;
+}

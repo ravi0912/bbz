@@ -139,3 +139,8 @@ Route::post('createPage','WorkstationPageController@create');
 Route::get('requestSubcategory','WorkstationPageController@requestSubcategory');
 Route::get('showPage/{id}','WorkstationPageController@show');
 Route::post('storeStatusPage','WorkstationPageController@store');
+
+
+//Admin  seller page
+Route::get('sellerPage','SellerController@sellerPage');
+Route::get('sellerPage2','SellerController@sellerPage2');

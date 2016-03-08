@@ -1,0 +1,43 @@
+$(document).ready(function(){
+	$(".list_item1").click(function(){
+		$(".list_item1").toggleClass('active');
+		$(".list_item2").removeClass('active');
+		$(".list_item3").removeClass('active');
+		$(".list_item4").removeClass('active');
+		$("#contact_info").slideToggle();
+		$("#product_catalog").hide();
+		$("#collection").hide();
+		$("#delivery_info").hide();
+	});
+	$(".list_item2").click(function(){
+		$(".list_item2").toggleClass('active');
+		$(".list_item1").removeClass('active');
+		$(".list_item3").removeClass('active');
+		$(".list_item4").removeClass('active');
+		$("#product_catalog").slideToggle();
+		$("#contact_info").hide();
+		$("#collection").hide();
+		$("#delivery_info").hide();
+	});
+	$(".list_item3").click(function(){
+		$(".list_item3").toggleClass('active');
+		$(".list_item1").removeClass('active');
+		$(".list_item2").removeClass('active');
+		$(".list_item4").removeClass('active');
+		$("#collection").slideToggle();
+		$("#contact_info").hide();
+		$("#product_catalog").hide();
+		$("#delivery_info").hide();
+	});
+	$(".list_item4").click(function(){
+		$(".list_item4").toggleClass('active');
+		$(".list_item1").removeClass('active');
+		$(".list_item2").removeClass('active');
+		$(".list_item3").removeClass('active');
+		$("#delivery_info").slideToggle();
+		$("#contact_info").hide();
+		$("#product_catalog").hide();
+		$("#collection").hide();
+	});
+
+});
