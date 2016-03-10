@@ -82,8 +82,15 @@
             }
                 echo $text;
             ?>
+            
 
-
+        </div>
+        <div>
+            @if(!empty($linkpreviewexist[$status->id]))
+                
+                <img src="{{ $linkpreviewimage[$status->id] }}" alt="loading" style="width: 70px; height: 70px;">
+                {{ $linkpreviewdescription[$status->id] }} {{ $linkpreviewtitle[$status->id] }}
+            @endif
         </div>
     </div>
                {{--<div id = "newsfeed_content_4" class = "newsfeed_content_4">--}}

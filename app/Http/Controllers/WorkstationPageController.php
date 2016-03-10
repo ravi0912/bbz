@@ -93,7 +93,7 @@ class WorkstationPageController extends Controller
     public function store(Request $request)
     {
         $files = false;
-        if($files !== false){
+        if($files[0] != NULL){
             $photo = 1;//error
         }else{
             $photo = 0;
@@ -109,7 +109,7 @@ class WorkstationPageController extends Controller
 
 
         $file_count = count($files);
-        if($files !== false){
+        if($files[0] != NULL){
             $statuses = Status::where('user_id',\Auth::User()->id)->orderBy('updated_at', 'desc')->first();
             $status_id = $statuses->id;
             $pathAuth = public_path('uploads/statuses/'.\Auth::User()->id);

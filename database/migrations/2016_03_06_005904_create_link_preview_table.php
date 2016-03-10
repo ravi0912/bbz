@@ -15,12 +15,12 @@ class CreateLinkPreviewTable extends Migration
         Schema::create('link_preview', function (Blueprint $table) {
             $table->increments('id');
             $table->string('link');
-            $table->string('meta_description');
-            $table->string('first_image');
-            $table->string('open_graph_title');
-            $table->string('open_graph_type');
-            $table->string('open_graph_image');
-            $table->string('title');
+            $table->string('meta_description')->nullable();
+            $table->string('first_image')->nullable();
+            $table->string('open_graph_title')->nullable();
+            $table->string('open_graph_type')->nullable();
+            $table->string('open_graph_image')->nullable();
+            $table->string('title')->nullable();
             $table->timestamps();
         });
     }
