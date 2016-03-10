@@ -8,7 +8,7 @@
 
 
 
-    <div id = "profile main_body_content" class = "profile main_body_content">
+    <div id = "profile main_body_content" class = "profile profile_main_body_content">
         <div id = "profile_content" class = "profile_content">
             @include('errors.list')
             <div id = "profile_1" class="profile_1">
@@ -30,7 +30,7 @@
 
                         </div>
                         @if($profile_count == 1)
-                            <div id = "profile_1_edit" class = "profile_3_edit" onclick="profile_1_Show(event,{{ auth()->user()->id }});">Edit</div>
+                            <div id = "profile_1_edit" class = "profile_3_edit" onclick="profile_1_Show(event,{{ auth()->user()->id }});"><span class="glyphicon glyphicon-pencil"></span></div>
                         @else
                             <div id = "profile_1_edit" class = "profile_3_add general_button" onclick="rofile_1_Add(event,{{ auth()->user()->id }});">Add</div>
                         @endif
@@ -115,7 +115,7 @@
                         <div id = "profile_3_education_content_display" class="profile_3_education_content">
                             @foreach ($educations as $education)
                                 <div id = "profile_3_education_content_1" class="profile_3_sub_content">
-                                    <div id = "profile_3_education_edit" class = "profile_3_education_edit profile_3_edit" onclick="profile_3_education_show(event,{{ $education->id }});">Edit</div>
+                                    <div id = "profile_3_education_edit" class = "profile_3_education_edit profile_3_edit" onclick="profile_3_education_show(event,{{ $education->id }});"><span class="glyphicon glyphicon-pencil"></span></div>
                                     <div id = "profile_3_education_content_school" class = "profile_3_sub_content_school">{{ $education->school }}</div>
                                     <div id = "profile_3_education_content_branch" class = "profile_3_sub_content_branch">{{ $education->branch }}</div>
                                     <div id = "profile_3_education_content_degree" class = "profile_3_sub_content_degree">{{ $education->degree }}</div>
@@ -190,7 +190,7 @@
 
                             @foreach ($experiences as $experience)
                                 <div id = "profile_3_experience_content_1" class="profile_3_sub_content">
-                                    <div id = "profile_3_experience_edit" class = "profile_3_experience_edit profile_3_edit" onclick="profile_3_experience_show(event,{{ $experience->id }});">Edit</div>
+                                    <div id = "profile_3_experience_edit" class = "profile_3_experience_edit profile_3_edit" onclick="profile_3_experience_show(event,{{ $experience->id }});"><span class="glyphicon glyphicon-pencil"></span></div>
                                     <div id = "profile_3_experience_content_school" class = "profile_3_sub_content_school">{{ $experience->company_name }}</div>
                                     <div id = "profile_3_experience_content_branch" class = "profile_3_sub_content_branch">{{ $experience->title }}</div>
                                     <div id = "profile_3_experience_content_branch" class = "profile_3_sub_content_branch">{{ $experience->location }}</div><br>
@@ -268,7 +268,7 @@
                         @foreach ($projects as $project)
                             <div id = "profile_3_project_content_display" class="profile_3_project_content">
                                 <div id = "profile_3_project_content_1" class="profile_3_sub_content">
-                                    <div id = "profile_3_project_edit" class = "profile_3_project_edit profile_3_edit" onclick="profile_3_project_show(event,{{ $project->id }});">Edit</div>
+                                    <div id = "profile_3_project_edit" class = "profile_3_project_edit profile_3_edit" onclick="profile_3_project_show(event,{{ $project->id }});"><span class="glyphicon glyphicon-pencil"></span></div>
                                     <div >
                                         {!! Form::open(['action' => 'ImageUploadController@storeProjectImage','files'=>true])!!}
                                             <div class="form-group">
@@ -288,16 +288,19 @@
                                     <div id = "profile_3_project_content_branch" class = "profile_3_sub_content_branch"> <a title="Click to see Project" href="{{ $project->url }}" target="_blank">Project Link</a> </div>
                                     <div id = "profile_3_project_content_description_2" class = "profile_3_sub_content_description_2">{{ $project->description }}</div>
                                     <div id = "profile_3_project_content_gallery" class = "profile_3_sub_content_gallery">
+
                                         <?php
+                                            $i=0;
                                         $dirname = "uploads/projects/".auth()->user()->id."/".$project->id."/";
                                         $images = glob($dirname."*.jpeg");
                                             //echo $dirname;
                                         foreach($images as $image) {
                                                     $image1 = "'".$image."'";
-                                                    echo '<div class = "profile_3_sub_content_image" onclick="profile_large(event,'.$image1.')"><img src = "'.$image.'"></div>';
+                                                    echo '<div class = "profile_3_sub_content_image" onclick="profile_large_carousel(event,'.$i++.','.$project->id.')"><img src = "'.$image.'"></div>';
                                                 }
                                             ?>
                                     </div>
+
                                 </div>
                             </div>
                         @endforeach
@@ -435,6 +438,28 @@
                 $(".profile_image_2_preview").hide();
             });
         });
+
+
+        //displaying project large image
+        function profile_large_carousel(event,active_image,project_id){
+            if(event.which == 1) {
+                var user_id = "{{ auth()->user()->id }}";
+                var domain = window.location.host;
+                $("#profile_1_form_head").show();
+                $("#profile_1_form").addClass("animated zoomIn");
+                $.get('http://'+domain+'/activeImageCarousel',
+                        {
+                            active_image: active_image,
+                            project_id:project_id,
+                            user_id: user_id
+                        },function(markup){
+                    $('#profile_1_form').html(markup);
+                });
+
+                $("#profile_1_form").html('<?php echo 1;?>');
+            }
+
+        }
     </script>
     <script type="text/javascript" src = "{{ URL::asset('js/profile.js') }}" ></script>
     {{--@include('partials.notification')--}}

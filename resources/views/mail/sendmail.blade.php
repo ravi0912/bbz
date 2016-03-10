@@ -51,6 +51,12 @@
             <input type='text' id='message_input_subject' name = "message_input_subject"  class="message_input_subject"><br>
             <textarea id='message_input_text' placeholder='Message' class="message_input_text" rows="3" cols=""></textarea>
         </div>
+
+    </div>
+    <div id="message_input_button_image">
+        <div id = "message_input_image" class = "message_input_image">
+            <img  src = "{{ URL::asset('uploads/profiles/'.auth()->user()->id.'.jpeg') }}" alt = "not found" align="middle">
+        </div>
         <div id='message_input_action' class='message_input_action'>
             <button id="" class="general_button" onmousedown="sendMail({{ $id }},event)">
                 Send
@@ -58,9 +64,7 @@
 
         </div>
     </div>
-    <div id = "message_input_image" class = "message_input_image">
-        <img  src = "{{ URL::asset('uploads/profiles/'.auth()->user()->id.'.jpeg') }}" alt = "not found" align="middle">
-    </div>
+
 </div>
 
 <script>

@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <link rel="stylesheet" type="text/css" href="res/css/bootstrap-theme.min.css">
+
     <link rel="stylesheet" type="text/css" href="res/css/styles_blog.css">
 
 
@@ -572,8 +572,5 @@
 
 
 
-    <script type="text/javascript" src="res/js/jquery.min.js"></script>
-    <script type="text/javascript" src="res/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="res/js/jquery.easing.min.js"></script>
-    <script type="text/javascript" src="res/js/scrolling-nav.js"></script>
+
 @stop

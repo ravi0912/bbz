@@ -1,4 +1,3 @@
-
 <div id = "right" class = "right">
     <div id = "right_nav" class = "right_nav">
         <div  onmousedown = "load_right_ul_li_1(event);" class = "right_nav_active"><img onload="onLoadNotifications();" id = "right_nav_1" src = "{{ URL::asset('images/logo/right/SVG/notification_off.svg') }}"></div>
@@ -157,4 +156,11 @@
             $(".right_ul_li").html(markup);
         });
     }
+
+
+
+
+
 </script>
+
+

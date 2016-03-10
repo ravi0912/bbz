@@ -122,6 +122,15 @@ class ImageUploadController extends Controller
     }
 
     /**
+     * Image Carousel Active Image Project
+     */
+    public function activeImageCarousel(Request $request){
+        $active_image = $request['active_image'];
+        $project_id = $request['project_id'];
+        $user_id = $request['user_id'];
+        return view('partials.activeImageCarousel', ['active_image' => $active_image, 'project_id' => $project_id, 'user_id' => $user_id]);
+    }
+    /**
      * Display the specified resource.
      *
      * @param  int  $id

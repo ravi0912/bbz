@@ -8,8 +8,8 @@
 
 
 
-    <div id = "profile main_body_content" class = "profile main_body_content">
-        <div id = "profile_content" class = "profile_content">
+    <div id = "profile main_body_content" class = "profile main_body_content_showprofile">
+        <div id = "profile_content_showprofile" class = "profile_content_showprofile">
 
             <div id = "profile_1" class="profile_1">
                 <a class = "profile_1_active" href="#profile_image" ><div  onclick = "profile_education();">HOME</div></a>

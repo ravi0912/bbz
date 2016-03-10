@@ -72,6 +72,10 @@ Route::get('unBoostSkill','SkillController@unBoostSkill');
 Route::post('imageUpload','ImageUploadController@storeProfileImage');
 Route::post('storeProjectImage','ImageUploadController@storeProjectImage');
 
+//Carousel Image Active
+Route::get('activeImageCarousel','ImageUploadController@activeImageCarousel');
+
+
 
 
 Route::get('index', function()

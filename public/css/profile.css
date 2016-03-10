@@ -9,13 +9,25 @@
     text-decoration: none;
 }
 .profile_content{
-    width:600px;
+    width: 610px;
+    margin-left: 17px;
 }
+
+.profile_content_showprofile{
+    width: 610px;
+    margin-left: 38px;
+}
+
+
 .profile_1_form{
     background: white;
     overflow: auto;
 }
 .profile_pop_close{
+    position:absolute;
+    top:73px;
+    right:178px;
+    z-index:1000;
     cursor: pointer;
     padding:3px;
     margin: 1%;
@@ -47,9 +59,41 @@
 }
 .profile_1_active{
     text-decoration: none;
-    border-left: 1px solid red;
+    border-bottom: 1px solid red;
     background: #f9f9f9;
 }
+
+.glyphicon-pencil:hover {
+    padding:5px;
+}
+
+
+/*carousel gallery left and right symbol*/
+
+#carousel_right{
+    background-image:none;
+    background: transparent;
+}
+
+#myCarousel{
+    height: 300px;
+
+}
+
+#carousel_item{
+    height: 476px;
+    text-align: left;
+}
+
+#imgCarousel{
+    height: 476px;
+    width: 900px;
+}
+
+#carousel_left{
+    background-image:none;
+}
+
 #profile_1_edit{
     display: none;
 }
@@ -59,7 +103,7 @@
     border:1px solid #f1f1f1 ;
     z-index: 101;
     position: fixed;
-    background-color:rgba(0, 0, 0, 0.5);
+    background-color:rgba(0, 0, 0, 0.7);
     top:0;
     bottom: 0;
     left: 0;
@@ -69,6 +113,25 @@
     margin: auto;
 }
 #profile_1_form{
+    -webkit-animation-duration: 0.3s;
+    -moz-animation-duration: 0.3s;
+    background:#f9f9f9;
+    overflow:auto;
+    padding: 5px;
+    border:1px solid #f1f1f1 ;
+    z-index: 101;
+    position: absolute;
+    top:0%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 405px;
+    overflow: hidden;
+    text-align:left;
+    margin: 7% 15% 7% 15%;
+}
+
+#profile_1_form_carousel{
     -webkit-animation-duration: 0.3s;
     -moz-animation-duration: 0.3s;
     background:#f9f9f9;
