@@ -320,7 +320,7 @@
                                                         class="fa fa-times"></i> Close</li>
                                         </ul></li>
 --}}
-                                    <li id="menu-item-4323" class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-4323 ubermenu-item-level-0 ubermenu-column ubermenu-column-auto" ><a
+                                   {{-- <li id="menu-item-4323" class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-4323 ubermenu-item-level-0 ubermenu-column ubermenu-column-auto" ><a
                                                 class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="#section1" tabindex="0"><span
                                                     class="ubermenu-target-title ubermenu-target-text">About </span></a></li>
                                     <li id="menu-item-4323" class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-4323 ubermenu-item-level-0 ubermenu-column ubermenu-column-auto" ><a
@@ -328,15 +328,15 @@
                                                     class="ubermenu-target-title ubermenu-target-text">Contact Us </span></a></li>
                                     <li id="menu-item-4323" class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-4323 ubermenu-item-level-0 ubermenu-column ubermenu-column-auto" ><a
                                                 class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="#section3" tabindex="0"><span
-                                                    class="ubermenu-target-title ubermenu-target-text">FAQs </span></a></li>
+                                                    class="ubermenu-target-title ubermenu-target-text">FAQs </span></a></li>--}}
                                     <li id="menu-item-4323" class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-4323 ubermenu-item-level-0 ubermenu-column ubermenu-column-auto" ><a
-                                                class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="#section5" tabindex="0"><span
+                                                class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="{{url('/auth/register')}}" tabindex="0"><span
                                                     class="ubermenu-target-title ubermenu-target-text">Register </span></a></li>
 
 
 
                                     <li id="menu-item-4710" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-4710 ubermenu-item-level-0 ubermenu-column ubermenu-column-auto" ><a
-                                                class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="#" tabindex="0"><span
+                                                class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="{{url('/auth/login')}}" tabindex="0"><span
                                                     class="ubermenu-target-title ubermenu-target-text">Login</span></a></li>
 
                                    {{-- <li class="menu-item menu-item-language menu-item-language-current">--}}
@@ -396,31 +396,63 @@
                         id="aq-block-2" class="aq-block aq-block-aq_column_block span12 aq-first large cf" data-width="12"><div
                             class="row"><div
                                 id="aq-block-3" class="aq-block aq-block-cr_features_home  aq-first  cf" data-width=""><div
-                                    class="circleflip row"><ul
+                                    class="circleflip row" style="margin-left:100px;padding:30px"><ul
                                         class="featuresHome  "><li
                                             class="span3 grid2 animateCr cr_popup"><div
                                                 class="image_title_wrap"><div
                                                     class="featureHomeImage image_added "><img
-                                                        width="44" height="64" src="img/colorful_flat_icons_1.png" class="attachment-icon_box_image" alt="colorful_flat_icons_2_by_studio4_03" /></div><h3 class="featureHomeTitle" style="color:#2a2a2a">Creative Ideas</h3></div><div
-                                                class="featureHomeText"><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p></div></li><li
+                                                        width="44" height="64" src="img/colorful_flat_icons_1.png" class="attachment-icon_box_image" alt="colorful_flat_icons_2_by_studio4_03" /></div><h3 class="featureHomeTitle" style="color:#2a2a2a">Powerful Networking</h3></div><div
+                                                class="featureHomeText"><p>Connect with your potential co-workers, clients and suppliers as all your important business people are HERE!</p></div></li><li
                                             class="span3 grid2 animateCr cr_popup"><div
                                                 class="image_title_wrap">
 
                                             <div class="featureHomeImage image_added "><img
-                                                        width="80" height="64" src="img/colorful_flat_icons.png" class="attachment-icon_box_image" alt="colorful_flat_icons_2_by_studio4_11" /></div><h3 class="featureHomeTitle" style="color:#2a2a2a">Delicious Visuals</h3></div><div
-                                                class="featureHomeText"><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p></div></li><li
+                                                        width="80" height="64" src="img/colorful_flat_icons.png" class="attachment-icon_box_image" alt="colorful_flat_icons_2_by_studio4_11" /></div><h3 class="featureHomeTitle" style="color:#2a2a2a">Professional Catalogs</h3></div><div
+                                                class="featureHomeText"><p> Browse through updated and detailed catalogs and filter products based on your taste</p></div></li><li
                                             class="span3 grid2 animateCr cr_popup"><div
                                                 class="image_title_wrap"><div
                                                     class="featureHomeImage image_added "><img
-                                                        width="70" height="64" src="img/colorful.png" class="attachment-icon_box_image" alt="colorful_flat_icons_2_by_studio4_06" /></div><h3 class="featureHomeTitle" style="color:#2a2a2a">Easy to Use</h3></div><div
-                                                class="featureHomeText"><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p></div></li><li
+                                                        width="70" height="64" src="img/colorful.png" class="attachment-icon_box_image" alt="colorful_flat_icons_2_by_studio4_06" /></div><h3 class="featureHomeTitle" style="color:#2a2a2a">  Industry Information</h3></div><div
+                                                class="featureHomeText"><p>Stay updated with the whereabouts of the industry; tenders, byelaws and blogs all sorted just for YOU!</p></div></li>{{--<li
                                             class="span3 grid2 animateCr cr_popup"><div
                                                 class="image_title_wrap"><div
                                                     class="featureHomeImage image_added "><img
                                                         width="54" height="64" src="img/colorful_flat_icons_2_by_studio4_15.png" class="attachment-icon_box_image" alt="colorful_flat_icons_2_by_studio4_15" /></div><h3 class="featureHomeTitle" style="color:#2a2a2a">WPML Support</h3></div><div
-                                                class="featureHomeText"><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p></div></li></ul></div></div></div></div></div></div><div
+                                                class="featureHomeText"><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p></div></li>--}}</ul></div></div></div></div></div></div>
+
+        <div
+                class="backgroundBlock" id="section2"><div
+                    class="container"><div
+                        id="aq-block-2" class="aq-block aq-block-aq_column_block span12 aq-first large cf" data-width="12"><div
+                            class="row"><div
+                                id="aq-block-3" class="aq-block aq-block-cr_features_home  aq-first  cf" data-width=""><div
+                                    class="circleflip row" style="margin-left:100px;padding:30px"><ul
+                                        class="featuresHome  "><li
+                                            class="span3 grid2 animateCr cr_popup"><div
+                                                class="image_title_wrap"><div
+                                                    class="featureHomeImage image_added "><img
+                                                        width="44" height="64" src="img/colorful_flat_icons_1.png" class="attachment-icon_box_image" alt="colorful_flat_icons_2_by_studio4_03" /></div><h3 class="featureHomeTitle" style="color:#2a2a2a">Showcase Portfolio</h3></div><div
+                                                class="featureHomeText"><p>You’ve lead multiple projects, mastered exceptional skills and established you reputation in the industry. Now it’s time to show it to the world</p></div></li><li
+                                            class="span3 grid2 animateCr cr_popup"><div
+                                                class="image_title_wrap">
+
+                                            <div class="featureHomeImage image_added "><img
+                                                        width="80" height="64" src="img/colorful_flat_icons.png" class="attachment-icon_box_image" alt="colorful_flat_icons_2_by_studio4_11" /></div><h3 class="featureHomeTitle" style="color:#2a2a2a">Discuss & Share with Experts</h3></div><div
+                                                class="featureHomeText"><p>Need Feedback from Technical Experts who can exactly understand your painpoint? Or share your thoughts and opinion with people having similar interests? This is your place to be</p></div></li><li
+                                            class="span3 grid2 animateCr cr_popup"><div
+                                                class="image_title_wrap"><div
+                                                    class="featureHomeImage image_added "><img
+                                                        width="70" height="64" src="img/colorful.png" class="attachment-icon_box_image" alt="colorful_flat_icons_2_by_studio4_06" /></div><h3 class="featureHomeTitle" style="color:#2a2a2a">Find Detailed Catalogs</h3></div><div
+                                                class="featureHomeText"><p>When it comes to your business, we cannot compromise with quality, updated and detailed information. Find exactly what you need with minimum efforts</p></div></li>{{--<li
+                                            class="span3 grid2 animateCr cr_popup"><div
+                                                class="image_title_wrap"><div
+                                                    class="featureHomeImage image_added "><img
+                                                        width="54" height="64" src="img/colorful_flat_icons_2_by_studio4_15.png" class="attachment-icon_box_image" alt="colorful_flat_icons_2_by_studio4_15" /></div><h3 class="featureHomeTitle" style="color:#2a2a2a">WPML Support</h3></div><div
+                                                class="featureHomeText"><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p></div></li>--}}</ul></div></div></div></div></div></div>
+
+        <div
                 class="backgroundBlock" id="section3"><div
-                    class=""><div
+                    class="">{{--<div
                         class="backgroundBlock   "><div
                             class="backgroundBlock separateBG  "  style="background-image:url(img/03.jpg); background-size : cover;background-position: center top;; opacity:1;filter: alpha(opacity=100) "></div><div
                             class="container"><div
@@ -554,7 +586,7 @@
                 class="backgroundBlock"><div
                     class="container"><div
                         id="aq-block-20" class="aq-block aq-block-aq_clear_block span12 aq-first  cf" data-width="12"><div
-                            class="cf divider" style="height:50px"></div></div></div></div><div
+                            class="cf divider" style="height:50px"></div></div></div></div>--}}{{--<div
                 class="backgroundBlock" id="section5"><div
                     class=""><div
                         class="backgroundBlock   "><div
@@ -565,7 +597,7 @@
                                         id="aq-block-22" class="aq-block aq-block-cr_text_block span12 aq-first  cf" data-width="12"><div
                                             class="animateCr noanimation" style="margin-bottom:20px;"><p
                                                 style="text-align: center;"><span
-                                                    style="font-family: sourceSansLight, arial; font-size: 40px; line-height: 36px;">Testimonials</span></p></div></div></div><div
+                                                    style="font-family: sourceSansLight, arial; font-size: 40px; line-height: 36px;">Testimonials</span></p></div></div></div>--}}{{--<div
                                     class="row"><div
                                         id="aq-block-23" class="aq-block aq-block-aq_clear_block span12 aq-first  cf" data-width="12"><div
                                             class="cf divider" style="height:30px"></div></div></div><div
@@ -593,7 +625,7 @@ right: -57%;"
                                             class="carousel-linked-nav pagination carousel-indicators"><li
                                                     class="active" data-slide-to="0"></li><li
                                                     data-slide-to="1"></li><li
-                                                    data-slide-to="2"></li></ol></div></div></div></div></div></div></div></div><div
+                                                    data-slide-to="2"></li></ol></div></div></div></div></div></div></div></div>--}}{{--<div
                 class="backgroundBlock" id="section6"><div
                     class="container"><div
                         id="aq-block-25" class="aq-block aq-block-aq_column_block span12 aq-first large cf" data-width="12"><div
@@ -606,7 +638,7 @@ right: -57%;"
                                 id="aq-block-27" class="aq-block aq-block-cr_text_block span12 aq-first  cf" data-width="12"><div
                                     class="animateCr noanimation" style="margin-bottom:20px;"><p
                                         style="text-align: center;"><span
-                                            style="font-size: 22px; font-family: sourceSansLight, arial; line-height: 25px;">Here is a pick of our Top Clients</span></p></div></div></div><div
+                                            style="font-size: 22px; font-family: sourceSansLight, arial; line-height: 25px;">Here is a pick of our Top Clients</span></p></div></div></div>--}}{{--<div
                             class="row"><div
                                 id="aq-block-28" class="aq-block aq-block-cr_carousel_block span12 aq-first  cf" data-width="12"><div
                                     class="list_carousel responsive">
@@ -639,16 +671,17 @@ right: -57%;"
                                 </ul><div
                                         class="clearfix"></div> <a
                                         class="prev" href="#"></a> <a
-                                        class="next" href="#"></a></div></div></div></div></div></div></div></div><footer
+                                        class="next" href="#"></a></div></div></div></div></div></div></div></div>--}}<footer
         id="circleFlipFooter" role="contentinfo"><div
             class="container"><ul
                 class="footerList row"><li
                     class="imageTextWidget widget customWidget span3"> <img
                         class="grid2" src="img/logo2.png" alt=""/><p
-                        class="textWidgetParagrph"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s<br/><br/>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum </p></li><li
+                        class="textWidgetParagrph">Welcome to Buildblockz.
+                                                We are a platform for professional networking and marketplace for the real-estate industry. Bringing experts and young professionals and Interior Building Material Sellers together in a uniquely visual community. Buildblockz represents a family that together runs the real-estate industry. </p></li><li
                     class="informationWidget widget customWidget span3"><div
-                        class="widgetDot"></div><h3 class="widgetTitle">Reaching Us !</h5><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p><ul
-                            class="informationList grid4"><li> <span>Postal Code: </span>000</li><li> <span>Tel: </span>(000) 000-0000</li><li> <span>Fax: </span>(000) 000-0000</li></ul><ul
+                        class="widgetDot"></div><h3 class="widgetTitle">Reaching Us !</h5><p>Buildblocks Consultancy Private Limited, B-74, Rajendra Marg, Bapu Nagar, Jaipur- </p><ul
+                            class="informationList grid4"><li> <span>Postal Code: </span>302015</li><li> <span>Tel: </span>+91- 8011240690</li>{{--<li> <span>Fax: </span>(000) 000-0000</li>--}}</ul><ul
                             class="widgetSocials clearfix"><li
                                 onMouseOut="this.style.backgroundColor='#494949'" onMouseOver="this.style.backgroundColor='#3b5998'">
                             <a href="#">
@@ -676,19 +709,19 @@ right: -57%;"
 
             <li id="tag_cloud-6" class="widget widget_tag_cloud grid4 span3"><h3 class="widgetTitle grid1">Tags</h3><div
                         class="tagcloud"><a
-                            href='#' class='tag-link-80' title='1 topic' style='font-size: 8pt;'>blog</a>
-                    <a href='#' class='tag-link-11' title='1 topic' style='font-size: 8pt;'>business</a>
-                    <a href='#' class='tag-link-81' title='1 topic' style='font-size: 8pt;'>circle</a>
-                    <a href='#' class='tag-link-12' title='1 topic' style='font-size: 8pt;'>consultant</a>
-                    <a href='#' class='tag-link-82' title='1 topic' style='font-size: 8pt;'>creiden</a>
-                    <a href='#' class='tag-link-213' title='1 topic' style='font-size: 8pt;'>gallery</a>
-                    <a href='#' class='tag-link-13' title='1 topic' style='font-size: 8pt;'>meditation</a>
-                    <a href='#' class='tag-link-90' title='1 topic' style='font-size: 8pt;'>minions</a>
-                    <a href='#' class='tag-link-14' title='1 topic' style='font-size: 8pt;'>nature</a>
-                    <a href='#' class='tag-link-15' title='1 topic' style='font-size: 8pt;'>sightseeing</a>
-                    <a href='#' class='tag-link-16' title='1 topic' style='font-size: 8pt;'>tourism</a>
-                    <a href='#' class='tag-link-212' title='1 topic' style='font-size: 8pt;'>video</a>
-                    <a href='#' class='tag-link-89' title='1 topic' style='font-size: 8pt;'>youtube</a>
+                            href='#' class='tag-link-80' title='1 topic' style='font-size: 8pt;'>workstation</a>
+                    <a href='#' class='tag-link-11' title='1 topic' style='font-size: 8pt;'>buildblockz</a>
+                    <a href='#' class='tag-link-81' title='1 topic' style='font-size: 8pt;'>blogs</a>
+                    <a href='#' class='tag-link-12' title='1 topic' style='font-size: 8pt;'>architect</a>
+                    <a href='#' class='tag-link-82' title='1 topic' style='font-size: 8pt;'>builder</a>
+                    <a href='#' class='tag-link-213' title='1 topic' style='font-size: 8pt;'>seller</a>
+                    <a href='#' class='tag-link-13' title='1 topic' style='font-size: 8pt;'>contractor</a>
+                    <a href='#' class='tag-link-90' title='1 topic' style='font-size: 8pt;'>structural engineer</a>
+                    <a href='#' class='tag-link-14' title='1 topic' style='font-size: 8pt;'>project manager</a>
+                    <a href='#' class='tag-link-15' title='1 topic' style='font-size: 8pt;'>networking</a>
+                    <a href='#' class='tag-link-16' title='1 topic' style='font-size: 8pt;'>discuss</a>
+                    <a href='#' class='tag-link-212' title='1 topic' style='font-size: 8pt;'>real estate</a>
+                    <a href='#' class='tag-link-89' title='1 topic' style='font-size: 8pt;'>trending</a>
                 </div></li>
 
             <li id="circleflip_recent_post_text-2" class="widget widget_circleflip_recent_post_text grid4 span3"><h3 class="widgetTitle grid1" style="margin-top: 0px;">Latest Posts</h3><div

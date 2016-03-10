@@ -44,10 +44,10 @@ bottom:0px;
 
 					<h3 data-animation="animated bounceInLeft" style="width: 61%;float: left;height: 100%;background-image:url('img/slide1_left.png');background-size: 100% 100%;position: absolute;
 left: 0px;">
-						<span style="top: 24%;position: absolute;left: 10%;font-size: 30px;" >This is the caption for slide 1</span>
+						<span style="top: 24%;position: absolute;left: 10%;font-size: 30px;" >WORKSTATION</span>
 					</h3>
 					<h3 data-animation="animated bounceInRight" style="width: 61%;float: left;height: 100%;background-image:url('img/slide1_right.png');background-size: 100% 100%;position: absolute;right: 0px;">
-						<span style="bottom: 24%;position: absolute;left: 22%;font-size: 30px;">This is the caption for slide 1 </span>
+						<span style="bottom: 24%;position: absolute;left: 22%;font-size: 30px;">MARKETPLACE</span>
 					</h3>
 					
 					<button class="btn btn-primary btn-lg" data-animation="animated zoomInRight" style="position: absolute;top: 35%;left: 47%;background-color: transparent;border: medium none;box-shadow: none;">
@@ -63,10 +63,10 @@ left: 0px;">
 
 					<h3 data-animation="animated bounceInLeft" style="width: 61%;float: left;height: 100%;background-image:url('img/slide1_left.png');background-size: 100% 100%;position: absolute;
 left: 0px;">
-						<span style="top: 24%;position: absolute;left: 10%;font-size: 30px;" >This is the caption for slide 2</span>
+						<span style="top: 24%;position: absolute;left: 10%;font-size: 30px;" >WORKSTATION</span>
 					</h3>
 					<h3 data-animation="animated bounceInRight" style="width: 61%;float: left;height: 100%;background-image:url('img/slide1_right.png');background-size: 100% 100%;position: absolute;right: 0px;">
-						<span style="bottom: 24%;position: absolute;left: 22%;font-size: 30px;">This is the caption for slide 2 </span>
+						<span style="bottom: 24%;position: absolute;left: 22%;font-size: 30px;">MARKETPLACE</span>
 					</h3>
 					
 					<button class="btn btn-primary btn-lg" data-animation="animated zoomInRight" style="position: absolute;top: 35%;left: 47%;background-color: transparent;border: medium none;box-shadow: none;">
@@ -82,10 +82,10 @@ left: 0px;">
 
 					<h3 data-animation="animated bounceInLeft" style="width: 61%;float: left;height: 100%;background-image:url('img/slide1_left.png');background-size: 100% 100%;position: absolute;
 left: 0px;">
-						<span style="top: 24%;position: absolute;left: 10%;font-size: 30px;" >This is the caption for slide 3</span>
+						<span style="top: 24%;position: absolute;left: 10%;font-size: 30px;" >WORKSTATION</span>
 					</h3>
 					<h3 data-animation="animated bounceInRight" style="width: 61%;float: left;height: 100%;background-image:url('img/slide1_right.png');background-size: 100% 100%;position: absolute;right: 0px;">
-						<span style="bottom: 24%;position: absolute;left: 22%;font-size: 30px;">This is the caption for slide 3 </span>
+						<span style="bottom: 24%;position: absolute;left: 22%;font-size: 30px;">MARKETPLACE</span>
 					</h3>
 					
 					<button class="btn btn-primary btn-lg" data-animation="animated zoomInRight" style="position: absolute;top: 35%;left: 47%;background-color: transparent;border: medium none;box-shadow: none;">
