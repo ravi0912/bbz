@@ -13,6 +13,10 @@ use Laracasts\Flash\Flash;
 class PagesController extends Controller
 {
 
+    public function home1(){
+        return view('pages.home1');
+    }
+
     public function home()
     {
        // Flash::overlay('Welcome back toimprove your business !', 'Hey');

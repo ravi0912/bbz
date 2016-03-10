@@ -74,7 +74,9 @@
                                 <a href="{{url('/showConnections/'.$usr->id)}}"><span id = "profile_connection" class="profile_connection">Connections: {{ $connections }}</span></a>
 
                                 <div id = "profile_1_form_head" class = "profile_pop">
-                                    <span id = "profile_pop_close" class = "profile_pop_close">Close</span>
+                                    <span id = "profile_pop_close" class = "profile_pop_close" onclick="form_close(event)">
+                                        <img src = "{{ URL::asset('images/close.png') }}" width = "25" height = "25">
+                                    </span>
 
                                     <div id = "profile_1_form" class = "profile_1_form">
                                     </div>
@@ -153,11 +155,12 @@
                                     <div id = "profile_3_project_content_description_2" class = "profile_3_sub_content_description_2">{{ $project->description }}</div>
                                     <div id = "profile_3_project_content_gallery" class = "profile_3_sub_content_gallery">
                                         <?php
+                                            $i=0;
                                             $dirname = "uploads/projects/".$usr->id."/".$project->id."/";
                                             $images = glob($dirname."*.jpeg",GLOB_BRACE);
 
                                             foreach($images as $image) {
-                                                echo '<div class = "profile_3_sub_content_image"><img src = "../'.$image.'"></div>';
+                                                echo '<div class = "profile_3_sub_content_image" onclick="profile_large_carousel(event,'.$i++.','.$project->id.')"><img src = "../'.$image.'"></div>';
                                             }
                                         ?>
                                     </div>
@@ -343,6 +346,35 @@
                         $("#profile_1_form").html('<div id = "profile_image_1" class="profile_image_1"><img  src = "{{ URL::asset('uploads/profiles/'.$usr->id.'.jpeg') }}" alt = "not found" align="middle"></div>');
                     }
                 }
+
+
+                //displaying project large image
+                function profile_large_carousel(event,active_image,project_id){
+                    if(event.which == 1) {
+                        var user_id = "{{ $usr->id }}";
+                        var domain = window.location.host;
+                        $("#profile_1_form_head").show();
+                        $("#profile_1_form").addClass("animated zoomIn");
+                        $.get('http://'+domain+'/activeImageCarousel',
+                                {
+                                    active_image: active_image,
+                                    project_id:project_id,
+                                    user_id: user_id,
+                                },function(markup){
+                                    $('#profile_1_form').html(markup);
+                                });
+
+                    }
+
+                }
+
+                //form close
+                function form_close(event){
+                    if(event.which == 1) {
+                        $("#profile_1_form_head").hide();
+                    }
+                }
+
             </script>
         </div>
     </div>

@@ -451,12 +451,12 @@
                         {
                             active_image: active_image,
                             project_id:project_id,
-                            user_id: user_id
+                            user_id: user_id,
                         },function(markup){
                     $('#profile_1_form').html(markup);
                 });
 
-                $("#profile_1_form").html('<?php echo 1;?>');
+
             }
 
         }

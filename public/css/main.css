@@ -424,13 +424,19 @@ a:hover{
     text-align: left;
     width:600px;
 }
+
+#newsfeed_content_status_outer_wrapper{
+    margin-left: 55px;
+    width: 620px;
+}
 .newsfeed_form{
     background:white ;
-    margin:1% 0 1% -8%;
     padding:1%;
     border: 1px solid #E5E5E5;
     border-radius:3px;
     position: relative;
+    margin: -8% 0 1% 1%;
+    width: 670px;
 }
 .newsfeed_form_1_image{
     width:30px;
@@ -515,7 +521,7 @@ a:hover{
 }
 .newsfeed_content_2_text{
     padding:1%;
-    width: 70%;
+    width: 100%;
 }
 .newsfeed_content_3{
     width:100%;

@@ -1,0 +1,32 @@
+/** Circle Flip **/
+.circleAnimation .back {
+	z-index: -1;
+}
+.circleAnimation .front {
+	z-index: 0;
+}
+.circleAnimation:hover .front {
+	z-index: -1
+}
+.circleAnimation:hover .back {
+	z-index: 0;
+}
+/** Circle Flip end **/
+.portfolioHomeCont2{
+	display: block !important;
+	height: calc(100% - 20px) !important;
+	width: calc(100% - 20px) !important;
+	left: 10px;
+	right: 10px;
+	top: 10px;
+	bottom: 10px;
+}
+.portfolioHomeCont2Inner{
+	display: block !important;
+	margin-top: 18%;
+}
+/*Testimonials Block*/
+.testimonialsSection .image, .testimonialsSection .image img{
+	display: inline-block;
+}
+/*Testimonials Block End*/

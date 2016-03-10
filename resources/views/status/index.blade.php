@@ -24,7 +24,7 @@
                 @include('errors.list')
             </div>
             @foreach ($statuses as $status)
-
+            <div id="newsfeed_content_status_outer_wrapper">
                 <div id = "newsfeed_content_1_image" class = "">
                     <div id = "newsfeed_content_1_image_content " class = "newsfeed_content_1_image_content ">
                         <a href="{{url('/showprofile/'.$status->user_id)}}">
@@ -84,51 +84,54 @@
                             echo $text;
                             ?>
 
+                            {{--preview--}}
+
+                            @if(!empty($linkpreviewexist[$status->id]))
+
+                                <br><hr style="border-bottom:1px solid #3C97D3">
+
+                                <div class="preview_wrapper;width:620px;height:250px">
+                                    <table style="width:610px;height:126px">
+                                        <tr>
+                                            <td style="width:170px;text-align:center;">
+                                                <img src="{{ $linkpreviewimage[$status->id] }}" alt="" height="120" width="150" class="img-thumbnail" style="margin-bottom:25px"/>
+                                            </td>
+                                            <td style="width:520px">
+                                                <table style="height:126px">
+                                                    <tr>
+                                                        <td style="width:520px;height:50px;padding-left:5px;border-bottom:1px solid #3C97D3">{{ $linkpreviewtitle[$status->id] }}</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td style="width:520px;height:76px;padding-left:5px;padding-bottom:18px;font-size:13px">{{ $linkpreviewdescription[$status->id] }}</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+
+                                    </table>
+                                </div>
+
+                            @endif
+
+                            {{--preview end--}}
+
 
                         </div>
                     </div>
                     {{--<div id = "newsfeed_content_4" class = "newsfeed_content_4">--}}
-                    <div id = "newsfeed_content_3" class = "newsfeed_content_3">
-                        <div id="like_show_click_{{ $status->id }}" class = "newsfeed_content_3_lcs">
-                            @if($liked[$status->id])
-                </div>
-    <div id = "newsfeed_content_2" class = "newsfeed_content_2">
-        <div id = "newsfeed_content_1_time" class = "newsfeed_content_1_content">{{ $status->created_at->diffForHumans() }}</div>
 
-        <div id = "newsfeed_content_2_text" class = "newsfeed_content_2_text">
-            <!--url setup-->
-            <?php
-            $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
-            $text = $status->body;
-            $text = str_replace( "www.", "http://www.", $text );
-            $text = str_replace( "http://http://www.", "http://www.", $text );
-            $text = str_replace( "https://http://www.", "https://www.", $text );
-            preg_match_all($reg_exUrl, $text, $matches);
-            $usedPatterns = array();
-            foreach($matches[0] as $pattern){
-                if(!array_key_exists($pattern, $usedPatterns)){
-                    $usedPatterns[$pattern]=true;
-                    $text = str_replace  ($pattern, '<a href="'.$pattern.'" rel="nofollow" target="_blank">'.$pattern.'</a> ', $text);
-                }
-            }
-                echo $text;
-            ?>
-            
-
-        </div>
         <div>
-            @if(!empty($linkpreviewexist[$status->id]))
-                
-                <img src="{{ $linkpreviewimage[$status->id] }}" alt="loading" style="width: 70px; height: 70px;">
-                {{ $linkpreviewdescription[$status->id] }} {{ $linkpreviewtitle[$status->id] }}
-            @endif
+
+
+
+
         </div>
     </div>
                {{--<div id = "newsfeed_content_4" class = "newsfeed_content_4">--}}
                 <div id = "newsfeed_content_3" class = "newsfeed_content_3">
                     <div id="like_show_click_{{ $status->id }}" class = "newsfeed_content_3_lcs">
                         @if($liked[$status->id])
-
                                 <div id="like_click_{{ $status->id }}" onmouseup="LikeMouseUp(event,{{ $status->id }},{{ $status->user_id }},{{ auth()->user()->id }})">
                                     <div>{{ $likes[$status->id] }} </div>
                                     <div><img id="like_img_{{ $status->id }}" src = "{{ URL::asset('images/logo/lcs/liked.svg') }}"></div>
@@ -178,11 +181,12 @@
                         </div>
                     </div>
 
-                </div>
+            </div>
             @endforeach
 
     </div>
     </div>
 
         <script type="text/javascript" src ="{{ URL::asset('js/status_comment.js') }} "></script>
+
 @stop

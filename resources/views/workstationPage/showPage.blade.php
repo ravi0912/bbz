@@ -2,436 +2,262 @@
 @extends('app')
 
 @section('content')
+    <link rel="stylesheet" href="{{ URL::asset('css/showPage.css') }}">
 
-        <!--mdl CDN-->
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.indigo-pink.min.css">
-<script defer src="https://code.getmdl.io/1.1.1/material.min.js"></script>
-<<<<<<< HEAD
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2 left_section">
 
-<!--font awesome-->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-
-
-
-<!--my css file-->
-<link type="text/css" rel="stylesheet" href="{{ URL::asset('css/new_webpage_main.css') }} " />
-
-<div>
-    <!--nav bar -->
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a href="#" class="navbar-brand" style="#ff3831"><img src="http://buildblockz.com/images/logo/BBZlogo/bbzlogo_white.svg" alt="0" height="50" width="50"/></a>
-            </div>
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <!--mdl expandable fields-->
-                    <form action="#">
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-                            <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
-                                <i class="material-icons"  style="color:#fff">search</i>
-                            </label>
-                            <div class="mdl-textfield__expandable-holder">
-                                <input class="mdl-textfield__input" type="text" id="search">
-                                <label class="mdl-textfield__label" for="search">Search</label>
-                            </div>
-                        </div>
-                    </form>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="material-icons" id="settings">settings</i>
-                    </a>
-                    <ul class="dropdown-menu" role="settings_menu" aria-labelledby="menu">
-                        <li role="presentation"><a href="#" role="menu-item">item1</a></li>
-                        <li role="presentation"><a href="#" role="menu-item">item2</a></li>
-                        <li role="presentation"><a href="#" role="menu-item">item3</a></li>
-                        <li role="presentation"><a href="#" role="menu-item">item4</a></li>
-                    </ul>
-                </li>
-                <li><a href="#" style="margin-top:10px;color:#fff">Vishwas Vyas</a></li>
-                <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle"><img src="images/baby.jpg" alt="user id" style="height:50px;width:50px;border-radius:100%"/></a>
-                    <ul class="dropdown-menu" role="logout_menu" aria-labelledby="menu">
-                        <li role="presentation"><a href="#" role="menu-item">Profile</a></li>
-                        <li role="presentation"><a href="#" role="menu-item">Connection</a></li>
-                        <li role="presentation"><a href="#" role="menu-item">Change Password</a></li>
-                        <hr>
-                        <li role="presentation"><a href="#" role="menu-item">Log Out</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </nav>
-</div>
-
-<div class="container-fluid">
-    <!--grids-->
-    <div class="row">
-        <div class="col-md-2">
-            <!--Leftmost section-->
-            <div class="left_section">
-                <img src="images/autumn.jpg" alt="0" class="thumbnail"
-                     height="200px" width="100%" style="margin-left:-5px"/>
-            </div>
-            <br>
-            <div>
-                <strong>About</strong><br>
-                <span style="color:#898989">If you use Internet Explorer and Microsoft Office OneNote 2007 on the same computer, you can use the Send to OneNote button to quickly copy some or all of the information on a Web page to your notes.</span>
-            </div>
-            <hr>
-            <div>
-                <strong>Photos</strong><br>
-                <div class="row" style="margin-left:-20px">
-                    <div class="col-sm-4">
-                        <img src="images/autumn.jpg" alt="autumn" class="thumbnail" height="70px" width="70px"/>
-                    </div>
-                    <div class="col-sm-4">
-                        <img src="images/autumn.jpg" class="thumbnail" alt="0" height="70px" width="70px"/>
-                    </div>
-                    <div class="col-sm-4">
-                        <img src="images/autumn.jpg" class="thumbnail" alt="0" height="70px" width="70px"/>
-                    </div>
-                </div>
-            </div>
-            <hr>
-            <div>
-                <strong>Contact Details</strong><br>
-                <span style="color:#898989">A-765,Palatan Bazar,<br>Guwahati,781039<br>Ph. +91-80110010</span>
-            </div>
-
-
-        </div>
-
-        <div class="col-md-5" style="margin-top:-3px">
-            <!--middle section-->
-            <div class="middle_section_wrapper">
-                <!--company name-->
-                <div>
-                    <p><span style="font-size:25px">Sani Steels Pvt. Ltd.</span><br><small style="margin-left:118px;position:absolute;top:18px;font-size:11px;color:#898989">Bussiness Guwahati</small></p>
-
-                </div>
-
-                <!--tabs worspace/take an option-->
-                <div>
-
-                    <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
-                        <div class="mdl-tabs__tab-bar">
-                            <a href="#workspace" class="mdl-tabs__tab is-active" style="margin-left:-205px">WORKSPACE</a>
-                            <a href="#takeanoption" class="mdl-tabs__tab">TAKE AN OPTION</a>
-
-                        </div>
-                        <!--mdl panel workspace/take an option-->
-                        <div class="mdl-tabs__panel is-active" id="workspace">
-                            <div class="workspace_wrapper">
-
-                                <div class="file_input">
-                                    <form style="margin-top:76px">
-                                        <span style="margin-left:10px;font-weight:bold">File/Image</span><input type="file" value="Browse" style="margin-left:90px;margin-top:-22px"/>
-                                    </form>
+                <div class="inner_left_section_wrapper">
+                    <table class="page_left">
+                        <tr>
+                            <td style="height:180px;" class="page_left_td">
+                                <div class="image_wrapper">
+                                    <img src="" alt=""/>
                                 </div>
+                            </td>
+                        </tr>
 
-                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" style="margin-left:405px;margin-top:5px">Discuss</button>
-
-                                <div id="outer_wrapper">
-
-                                    <div id="inner_wrapper">
-                                        <div class="row">
-                                            <div class="col-md-2">
-                                                <img src="images/baby.jpg" alt="0" height="50px" width="50px" style="border-radius:100%;margin-left:5px"/>
-                                            </div>
-                                            <div class="col-md-10">
-                                                <div class="inner_right_wrapper">
-                                                    <p style="line-height:18px;margin-left:-15px;margin-top:10px"><span style="font-weight:bold;font-size:22px">Karan Verma</span><br>
-                                                        <span style="font-size:15px;font-style:italic">Builder,Jaipur</span></p>
-                                                </div>
-                                            </div>
-                                            <span style="margin-left:430px;font-style:italic"><b>3hours ago</b></span>
-                                            <div class="col-md-offset-2 col-md-10 content" style="word-wrap:break-word;">
-                                                sdfdfdsfirefdnvcdnvdfifdnvnifdvnfvncvjdfivfi.sdfdfdsfirefdnvcdnvdfifdnvnifdvnfvncvjdfivfi.sdfdfdsfirefdnvcdnvdfifdnvnifdvnfvncvjdfivfi.sdfdfdsfirefdnvcdnvdfifdnvnifdvnfvncvjdfivfi.sdfdfdsfirefdnvcdnvdfifdnvnifdvnfvncvjdfivfi.sdfdfdsffdnvnifdvnfvncvjdfivfi
-                                            </div>
-                                            <div class="col-md-offset-2 col-md-10">
-
-                                                <div style="width:200px;height:20px;float:left;margin-left:-5px;margin-top:3px;position:relative;font-weight:bold">
-                                                    <div style="position:absolute">78 <a href="#" class="icon"><i class="fa fa-thumbs-up"></i></a></div>
-                                                    <div style="position:absolute;margin-left:50px">16 <a href="#" class="icon"><i class="fa fa-envelope"></i></a></div>
-                                                    <div style="position:absolute;margin-left:120px">9 <a href="#" class="icon"><i class="fa fa-share-alt"></i></a></div>
-                                                </div>
-                                                <div style="width:100px;height:20px;float:right;margin-right:-15px;font-style:italic">
-                                                    <a href="#"><b>Read later</b></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <br><br>
-                                    <div id="inner_wrapper">
-                                        <div class="row">
-                                            <div class="col-md-2">
-                                                <img src="images/baby.jpg" alt="0" height="50px" width="50px" style="border-radius:100%;margin-left:5px"/>
-                                            </div>
-                                            <div class="col-md-10">
-                                                <div class="inner_right_wrapper">
-                                                    <p style="line-height:18px;margin-left:-15px;margin-top:10px"><span style="font-weight:bold;font-size:22px">Karan Verma</span><br>
-                                                        <span style="font-size:15px;font-style:italic">Builder,Jaipur</span></p>
-                                                </div>
-                                            </div>
-                                            <span style="margin-left:430px;font-style:italic"><b>3hours ago</b></span>
-                                            <div class="col-md-offset-2 col-md-10 content" style="word-wrap:break-word;">
-                                                sdfdfdsfirefdnvcdnvdfifdnvnifdvnfvncvjdfivfi.sdfdfdsfirefdnvcdnvdfifdnvnifdvnfvncvjdfivfi.sdfdfdsfirefdnvcdnvdfifdnvnifdvnfvncvjdfivfi.sdfdfdsfirefdnvcdnvdfifdnvnifdvnfvncvjdfivfi.sdfdfdsfirefdnvcdnvdfifdnvnifdvnfvncvjdfivfi.sdfdfdsffdnvnifdvnfvncvjdfivfi
-                                            </div>
-                                            <div class="col-md-offset-2 col-md-10">
-
-                                                <div style="width:200px;height:20px;float:left;margin-left:-5px;margin-top:3px;position:relative;font-weight:bold">
-                                                    <div style="position:absolute">78 <a href="#" class="icon"><i class="fa fa-thumbs-up"></i></a></div>
-                                                    <div style="position:absolute;margin-left:50px">16 <a href="#" class="icon"><i class="fa fa-envelope"></i></a></div>
-                                                    <div style="position:absolute;margin-left:120px">9 <a href="#" class="icon"><i class="fa fa-share-alt"></i></a></div>
-                                                </div>
-                                                <div style="width:100px;height:20px;float:right;margin-right:-15px;font-style:italic">
-                                                    <a href="#"><b>Read later</b></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
+                        <tr>
+                            <td class="page_left_td">
+                                <div class="about">
+                                    <div class="header">About</div>
+                                    <div class="content">fdfdfivccibjvcj cvibvci fdfdfivccibjvcj cvibvci fdfdfivccibjvcj cvibvci fdfdfivccibjvcj cvibvci fdfdfivccibjvcj cvibvci fdfdfivccibjvcj cvibvci</div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="page_left_td">
+                                <div class="about">
+                                    <div class="header"></div>
+                                    <div class="content">
+                                        <table>
+                                            <tr>
+                                                <td class="thumbnail_page">
+                                                    <img class="image_thumbnail_page" src="{{ URL::asset('uploads/profiles/'.auth()->user()->id.'.jpeg') }}" alt="" class="img-thumbnail"/>
+                                                </td>
+                                                <td class="thumbnail_page">
+                                                    <img class="image_thumbnail_page" src="{{ URL::asset('uploads/profiles/'.auth()->user()->id.'.jpeg') }}" alt="" class="img-thumbnail"/>
+                                                </td>
+                                                <td class="thumbnail_page">
+                                                    <img class="image_thumbnail_page" src="{{ URL::asset('uploads/profiles/'.auth()->user()->id.'.jpeg') }}" alt="" class="img-thumbnail"/>
+                                                </td>
+                                            </tr>
+                                        </table>
 
+                                        Contact Details<br>
+
+                                        A-765, Paltan Bazar,<br>
+                                        Gymahati-781039<br>
+                                        Ph: +801100110
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="about">
+                                    <div class="header"></div>
+                                    <div class="content"></div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
             </div>
 
-        </div>
-
-        <div class="col-md-4">
-        </div>
-
-        <div class="col-md-1">
         </div>
     </div>
 
-</div>
-<!--script tags-->
-<!--Bootstrap submenu library-->
-<script src="bootstrap_files/bootstrap-submenu.js"></script>
-<!-- my script file-->
-<script src="product_script.js"></script>
-=======
 
-<!--font awesome-->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    {{--show Page Status--}}
 
-<!--my css file-->
-<link type="text/css" rel="stylesheet" href="{{ URL::asset('css/showPage.css') }}" />
+    <div class="main_news_wrapper_outer">
+        <div id = "newsfeed main_body_content_showpage" class = "newsfeed main_body_content">
 
+            <div class="newsfeed_form" id="newsfeed_form">
 
-<br><br><br><br>
-
-
-
-
-
-
-
-
-
-<div class="container-fluid">
-    <!--grids-->
-    <div class="row">
-        <div class="col-md-2">
-            <!--Leftmost section-->
-            <div class="left_section">
-                <img src="images/autumn.jpg" alt="0" class="thumbnail"
-                     height="200px" width="100%" style="margin-left:-5px"/>
-            </div>
-            <br>
-            <div>
-                <strong>About</strong><br>
-                <span style="color:#898989">{{ $page->content }}</span>
-            </div>
-            <div>
-                <strong>Specialities</strong><br>
-                <span style="color:#898989">{{ $page->specialities }}</span>
-            </div>
-            <hr>
-            <div>
-                <strong>Photos</strong><br>
-                <div class="row" style="margin-left:-20px">
-                    <div class="col-sm-4">
-                        <img src="images/autumn.jpg" alt="autumn" class="thumbnail" height="70px" width="70px"/>
+                {!! Form::open(['action' => 'StatusController@store','files'=>true]) !!}
+                <div class="newsfeed_form_1" id="newsfeed_form_1">
+                    <div class="newsfeed_form_1_image" id="newsfeed_form_1_image">
+                        <img src = "{{ URL::asset('uploads/thumbnails/'.auth()->user()->id.'.jpeg') }}" >
                     </div>
-                    <div class="col-sm-4">
-                        <img src="images/autumn.jpg" class="thumbnail" alt="0" height="70px" width="70px"/>
-                    </div>
-                    <div class="col-sm-4">
-                        <img src="images/autumn.jpg" class="thumbnail" alt="0" height="70px" width="70px"/>
+                    <div>
+                        {!! Form::textarea('body', '', ['class' => 'newsfeed_textarea','rows' => '3','cols' => '45','placeholder' => 'Hi '. auth()->user()->name.', Want to share something!!! ']) !!}
                     </div>
                 </div>
-            </div>
-            <hr>
-            <div>
-                <strong>Contact Details</strong><br>
-                <span style="color:#898989">{{ $page->headquarter }}</span>
-            </div>
-
->>>>>>> 80e25b5e80beb2575e7ed120cf06f2068676ca50
-
-        </div>
-
-        <div class="col-md-5" style="margin-top:-3px">
-            <!--middle section-->
-            <div class="middle_section_wrapper">
-                <!--company name-->
-                <div>
-                    <p><span style="font-size:25px">{{ $page->headquarter }}</span><br><small style="margin-left:118px;position:absolute;top:18px;font-size:11px;color:#898989">{{ $page->page_subcategory->page_subcategory }}</small></p>
-
-<<<<<<< HEAD
-
-=======
+                {!! Form::file('images[]', ['multiple'=>true,'style' =>'display:block']) !!}
+                <div class="newsfeed_form_post" id="newsfeed_form_post">
+                    {!! Form::submit('Post', ['class' => 'general_button newsfeed_poststatus ']) !!}
                 </div>
+                {!! Form::close() !!}
+                @include('errors.list')
+            </div>
+            @foreach ($statuses as $status)
+                <div id="newsfeed_content_status_outer_wrapper">
+                    <div id = "newsfeed_content_1_image" class = "">
+                        <div id = "newsfeed_content_1_image_content " class = "newsfeed_content_1_image_content ">
+                            <a href="{{url('/showprofile/'.$status->user_id)}}">
+                                <img src = "{{ URL::asset('uploads/profiles/'.$status->user_id.'.jpeg') }}">
+                            </a>
+                        </div>
+                    </div>
 
-                <!--tabs worspace/take an option-->
-                <div>
+                    <div id = "newsfeed_content" class = "newsfeed_content">
 
-                    <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
-                        <div class="mdl-tabs__tab-bar">
-                            <a href="#workspace" class="mdl-tabs__tab is-active" style="margin-left:-205px">WORKSPACE</a>
-                            <a href="#takeanoption" class="mdl-tabs__tab">TAKE AN OPTION</a>
+                        <div id = "newsfeed_content_1" class = "newsfeed_content_1">
+                            <a href="{{url('/showprofile/'.$status->user_id)}}">
+                        <span id = "newsfeed_content_1_description" class = "newsfeed_content_1_content">
+                            <div id = "newsfeed_content_1_name" class = "newsfeed_content_1_name"> {{ $status->user->name }}</div>
+                            <div id = "newsfeed_content_1_desig" class = "newsfeed_content_1_desig"> {{ $status->user->designation }}</div>
+                        </span>
+                            </a>
+                            @if(auth()->user()->id == $status->user_id)
+                                <div class = "newsfeed_content_1_more">
+                                    <div id = "newsfeed_content_1_more" class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="caret"></span></a>
+                                        <ul class="dropdown-menu" role="menu" id="dropdown_status">
+                                            {!! Form::open(['action' => 'StatusController@destroy']) !!}
+                                            <div class="form-group">
+                                                <input type="hidden"  value="{{ $status->id }}" name = "status_id">
+                                            </div>
+                                            <div class="form-group">
+                                                <button class="btn btn-info" id="status_delete_1" type="submit">Delete</button>
+                                            </div>
+                                            {!! Form::close() !!}
+                                            {{--<button class="btn btn-info" id="status_delete" type="submit">Edit</button>--}}
+                                        </ul>
+                                    </div>
+                                </div>
+                            @endif
 
                         </div>
-                        <!--mdl panel workspace/take an option-->
-                        <div class="mdl-tabs__panel is-active" id="workspace">
-                            <div class="workspace_wrapper">
+                        <div id = "newsfeed_content_2" class = "newsfeed_content_2">
+                            <div id = "newsfeed_content_1_time" class = "newsfeed_content_1_content">{{ $status->created_at->diffForHumans() }}</div>
 
-                                <div class="file_input">
-                                   {{-- {!! Form::open(['action' => 'WorkstationPageController@store','files'=>true ,'style' => 'margin-top:76px']) !!}
-                                    <div>
-                                        <input type="hidden" name="page_id" value="{{ $page->id }}">
-                                        <div >
-                                            <img src = "{{ URL::asset('uploads/thumbnails/'.auth()->user()->id.'.jpeg') }}" >
-                                        </div>
-                                        <div>
-                                            {!! Form::textarea('body', '', ['class' => 'newsfeed_textarea','rows' => '3','cols' => '45','placeholder' => 'Hi '. auth()->user()->name.', Want to share something!!! ']) !!}
-                                        </div>
-                                    </div>
-                                    --}}{{-- {!! Form::file('images[]', ['multiple'=>true,'style' =>'display:block']) !!}--}}{{--
-                                    <div class="newsfeed_form_post" id="newsfeed_form_post">
-                                        {!! Form::submit('Post', ['class' => 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect','style' => 'margin-left:405px;margin-top:5px']) !!}
-                                    </div>
-                                    {!! Form::close() !!}
-                                    @include('errors.list')--}}
+                            <div id = "newsfeed_content_2_text" class = "newsfeed_content_2_text">
+                                <!--url setup-->
+                                <?php
+                                $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
+                                $text = $status->body;
+                                $text = str_replace( "www.", "http://www.", $text );
+                                $text = str_replace( "http://http://www.", "http://www.", $text );
+                                $text = str_replace( "https://http://www.", "https://www.", $text );
+                                preg_match_all($reg_exUrl, $text, $matches);
+                                $usedPatterns = array();
+                                foreach($matches[0] as $pattern){
+                                    if(!array_key_exists($pattern, $usedPatterns)){
+                                        $usedPatterns[$pattern]=true;
+                                        $text = str_replace  ($pattern, '<a href="'.$pattern.'" rel="nofollow" target="_blank">'.$pattern.'</a> ', $text);
+                                    }
+                                }
+                                echo $text;
+                                ?>
 
+                                {{--preview--}}
+
+                                @if(!empty($linkpreviewexist[$status->id]))
+
+                                    <br><hr style="border-bottom:1px solid #3C97D3">
+
+                                    <div class="preview_wrapper;width:620px;height:250px">
+                                        <table style="width:610px;height:126px">
+                                            <tr>
+                                                <td style="width:170px;text-align:center;">
+                                                    <img src="{{ $linkpreviewimage[$status->id] }}" alt="" height="120" width="150" class="img-thumbnail" style="margin-bottom:25px"/>
+                                                </td>
+                                                <td style="width:520px">
+                                                    <table style="height:126px">
+                                                        <tr>
+                                                            <td style="width:520px;height:50px;padding-left:5px;border-bottom:1px solid #3C97D3">{{ $linkpreviewtitle[$status->id] }}</td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td style="width:520px;height:76px;padding-left:5px;padding-bottom:18px;font-size:13px">{{ $linkpreviewdescription[$status->id] }}</td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+
+                                        </table>
+                                    </div>
+
+                                @endif
+
+                                {{--preview end--}}
+
+
+                            </div>
+                        </div>
+                        {{--<div id = "newsfeed_content_4" class = "newsfeed_content_4">--}}
+
+                        <div>
+
+
+
+
+                        </div>
+                    </div>
+                    {{--<div id = "newsfeed_content_4" class = "newsfeed_content_4">--}}
+                    <div id = "newsfeed_content_3" class = "newsfeed_content_3">
+                        <div id="like_show_click_{{ $status->id }}" class = "newsfeed_content_3_lcs">
+                            @if($liked[$status->id])
+                                <div id="like_click_{{ $status->id }}" onmouseup="LikeMouseUp(event,{{ $status->id }},{{ $status->user_id }},{{ auth()->user()->id }})">
+                                    <div>{{ $likes[$status->id] }} </div>
+                                    <div><img id="like_img_{{ $status->id }}" src = "{{ URL::asset('images/logo/lcs/liked.svg') }}"></div>
+                                </div>
+                            @else
+
+                                <div id="like_click_{{ $status->id }}" onmouseup="LikeMouseUp(event,{{ $status->id }},{{ $status->user_id }},{{ auth()->user()->id }})">
+                                    @if($likes[$status->id] == 0)
+                                    @else
+                                        <div>{{ $likes[$status->id] }} </div>
+                                    @endif
+                                    <div><img id="like_img_{{ $status->id }}" src = "{{ URL::asset('images/logo/lcs/like.svg') }}"></div>
                                 </div>
 
-                                <div id="outer_wrapper">
-                                    @foreach ($statuses as $status)
-                                        @if($status->page_id == $page->id)
-                                    <div id="inner_wrapper">
-                                        <div class="row">
-                                            <div class="col-md-2">
-                                                <a href="{{url('/showprofile/'.$status->user_id)}}">
-                                                    <img src="{{ URL::asset('uploads/profiles/'.$status->user_id.'.jpeg') }}" alt="0" height="50px" width="50px" style="border-radius:100%;margin-left:5px"/>
-                                                </a>
-                                            </div>
-                                            <div class="col-md-10">
-                                                <a href="{{url('/showprofile/'.$status->user_id)}}">
-                                                    <div class="inner_right_wrapper">
-                                                        <p style="line-height:18px;margin-left:-15px;margin-top:10px"><span style="font-weight:bold;font-size:22px">{{ $status->user->name }}</span><br>
-                                                            <span style="font-size:15px;font-style:italic">{{ $status->user->designation }}</span></p>
-                                                    </div>
-                                                </a>
-                                                @if(auth()->user()->id == $status->user_id)
-                                                        <div  class="dropdown">
-                                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="caret"></span></a>
-                                                            <ul class="dropdown-menu" role="menu">
-                                                                {!! Form::open(['action' => 'StatusController@destroy']) !!}
-                                                                <div class="form-group">
-                                                                    <input type="hidden"  value="{{ $status->id }}" name = "status_id">
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <button class="btn btn-info" id="status_delete" type="submit">Delete</button>
-                                                                </div>
-                                                                {!! Form::close() !!}
-                                                                {{--<button class="btn btn-info" id="status_delete" type="submit">Edit</button>--}}
-                                                            </ul>
-                                                        </div>
-                                                @endif
-                                            </div>
+                            @endif
+                        </div>
 
-                                            <span style="margin-left:430px;font-style:italic"><b>3{{ $status->created_at->diffForHumans() }}</b></span>
-                                            <div class="col-md-offset-2 col-md-10 content" style="word-wrap:break-word;">
-                                                <!--url setup-->
-                                                <?php
-                                                $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
-                                                $text = $status->body;
-                                                $text = str_replace( "www.", "http://www.", $text );
-                                                $text = str_replace( "http://http://www.", "http://www.", $text );
-                                                $text = str_replace( "https://http://www.", "https://www.", $text );
-                                                preg_match_all($reg_exUrl, $text, $matches);
-                                                $usedPatterns = array();
-                                                foreach($matches[0] as $pattern){
-                                                    if(!array_key_exists($pattern, $usedPatterns)){
-                                                        $usedPatterns[$pattern]=true;
-                                                        $text = str_replace  ($pattern, '<a href="'.$pattern.'" rel="nofollow" target="_blank">'.$pattern.'</a> ', $text);
-                                                    }
-                                                }
-                                                echo $text;
-                                                ?>
-                                            </div>
-                                            <div class="col-md-offset-2 col-md-10">
+                        <div id="comment_show_click_{{ $status->id }}" class = "newsfeed_content_3_lcs" onmouseup="CommentMouseUp(event,{{ $status->id }})">
+                            @if($countComment[$status->id] == 0)
+                            @else
+                                <div>{{ $countComment[$status->id] }} </div>
+                            @endif
+                            <img id="comment_img_{{ $status->id }}" src = "{{ URL::asset('images/logo/lcs/comment.svg') }}">
+                        </div>
+                        {{--<div id="share" class = "newsfeed_content_3_lcs">
+                           <img src = "{{ URL::asset('images/logo/lcs/share.svg') }}">
+                       </div>--}}
+                    </div>
 
-                                                <div style="width:200px;height:20px;float:left;margin-left:-5px;margin-top:3px;position:relative;font-weight:bold">
+                    <div id = "newsfeed_content_5" class = "newsfeed_content_5">
+                        {{--display comments--}}
+                        <div class="newsfeed_content_5_content" id="comments_show_{{ $status->id }}"></div>
+                        {{--<div id = "newsfeed_comment" class = "newsfeed_content_5_input">--}}
+                        {{--</div>--}}
+                        <div class="newsfeed_comment_content">
+                            <div class="newsfeed_comment_content_image"><img src = "{{ URL::asset('uploads/thumbnails/'.auth()->user()->id.'.jpeg') }}"></div>
+                            <div class="newsfeed_comment_content_text">
+                                <div class="newsfeed_comment_content_text_comment">
+                                    <span class="newsfeed_comment_content_name">
+                               <input type="text" id="comment_body_{{ $status->id }}" onkeyup="comment_execute_keyUp(event,{{ $status->id }},{{$status->user_id}},{{ auth()->user()->id }},0,'null')" placeholder="Write Comment">
+                            </span>
+                                </div>
 
-                                                    <div style="position:absolute" id="like_show_click_{{ $status->id }}">
-                                                        @if($liked[$status->id])
-                                                            {{ $likes[$status->id] }}
-                                                            <div id="like_click_{{ $status->id }}" onmouseup="LikeMouseUp(event,{{ $status->id }},{{ $status->user_id }},{{ auth()->user()->id }})">
-                                                                <a href="#" class="icon"><i class="fa fa-thumbs-up"></i></a>
-                                                            </div>
-                                                        @else
-                                                            @if($likes[$status->id] == 0)
-                                                            @else
-                                                                {{ $likes[$status->id] }}
-                                                            @endif
-                                                            <div id="like_click_{{ $status->id }}" onmouseup="LikeMouseUp(event,{{ $status->id }},{{ $status->user_id }},{{ auth()->user()->id }})">
-                                                                <a href="#" class="icon"><i class="fa fa-thumbs-up"></i></a>
-                                                            </div>
-                                                        @endif
-
-                                                    </div>
+                            </div>
 
 
+                        </div>
+                    </div>
 
-                                                            {{--<div id="share" class = "newsfeed_content_3_lcs">
-                                                               <img src = "{{ URL::asset('images/logo/lcs/share.svg') }}">
-                                                           </div>--}}
-                                                        <div style="position:absolute;margin-left:50px">
-                                                            <div id="comment_show_click_{{ $status->id }}"onmouseup="CommentMouseUp(event,{{ $status->id }})">
-                                                                @if($countComment[$status->id] == 0)
-                                                                @else
-                                                                    {{ $countComment[$status->id] }}
-                                                                @endif
+                </div>
+            @endforeach
 
-                                                            </div>
-                                                                 <a href="#" class="icon"><i class="fa fa-envelope"></i></a>
+        </div>
+    </div>
 
-                                                            {{--<div style="position:absolute;margin-left:120px">9 <a href="#" class="icon"><i class="fa fa-share-alt"></i></a></div>
-                                                    <div style="width:100px;height:20px;float:right;margin-right:-15px;font-style:italic">
-                                                        <a href="#"><b>Read later</b></a>
-                                                    </div>--}}
-                                                    </div>
-                                                </div>
+    {{--End Page Status'--}}
 
-                                            </div>
-                                        </div>
-                                    </div>
-                                        @endif
-                                    @endforeach
-                                                
 
-        <!--Bootstrap submenu library-->
-        <script src="bootstrap_files/bootstrap-submenu.js"></script>
-
->>>>>>> 80e25b5e80beb2575e7ed120cf06f2068676ca50
-        <script type="text/javascript" src ="{{ URL::asset('js/status_comment.js') }} "></script>
 @stop

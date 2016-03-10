@@ -1,8 +1,8 @@
-
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
         <?php $i=0;
         $dirname = "uploads/projects/".$user_id."/".$project_id."/";
+
         $images = glob($dirname."*.jpeg");
         foreach($images as $image)
         {
@@ -29,6 +29,7 @@
                 $active='active';
             }
             echo '<div class="item'.$active.'" id="carousel_item"><img src="'.$image.'" id="imgCarousel"></div>';
+            echo $image;
             $i++;
         }
         ?>

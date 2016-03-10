@@ -6,6 +6,7 @@
 
 Route::get('home', 'PagesController@home');
 Route::get('blogs','PagesController@blogs');
+Route::get('home1','PagesController@home1');
 
 
 /*
