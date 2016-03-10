@@ -91,6 +91,43 @@
                     <div id = "newsfeed_content_3" class = "newsfeed_content_3">
                         <div id="like_show_click_{{ $status->id }}" class = "newsfeed_content_3_lcs">
                             @if($liked[$status->id])
+                </div>
+    <div id = "newsfeed_content_2" class = "newsfeed_content_2">
+        <div id = "newsfeed_content_1_time" class = "newsfeed_content_1_content">{{ $status->created_at->diffForHumans() }}</div>
+
+        <div id = "newsfeed_content_2_text" class = "newsfeed_content_2_text">
+            <!--url setup-->
+            <?php
+            $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
+            $text = $status->body;
+            $text = str_replace( "www.", "http://www.", $text );
+            $text = str_replace( "http://http://www.", "http://www.", $text );
+            $text = str_replace( "https://http://www.", "https://www.", $text );
+            preg_match_all($reg_exUrl, $text, $matches);
+            $usedPatterns = array();
+            foreach($matches[0] as $pattern){
+                if(!array_key_exists($pattern, $usedPatterns)){
+                    $usedPatterns[$pattern]=true;
+                    $text = str_replace  ($pattern, '<a href="'.$pattern.'" rel="nofollow" target="_blank">'.$pattern.'</a> ', $text);
+                }
+            }
+                echo $text;
+            ?>
+            
+
+        </div>
+        <div>
+            @if(!empty($linkpreviewexist[$status->id]))
+                
+                <img src="{{ $linkpreviewimage[$status->id] }}" alt="loading" style="width: 70px; height: 70px;">
+                {{ $linkpreviewdescription[$status->id] }} {{ $linkpreviewtitle[$status->id] }}
+            @endif
+        </div>
+    </div>
+               {{--<div id = "newsfeed_content_4" class = "newsfeed_content_4">--}}
+                <div id = "newsfeed_content_3" class = "newsfeed_content_3">
+                    <div id="like_show_click_{{ $status->id }}" class = "newsfeed_content_3_lcs">
+                        @if($liked[$status->id])
 
                                 <div id="like_click_{{ $status->id }}" onmouseup="LikeMouseUp(event,{{ $status->id }},{{ $status->user_id }},{{ auth()->user()->id }})">
                                     <div>{{ $likes[$status->id] }} </div>

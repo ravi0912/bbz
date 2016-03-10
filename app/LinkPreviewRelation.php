@@ -15,8 +15,8 @@ class LinkPreviewRelation extends Model
      */
     protected $fillable = ['status_id','comment_id','mail_id','link_preview_id'];
 
-    public function linkpreview()
+    public function linkpreview1()
     {
-        return $this->belongsTo('App\LinkPreview');
+        return $this->belongsTo('App\LinkPreview', 'link_preview_id');
     }
 }

@@ -65,11 +65,45 @@ class StatusController extends Controller
 
         $statuses = Status::orderBy('created_at', 'desc')->get();
         $statusCount = Status::orderBy('created_at', 'desc')->count();
+        $linkpreviewtitle = ['0' => null];
+        $linkpreviewimage = ['0' => null];
+        $linkpreviewdescription = ['0' => null];
+        $linkpreviewexist = ['0' => null];
+
         if($statusCount > 0){
             foreach($statuses as $status){
                 $likes[$status->id] =  Like::where('status_id', $status->id)->count();
                 $liked[$status->id] =  Like::whereStatus_idAndUser_id($status->id, \Auth::User()->id )->count();
                 $countComment[$status->id] = Comment::where('status_id',$status->id)->count();
+                if($status->link_preview == 1){
+                    $linkview = LinkPreviewRelation::where('status_id',$status->id)->first();
+
+                    if(empty($linkview->linkpreview1['open_graph_title'])){
+                        if(!empty($linkview->linkpreview1['title'])){
+                            $linkpreviewtitle = array_add($linkpreviewtitle, $status->id, $linkview->linkpreview1['title']);
+                        }
+                    }else{
+                        $linkpreviewtitle = array_add($linkpreviewtitle, $status->id, $linkview->linkpreview1->open_graph_title);
+                    }
+                    if(empty($linkview->linkpreview1['open_graph_image'])){
+                        if(!empty($linkview->linkpreview1['first_image'])) {
+                            $linkpreviewimage = array_add($linkpreviewimage, $status->id, $linkview->linkpreview1['first_image']);
+                        }
+                    }else{
+                        $linkpreviewimage = array_add($linkpreviewimage, $status->id, $linkview->linkpreview1->open_graph_image);
+                    }
+                    if(!empty($linkview->linkpreview1['meta_description'])) {
+                        $linkpreviewdescription = array_add($linkpreviewdescription, $status->id, $linkview->linkpreview1['meta_description']);
+                    }else{
+                        $linkpreviewdescription = array_add($linkpreviewdescription, $status->id, 0);
+                    }
+                    if(empty($linkview->linkpreview1['open_graph_image']) && empty($linkview->linkpreview1['meta_description']) && empty($linkview->linkpreview1['open_graph_title'])){
+                        $linkpreviewexist = array_add($linkpreviewexist, $status->id, 0);
+                    }else{
+                        $linkpreviewexist = array_add($linkpreviewexist, $status->id, 1);
+                    }
+
+                }
             }
         }else{
             $likes =0;
@@ -78,7 +112,7 @@ class StatusController extends Controller
         }
 
 
-        return view('status.index', ['statuses' => $statuses,'likes' => $likes,'liked'  => $liked,'countComment' => $countComment]);
+        return view('status.index', ['statuses' => $statuses,'likes' => $likes,'liked'  => $liked,'countComment' => $countComment,'linkpreviewtitle' => $linkpreviewtitle,'linkpreviewimage' => $linkpreviewimage, 'linkpreviewdescription' => $linkpreviewdescription, 'linkpreviewexist' => $linkpreviewexist]);
     }
 
     /**
@@ -102,9 +136,9 @@ class StatusController extends Controller
     {
 
         $files = Input::file('images');
-        //$files = false;
-        if($files !== false){
-            $photo = 1;//error
+
+        if($files[0] != NULL){
+            $photo = 1;
         }else{
             $photo = 0;
         }
@@ -116,16 +150,17 @@ class StatusController extends Controller
         $text = str_replace( "www.", "http://www.", $text );
         $text = str_replace( "http://http://www.", "http://www.", $text );
         $text = str_replace( "https://http://www.", "https://www.", $text );
-        preg_match_all($reg_exUrl, $text, $matches);
-        $url = $matches[0][0];
+        $no_of_url =  preg_match_all($reg_exUrl, $text, $matches);
+        //$url = $matches[0][0];
 
-        if($url != ''){
+        if($no_of_url != 0){
             $link_preview = 1;
+            $url = $matches[0][0];
         }else{
             $link_preview = 0;
         }
         //Status Create
-        Status::create([
+       Status::create([
             'user_id' => \Auth::User()->id,
             'body' => $request['body'],
             'post_as_admin_page' => 0,
@@ -135,54 +170,66 @@ class StatusController extends Controller
             'link_preview' => $link_preview
         ]);
         $statuses = Status::where('user_id',\Auth::User()->id)->orderBy('updated_at', 'desc')->first();
+
+
         //Parseing the page and storing in table
-        $body = file_get_contents($url);
-        $parser = (new MetaParser($body, $url));
-        $data = $parser->getDetails();
-        $data['favicon'];
 
-        $url_count = LinkPreview::where('link',$url)->count();
-        if($url_count == 0){
-            LinkPreview::create([
-                'link' => $url,
-                'meta_description' => $data['meta']['description'],
-                'first_image' => $data['images'][0],
-                'open_graph_title' => $data['openGraph']['title'],
-                'open_graph_type' => $data['openGraph']['type'],
-                'open_graph_image' => $data['openGraph']['image'],
-                'title' => $data['title'],
-            ]);
 
-            $url_get_id = LinkPreview::where('link',$url)->first();
-            LinkPreviewRelation::create([
-                'status_id' => $statuses->id,
-                'comment_id' => 0,
-                'mail_id' => 0,
-                'link_preview_id' => $url_get_id->id,
-            ]);
-        }else{
-            LinkPreview::where('link',$url)->update([
-                'meta_description' => $data['meta']['description'],
-                'first_image' => $data['images'][0],
-                'open_graph_title' => $data['openGraph']['title'],
-                'open_graph_type' => $data['openGraph']['type'],
-                'open_graph_image' => $data['openGraph']['image'],
-                'title' => $data['title'],
-            ]);
-            $url_get_id = LinkPreview::where('link',$url)->first();
-            LinkPreviewRelation::create([
-                'status_id' => $statuses->id,
-                'comment_id' => 0,
-                'mail_id' => 0,
-                'link_preview_id' => $url_get_id->id,
-            ]);
+        if($no_of_url != 0){
+
+            $body = @file_get_contents($url);
+            $parser = (new MetaParser($body, $url));
+            $data = $parser->getDetails();
+
+            //return $data;
+            $url_count = LinkPreview::where('link',$url)->count();
+            if($url_count == 0){
+                LinkPreview::create([
+                    'link' => $url,
+                    'meta_description' => array_key_exists('description', $data['meta'])?$data['meta']['description'] : NULL,
+                    'first_image' => array_key_exists(0, $data['images'])?$data['images'][0] : NULL,
+                    'open_graph_title' => array_key_exists('title', $data['openGraph'])?$data['openGraph']['title']: NULL,
+                    'open_graph_type' => array_key_exists('type', $data['openGraph'])?$data['openGraph']['type'] : NULL,
+                    'open_graph_image' => array_key_exists('image', $data['openGraph'])?$data['openGraph']['image'] : NULL,
+                    'title' => array_key_exists('title', $data)?$data['title'] : NULL,
+                ]);
+
+                $url_get_id = LinkPreview::where('link',$url)->first();
+                LinkPreviewRelation::create([
+                    'status_id' => $statuses->id,
+                    'comment_id' => 0,
+                    'mail_id' => 0,
+                    'link_preview_id' => $url_get_id->id,
+                ]);
+            }else{
+                LinkPreview::where('link',$url)->update([
+                    'meta_description' => array_key_exists('description', $data['meta'])?$data['meta']['description'] : NULL,
+                    'first_image' => array_key_exists(0, $data['images'])?$data['images'][0] : NULL,
+                    'open_graph_title' => array_key_exists('title', $data['openGraph'])?$data['openGraph']['title']: NULL,
+                    'open_graph_type' => array_key_exists('type', $data['openGraph'])?$data['openGraph']['type'] : NULL,
+                    'open_graph_image' => array_key_exists('image', $data['openGraph'])?$data['openGraph']['image'] : NULL,
+                    'title' => array_key_exists('title', $data)?$data['title'] : NULL,
+                ]);
+                $url_get_id = LinkPreview::where('link',$url)->first();
+
+                    LinkPreviewRelation::create([
+                    'status_id' => $statuses->id,
+                    'comment_id' => 0,
+                    'mail_id' => 0,
+                    'link_preview_id' => $url_get_id->id,
+                ]);
+            }
+
         }
+
+
+
 
 
         //Saving Images in uploads/statuses folder
 
         $file_count = count($files);
-        if($files !== false){
+        if($files[0] != NULL){
             $status_id = $statuses->id;
             $pathAuth = public_path('uploads/statuses/'.\Auth::User()->id);
             File::makeDirectory($pathAuth, $mode = 0777, true, true);
@@ -195,7 +242,7 @@ class StatusController extends Controller
                 $validator = Validator::make(array('file'=> $file), $rules);
                 if($validator->passes()){
                     $mytime = Carbon::now();
-                    $destinationPath = $path.'/'.++$mytime.'.jpeg';
+                    $destinationPath = $path.'/'.$mytime.'_'.$string = str_random(40).'.jpeg';
                     $img_project = Image::make($file);
                     $upload_success = $img_project->save($destinationPath);
                 }
