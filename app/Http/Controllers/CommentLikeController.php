@@ -56,10 +56,12 @@ class CommentLikeController extends Controller
 
             //Send Mail for Comments to user_id
             $data = Status::whereId($status_id)->first();
-            $data->comment = $comment_body;
-            $data->notify = $notify;
+            $data = array_add($data, 'comment', $comment_body);
+            $data = array_add($data, 'notify', $notify);
+
             $user = User::whereId($user_id)->first();
-            Mail::send('emails.commentLike', $data,function ($message) use ($user) {
+            $data = array_add($data, 'name',$user->name);
+            Mail::send('emails.commentLike', array('data'=>$data),function ($message) use ($user) {
                 $message->to($user->email,$user->name)->subject('Comment in your Status');
             });
         }
@@ -110,11 +112,14 @@ class CommentLikeController extends Controller
 
             //Send Mail for Comments to user_id
             $data = Status::whereId($status_id)->first();
-            $data->comment = '';
-            $data->notify = $notify;
+
+
+            $data = array_add($data, 'comment', '');
+            $data = array_add($data, 'notify', $notify);
             $user = User::whereId($user_id)->first();
-            Mail::send('emails.commentLike', $data,function ($message) use ($user) {
-                $message->to($user->email,$user->name)->subject('Comment in your Status');
+            $data = array_add($data, 'name',$user->name);
+            Mail::send('emails.commentLike',  array('data'=>$data),function ($message) use ($user) {
+                $message->to($user->email,$user->name)->subject('Likes in your Status');
             });
         }
         $likes =  Like::where('status_id', $status_id)->count();

@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Boost;
 use App\Notification;
 use App\Skill;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -78,11 +81,14 @@ class SkillController extends Controller
 
             //Send Mail for boost to user_id_1
             $data = User::whereId($request['user_id_1'])->first();
-            $data->skill = $notify;
+            $data = array_add($data, 'skill', $notify);
             $user = User::whereId($request['user_id_1'])->first();
-            Mail::send('emails.boostSkill',$data, function ($message) use ($user) {
+            $data = array_add($data, 'name',$user->name);
+            Mail::send('emails.boostSkill',array('data'=>$data), function ($message) use ($user) {
                 $message->to($user->email,$user->name)->subject('New boost in your skill');
             });
+
+
 
             $total_boosts = Skill::whereIdAndUser_id($request['skill_id'], $request['user_id_1'])->get();
             foreach ($total_boosts as $total_boost) {

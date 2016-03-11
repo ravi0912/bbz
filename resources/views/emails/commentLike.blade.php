@@ -13,9 +13,9 @@
                     <td style="height:60px;width:450px;" align="right">
                         <table>
                             <tr>
-                                <td style="height:60px;width:190px;text-align:right"><span style="font-size: 20px;color:#fff;font-weight:bold">{{ $user->name }}</span></td>
+                                <td style="height:60px;width:190px;text-align:right"><span style="font-size: 20px;color:#fff;font-weight:bold">{{ $data['name'] }}</span></td>
                                 <td style="border-radius:100%;height:60px;width:60px;text-align:center">
-                                    <img src="http://www.buildblockz.com/uploads/thumbnails/{{ $data->user_id }}.jpeg" alt="0" class="image_dimension" style="height:30px;width:29px;border-radius:100%;"/>
+                                    <img src="http://www.buildblockz.com/uploads/thumbnails/{{ $data['user_id'] }}.jpeg" alt="0" class="image_dimension" style="height:30px;width:29px;border-radius:100%;"/>
                                 </td>
                             </tr>
                         </table>
@@ -44,12 +44,13 @@
                 <tr>
                     <td class="wrapper" style="height:180px;width:97%;text-align:center;border-bottom:1px solid #a1a1a1" valign="top">
 
-                        <p style="line-height: 210%;margin-top: 0px;margin-left:10px">{{ $data->notify }} on Buidblockz.<br>
-                            Status :  {{ $data->body }}.<br>
-                            @if($data->comment != '')
-                                Comment : {{ $data->comment }}.<br></p>
+                        <p style="line-height: 210%;margin-top: 0px;margin-left:10px">{{ $data['notify'] }} on Buidblockz.<br>
+                            Status :  {{ $data['body'] }}.<br>
+                            @if($data['comment'] != '')
+                                Comment : {{ $data['comment'] }}.<br></p>
+                            @endif
                         <div style="text-align:left padding-left:180px;">
-                            <a href="http://www.buildblockz.com/showStatus/{{ $data->id }}" target="_blank">
+                            <a href="http://www.buildblockz.com/showStatus/{{ $data['id'] }}" target="_blank">
                                 <button style="color:#fff;background-color:#3C97D3;width:80px;height:40px">
                                     Go to Buildblockz
                                 </button>
@@ -74,7 +75,7 @@
                 <tr>
                     <td>
                         <p style="line-height: 170%">
-                            This email was intended for {{ $user->name }} via (<a href="http://www.buildblockz.com" target="_blank">www.buildblockz.com</a>) <copyright> &copy;Buildblockz 2016 All rights reserved.</copyright>
+                            This email was intended for {{ $data['name'] }} via (<a href="http://www.buildblockz.com" target="_blank">www.buildblockz.com</a>) <copyright> &copy;Buildblockz 2016 All rights reserved.</copyright>
                         </p>
                     </td>
                 </tr>
