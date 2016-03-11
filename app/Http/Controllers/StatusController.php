@@ -135,8 +135,8 @@ class StatusController extends Controller
     public function store(PrepareStatusRequest $request)
     {
 
-        $files = Input::file('images');
-
+        /*$files = Input::file('images');*/
+        $files=0;
         if($files[0] != NULL){
             $photo = 1;
         }else{
