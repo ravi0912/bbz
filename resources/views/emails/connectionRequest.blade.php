@@ -12,9 +12,9 @@
                     <td style="height:60px;width:450px;" align="right">
                         <table>
                             <tr>
-                                <td style="height:60px;width:190px;text-align:right"><span style="font-size: 20px;color:#fff;font-weight:bold">{{ $user->name }}</span></td>
+                                <td style="height:60px;width:190px;text-align:right"><span style="font-size: 20px;color:#fff;font-weight:bold">{{ $data->name }}</span></td>
                                 <td style="border-radius:100%;height:60px;width:60px;text-align:center">
-                                    <img src="http://www.buildblockz.com/uploads/thumbnails/{{ $user->id }}.jpeg" alt="0" class="image_dimension" style="height:30px;width:29px;border-radius:100%;"/>
+                                    <img src="http://www.buildblockz.com/uploads/thumbnails/{{ $data->id }}.jpeg" alt="0" class="image_dimension" style="height:30px;width:29px;border-radius:100%;"/>
                                 </td>
                             </tr>
                         </table>
@@ -71,7 +71,7 @@
                 <tr>
                     <td>
                         <p style="line-height: 170%">
-                            This email was intended for {{ $user->name }} via (<a href="http://www.buildblockz.com" target="_blank">www.buildblockz.com</a>) <copyright> &copy;Buildblockz 2016 All rights reserved.</copyright>
+                            This email was intended for {{ $data->name }} via (<a href="http://www.buildblockz.com" target="_blank">www.buildblockz.com</a>) <copyright> &copy;Buildblockz 2016 All rights reserved.</copyright>
                         </p>
                     </td>
                 </tr>

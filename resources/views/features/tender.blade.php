@@ -37,15 +37,15 @@
 
     </style>
 
-    <div class="container">
+    {{--<div class="container">
         <div class="jumbotron tender_outer_wrapper">
-            <div class="tender_inner_wrapper">
+            --}}{{--<div class="tender_inner_wrapper">
                 <div class="tender_title">ddf</div>
                 <div class="tender_location">fg</div>
                 <div class="tender_open_date">hy</div>
-            </div>
+            </div>--}}{{--
         </div>
-    </div>
+    </div>--}}
 
     <link rel="stylesheet" type="text/css" href="res/css/styles_blog.css">
     <center class="row">

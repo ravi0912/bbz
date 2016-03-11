@@ -71,7 +71,7 @@
                 <tr>
                     <td>
                         <p style="line-height: 170%">
-                            This email was intended for {{ $user->name }} via (<a href="http://www.buildblockz.com" target="_blank">www.buildblockz.com</a>) <copyright> &copy;Buildblockz 2016 All rights reserved.</copyright>
+                            This email was intended for {{ auth()->user()->name }} via (<a href="http://www.buildblockz.com" target="_blank">www.buildblockz.com</a>) <copyright> &copy;Buildblockz 2016 All rights reserved.</copyright>
                         </p>
                     </td>
                 </tr>

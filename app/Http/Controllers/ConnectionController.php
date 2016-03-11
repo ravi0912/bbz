@@ -34,9 +34,9 @@ class ConnectionController extends Controller
 
             //Send Mail for Connection Request
 
-            $user = User::whereId($request['user_id_2'])->first();
-            Mail::send('emails.connectionRequest',$user, function ($message) use ($user) {
-                $message->to($user->email,$user->name)->subject('Connection Request');
+            $data = User::whereId($request['user_id_2'])->first();
+            Mail::send('emails.connectionRequest',array('data'=>$data), function ($message) use ($data) {
+                $message->to($data->email,$data->name)->subject('Connection Request');
             });
 
         }
@@ -51,10 +51,10 @@ class ConnectionController extends Controller
     public function confirmConnection(Request $request){
             Connection::whereUser_id_1AndUser_id_2($request['user_id_2'] ,\Auth::User()->id)->update(['connection_status' => 1]);
         //Send Mail for Connection Confirm
-        $data = [];
-        $user = User::whereId($request['user_id_2'])->first();
-        Mail::send('emails.connectionConfirm',$data, function ($message) use ($user) {
-            $message->to($user->email,$user->name)->subject('Connection Accepted');
+
+        $data = User::whereId($request['user_id_2'])->first();
+        Mail::send('emails.connectionConfirm',array('data'=>$data), function ($message) use ($data) {
+            $message->to($data->email,$data->name)->subject('Connection Accepted');
         });
 
             //Connection Notification
