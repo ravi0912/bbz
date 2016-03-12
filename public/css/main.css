@@ -439,18 +439,21 @@ a:hover{
 
     /*background-color:#d6e9f7;*/
     position: absolute;
-    top:210px;
-    left: 18%;
-    right: 28%;
+    width: 650px;
+    margin-right: 56px;
 
 }
 
 .main_news_wrapper_outer_1 {
     background-color:#d6e9f7;
+    top:210px;
+    margin-left: 232px;
 }
 
 .main_news_wrapper_outer_2 {
     background-color:#d6e9f7;
+    top:210px;
+    margin-left: 232px;
 }
 
 
@@ -466,8 +469,9 @@ a:hover{
     display: inline-block;
     background-color:#d6e9f7;
     vertical-align: text-top;
-    margin-left: -80px;
-    margin-top: 70px;
+    margin-left: 226px;
+    margin-top: 59px;
+
 }
 
 .main_body_content_showprofile{
@@ -492,7 +496,7 @@ a:hover{
     background-color:#d6e9f7;
     vertical-align: text-top;
     margin-left: -80px;
-    margin-top: 60px;
+    margin-top: 59px;
     width: 645px;
 }
 
@@ -500,7 +504,9 @@ a:hover{
 /*main body => newsfeed/index general bar starts*/
 .newsfeed{
     text-align: left;
-    width:600px;
+    width: 700px;
+    padding-top: 80px;
+    padding-left: 10px;
 }
 
 #newsfeed_content_status_outer_wrapper{

@@ -89,7 +89,7 @@
     <div id="tab1">
         <div class="main_news_wrapper_outer main_news_wrapper_outer_1">
 
-            <div id = "newsfeed main_body_content_showpage" class = "newsfeed main_body_content">
+            <div id = "newsfeed main_body_content_showpage" class = "newsfeed main_body_content main_body_content_inner">
 
                 <div class="newsfeed_form" id="newsfeed_form">
 
@@ -285,7 +285,7 @@
     <div id="tab2">
         <div class="main_news_wrapper_outer main_news_wrapper_outer_2">
 
-            <div id = "newsfeed main_body_content_showpage" class = "newsfeed main_body_content">
+            <div id = "newsfeed main_body_content_showpage" class = "newsfeed main_body_content main_body_content_inner">
 
                 <div class="newsfeed_form" id="newsfeed_form">
 
