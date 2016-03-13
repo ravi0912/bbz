@@ -2,6 +2,13 @@
 <html lang="en">
 <head>
 
+    <script>
+        //redirect domain url
+       /* var x = window.location.href.search("http://www.");
+        if(x<0){
+            window.location.href.replace('http://','http://www.');
+        }*/
+    </script>
 
     <link rel="icon" type="image/ico" href="/images/logo/BBZlogo/bbzlogo_blue.svg"/>
     <title>BBz-Workstation A professional network for Real Estate</title>
@@ -106,6 +113,8 @@
 
 
 	});
+
+
 
 </script>
 <script type="text/javascript" src ="{{ URL::asset('js/search.js') }} "></script>

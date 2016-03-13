@@ -89,29 +89,29 @@
                             @if(!empty($linkpreviewexist[$status->id]))
 
                                 <br><hr style="border-bottom:1px solid #3C97D3">
+                                <a href="{{ $matches[0][0] }}" target="_blank">
+                                    <div class="preview_wrapper;width:620px;height:250px">
+                                        <table style="width:610px;height:126px">
+                                            <tr>
+                                                <td style="width:170px;text-align:center;">
+                                                    <img src="{{ $linkpreviewimage[$status->id] }}" alt="" height="120" width="150" class="img-thumbnail" style="margin-bottom:25px"/>
+                                                </td>
+                                                <td style="width:520px">
+                                                    <table style="height:126px">
+                                                        <tr>
+                                                            <td style="color:#000000;width:520px;height:50px;padding-left:5px;border-bottom:1px solid #3C97D3">{{ $linkpreviewtitle[$status->id] }}</td>
+                                                        </tr>
 
-                                <div class="preview_wrapper;width:620px;height:250px">
-                                    <table style="width:610px;height:126px">
-                                        <tr>
-                                            <td style="width:170px;text-align:center;">
-                                                <img src="{{ $linkpreviewimage[$status->id] }}" alt="" height="120" width="150" class="img-thumbnail" style="margin-bottom:25px"/>
-                                            </td>
-                                            <td style="width:520px">
-                                                <table style="height:126px">
-                                                    <tr>
-                                                        <td style="width:520px;height:50px;padding-left:5px;border-bottom:1px solid #3C97D3">{{ $linkpreviewtitle[$status->id] }}</td>
-                                                    </tr>
+                                                        <tr>
+                                                            <td style="color:#000000;width:520px;height:76px;padding-left:5px;padding-bottom:18px;font-size:13px">{{ $linkpreviewdescription[$status->id] }}</td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
 
-                                                    <tr>
-                                                        <td style="width:520px;height:76px;padding-left:5px;padding-bottom:18px;font-size:13px">{{ $linkpreviewdescription[$status->id] }}</td>
-                                                    </tr>
-                                                </table>
-                                            </td>
-                                        </tr>
-
-                                    </table>
-                                </div>
-
+                                        </table>
+                                    </div>
+                                </a>
                             @endif
 
                             {{--preview end--}}

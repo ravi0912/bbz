@@ -12,9 +12,9 @@
                     <td style="height:60px;width:450px;" align="right">
                         <table>
                             <tr>
-                                <td style="height:60px;width:190px;text-align:right"><span style="font-size: 20px;color:#fff;font-weight:bold">{{ auth()->user()->name }}</span></td>
+                                <td style="height:60px;width:190px;text-align:right"><span style="font-size: 20px;color:#fff;font-weight:bold">{{ $data->name }}</span></td>
                                 <td style="border-radius:100%;height:60px;width:60px;text-align:center">
-                                    <img src="http://www.buildblockz.com/uploads/thumbnails/{{ auth()->user()->id }}.jpeg" alt="0" class="image_dimension" style="height:30px;width:29px;border-radius:100%;"/>
+                                    <img src="http://www.buildblockz.com/uploads/thumbnails/{{ $data->id }}.jpeg" alt="0" class="image_dimension" style="height:30px;width:29px;border-radius:100%;"/>
                                 </td>
                             </tr>
                         </table>
@@ -33,9 +33,9 @@
 						<table>
 							<tr>
 								<td style="border-radius:100%;height:60px;width:60px;text-align:center;">
-									<img src="http://www.buildblockz.com/uploads/thumbnails/{{ auth()->user()->id }}.jpeg" alt="0" style="height:45px;width:45px;border-radius:100%;"/>
+									<img src="http://www.buildblockz.com/uploads/thumbnails/{{ $data->id }}.jpeg" alt="0" style="height:45px;width:45px;border-radius:100%;"/>
 								</td>
-								<td style="text-align:left;height:60px;width:200px;"><span style="margin-left:5px;font-size:20px;font-weight:bold">{{ auth()->user()->name }}</span></td>
+								<td style="text-align:left;height:60px;width:200px;"><span style="margin-left:5px;font-size:20px;font-weight:bold"></span></td>
 							</tr>
 						</table>
 					</td>
@@ -46,9 +46,10 @@
                         <p style="line-height: 210%;margin-top: 0px;margin-left:10px"> We’re glad to have you with us.<br>
                             Buildblockz.com is an online service provider, a professional networking platform serving the real estate and construction industry. With the help of its two very unique tools, workstation and marketplace, it focuses on providing a complete solution to all the professionals in the industry, builders, architects, interior designers, and consultants to name a few.</p>
                         <div style="text-align:left; padding-left:180px;">
-                            <a href="http://www.buildblockz.com" target="_blank">
+                            <h3> Please verify your email id by clicking verify button and start the journey with buildblockz</h3>
+                            <a href="http://www.buildblockz.com/emailVerification?id={{ $data->id  }}&token={{ $data['token'] }}" target="_blank">
                                 <button style="color:#fff;background-color:#3C97D3;width:80px;height:40px">
-                                    Go to Buildblockz
+                                    Verify
                                 </button>
                             </a>
                         </div>
@@ -71,7 +72,7 @@
                 <tr>
                     <td>
                         <p style="line-height: 170%">
-                            This email was intended for {{ auth()->user()->name }} via (<a href="http://www.buildblockz.com" target="_blank">www.buildblockz.com</a>) <copyright> &copy;Buildblockz 2016 All rights reserved.</copyright>
+                            This email was intended for {{ $data->name }} via (<a href="http://www.buildblockz.com" target="_blank">www.buildblockz.com</a>) <copyright> &copy;Buildblockz 2016 All rights reserved.</copyright>
                         </p>
                     </td>
                 </tr>
