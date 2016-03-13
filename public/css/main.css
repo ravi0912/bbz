@@ -373,13 +373,94 @@ a:hover{
     background:;
 }
 
+
+.tabs_wrapper {
+    height:300px;
+    width:694px;
+    position: absolute;
+    top:0px;
+    left:232px;
+    background-color: #e5f2f8;
+}
+
+
+
+.newsfeed_middle_section_header {
+    position: absolute;
+    top:100px;
+    left:20px;
+    font-size:24px;
+    font-weight:bold;
+}
+
+.newsfeed_tabs {
+    position: absolute;
+    top:165px;
+    left:0px;
+    height:35px;
+    width:408px;
+    padding:15px;
+    background-color: #91cae5;
+
+}
+
+.tab_item {
+    position: absolute;
+    padding:10px;
+    top:0px;
+    left:0px;
+    box-shadow: 5px 5px 5px #888888;
+    border-top-right-radius:40px;
+    color:#fff;;
+}
+
+.tab_item1 {
+    background-color: #3997d4;
+}
+
+.tab_item2 {
+    background-color: #91cae5;
+
+}
+
+.tab_item1.active_tab {
+    background-color: #3997d4;
+}
+
+.tab_item1.deactive_tab {
+    background-color: #91cae5;
+}
+
+.tab_item2.active_tab{
+    background-color: #3997d4;
+
+}
 .main_news_wrapper_outer {
 
-    background-color:#d6e9f7;
-    position: absolute;top:60px;
-    left: 18%;
-    right: 28%;
+    /*background-color:#d6e9f7;*/
+    position: absolute;
+    width: 650px;
+    margin-right: 56px;
 
+}
+
+.main_news_wrapper_outer_1 {
+    background-color:#d6e9f7;
+    top:210px;
+    margin-left: 232px;
+}
+
+.main_news_wrapper_outer_2 {
+    background-color:#d6e9f7;
+    top:210px;
+    margin-left: 232px;
+}
+
+
+
+#tab2 {
+
+    margin-top:600px;
 }
 
 .main_body_content{
@@ -388,8 +469,9 @@ a:hover{
     display: inline-block;
     background-color:#d6e9f7;
     vertical-align: text-top;
-    margin-left: -80px;
-    margin-top: 60px;
+    margin-left: 226px;
+    margin-top: 59px;
+
 }
 
 .main_body_content_showprofile{
@@ -414,7 +496,7 @@ a:hover{
     background-color:#d6e9f7;
     vertical-align: text-top;
     margin-left: -80px;
-    margin-top: 60px;
+    margin-top: 59px;
     width: 645px;
 }
 
@@ -422,7 +504,9 @@ a:hover{
 /*main body => newsfeed/index general bar starts*/
 .newsfeed{
     text-align: left;
-    width:600px;
+    width: 700px;
+    padding-top: 80px;
+    padding-left: 10px;
 }
 
 #newsfeed_content_status_outer_wrapper{
