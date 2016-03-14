@@ -25,7 +25,7 @@
     </center>
 
     <div id = "left_overlap_pop" class = "left_overlap_pop" onclick = "left_overlap_pop();">
-        <img src = "{{ URL::asset('images/logo/left/sidescroll_red.svg') }} " alt="0" title="Send Request Connection">
+        <img src = "{{ URL::asset('images/logo/left/sidemenu-but.png') }} " alt="0" title="">
     </div>
 </div>
 <script type="text/javascript">

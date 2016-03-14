@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 
 class ProfileVerificationController extends Controller
 {
@@ -70,7 +71,7 @@ class ProfileVerificationController extends Controller
         $emailVerification = ProfileVerification::where('user_id',\Auth::User()->id)->pluck('email_verified');
         if($emailVerification != 1){
             $data=[];
-            $user = \Auth::User();
+            $data = $user = \Auth::User();
             $randomString = str_random(40);
             ProfileVerification::where('user_id',\Auth::User()->id)->update([
                 'emailToken' => $randomString,

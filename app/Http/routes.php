@@ -164,5 +164,5 @@ Route::get('viewBlog/{id}','BlogController@show');
 //profile verification
 Route::get('emailVerificationNotify','ProfileVerificationController@emailVerificationNotify');
 Route::get('emailVerification','ProfileVerificationController@emailVerification');
-Route::post('emailVerificationRegenerate','ProfileVerificationController@emailVerificationRegenerate');
+Route::get('emailVerificationRegenerate','ProfileVerificationController@emailVerificationRegenerate');
 

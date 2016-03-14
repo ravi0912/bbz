@@ -17,7 +17,8 @@
 
     <!-- Normal Meta -->
     <meta charset="utf-8">
-    <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport"><meta content="email=no" name="format-detection"><meta content="follow,index" name="robots"><meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
+    <meta content="email=no" name="format-detection"><meta content="follow,index" name="robots"><meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <meta content="Boosting professional network among Real Estate's wild cards i.e. Architect, Builder, Contractor " name="description">
     <meta name="robots" content="noodp,noydir" />
@@ -51,6 +52,7 @@
 	<link href="{{ URL::asset('css/main.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('css/right.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('css/animate.min.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('css/lightbox.css') }}" rel="stylesheet">
 
 	<style>
 		body{
@@ -60,6 +62,7 @@
 	<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
 	<script src="{{ URL::asset('js/jquery-ui.js') }}"></script>
 	<script src="{{ URL::asset('js/jquery-1.11.3.min.js') }}"></script>
+
 </head>
 <body>
 @include ('partials.nav')
@@ -80,6 +83,7 @@
 
 
 <script type="text/javascript" src="{{ URL::asset('js/jquery.easing.1.3.js') }}"></script>
+<script src="{{ URL::asset('js/lightbox.js') }}"></script>
 <script type="text/javascript">
 	$(function() {
 		$('.profile_1 a').bind('click',function(event){

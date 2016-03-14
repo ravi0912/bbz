@@ -268,7 +268,7 @@ a:hover{
 .left_overlap{
     width:200px;
     height:100vh;
-    background: #E64D3C;
+    background: #243350;
     color:white;
     position:fixed;
     top:0;
@@ -293,16 +293,15 @@ a:hover{
 }
 .left_overlap_pop{
     cursor: pointer;
-    color: ;
     position:absolute;
     right:-35px;
-    top:50vh;
+    top:45vh;
     text-align:right;
     z-index: 101;
 }
 .left_overlap_pop img{
-    width:50px;
-    height:50px;
+    width:60px;
+    height:80px;
 }
 .left_overlap_pop_shadow{
     opacity: 0.5;
@@ -311,6 +310,7 @@ a:hover{
 .left_overlap_header{
     font-weight: bold;
     font-size: 1.3em;
+    z-index: 110;
 }
 .left_overlap_list{
     font-weight: 700;
