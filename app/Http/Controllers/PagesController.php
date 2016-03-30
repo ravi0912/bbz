@@ -33,6 +33,27 @@ class PagesController extends Controller
         return view('pages.blogs');
     }
 
+    public function showFullBlogs1(){
+
+        return view('pages.showFullBlogs1');
+    }
+
+    public function showFullBlogs2(){
+        return view('pages.showFullBlogs2');
+    }
+
+    public function showFullBlogs3(){
+        return view('pages.showFullBlogs3');
+    }
+
+    public function showFullBlogs4(){
+        return view('pages.showFullBlogs4');
+    }
+
+    public function showFullBlogs5(){
+        return view('pages.showFullBlogs5');
+    }
+
     /**
      * Saving contact us
      *

@@ -19,4 +19,7 @@ $(document).ready(function(){
         $(".tab_item1").removeClass("active_tab");
         $(".tab_item1").addClass("deactive_tab");
     });
+    $(".trigger").click(function(){
+        $(".hidden_thumbnail").toggleClass("open");
+    });
 });

@@ -823,6 +823,122 @@ padding: 1px 60px;
     margin-top:10px;
 }
 
+
+/*people you may know starts*/
+
+.add_people_outer_wrapper {
+    position: absolute;
+    margin-top:10px;
+    width:311px;
+    height:235px;
+    border-radius:20px;
+    background-color: #0e76bd;
+
+}
+
+.people_heading {
+    position: absolute;
+    margin-top:13px;
+    left:36px;
+    font-size:16px;
+    color:#fff;
+    font-weight:bold;
+    text-transform: uppercase;
+}
+
+
+.scrollabe_section {
+    position: absolute;
+    margin-top:45px;
+    width:278px;
+    left:15px;
+    height:75%;
+    background-color:#fff;
+    border-radius: 20px;
+    padding: 4px;
+    background-color: #f9f9f9;
+
+}
+
+.add_people_inner_wrapper {
+    margin-top:0px;
+    width:255px;
+    margin-left:7px;
+    height:96%;
+    background-color:#fff;
+    overflow-y:scroll;
+    overflow-x:hidden;
+    margin-right:20px;
+    padding:10px;
+    border-radius:20px;
+
+}
+
+
+
+.add_people_profile_pic{
+    margin-top:3px;
+    width:40px;
+    margin-left:-7px;
+    height:40px;
+    border-radius:100%;
+
+}
+
+.add_people_profile_pic_image {
+    height:40px;
+    width:40px;
+    border-radius:100%;
+}
+
+.add_people_details {
+    width:180px;
+    margin-top:-50px;
+    margin-right:0px;
+    height:100px;
+    float:right;
+
+}
+
+.name {
+
+    border-bottom:1px solid #3C97D3;
+    height:25px;
+    width:180px;
+    margin-top:5px;
+    margin-left:5px;
+    padding:3px;
+}
+
+.others {
+    height:45px;
+    width:180px;
+    margin-top:5px;
+    margin-left:5px;
+    padding:5px;
+    word-break: normal;
+    border-bottom:1px solid #3C97D3;
+}
+
+.add_people_invite {
+
+    margin-top:35px;
+    width:94.5%;
+    margin-left:20px;
+    height:40px;
+    padding:2px;
+
+}
+
+.add_connection {
+
+    margin-top:-12px;
+    margin-left:70px;
+
+}
+
+/*people you may know ends*/
+
 #dropdown_status {
     left: -155px;
     height:45px;

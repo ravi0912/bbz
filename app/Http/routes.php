@@ -6,6 +6,13 @@
 
 Route::get('home', 'PagesController@home');
 Route::get('blogs','PagesController@blogs');
+//routes for showFullBlogs
+Route::get('showFullBlogs1','PagesController@showFullBlogs1');
+Route::get('showFullBlogs2','PagesController@showFullBlogs2');
+Route::get('showFullBlogs3','PagesController@showFullBlogs3');
+Route::get('showFullBlogs4','PagesController@showFullBlogs4');
+Route::get('showFullBlogs5','PagesController@showFullBlogs5');
+
 Route::get('home1','PagesController@home1');
 
 
