@@ -1,0 +1,38 @@
+
+.blog_pop {
+    width:800px;
+    margin-left:-238px;
+    padding-top:60px;
+    background-color: #d6e9f7;
+}
+
+.blog_1_form {
+    padding:10px;
+    width:750px;
+    background-color: #fff;
+}
+
+.display_images_cover {
+    height:400px;
+    width:730px;
+}
+
+.display_images_cover:hover {
+    border: 2px solid #3C97D3;
+    cursor:pointer;
+}
+
+.display_images {
+    height:400px;
+    width:600px;
+}
+
+.display_images:hover {
+    border: 2px solid #3C97D3;
+    cursor:pointer;
+}
+
+.individual_headings {
+    font-size:25px;
+    margin-top:50px;
+}

@@ -24,9 +24,51 @@
             {{--<div id = "notification_more" class = "notification_more">more</div>--}}
         </div>
 
+        {{--People you may know starts--}}
+
+        <div class="add_people_outer_wrapper">
+            <div class="people_heading">People you may know</div>
+            <div class="scrollabe_section">
+                <div class="add_people_inner_wrapper">
+                   <div style="margin-top:10px;">
+                       <div class="add_people_profile_pic">
+                           <img src="http://localhost:8000/uploads/thumbnails/13.jpeg" alt="0" class="add_people_profile_pic_image"/>
+                       </div>
+                       <div class="add_people_details">
+                           <div class="name"><a href="#" style="font-weight:bold;color:#000">Vishwas Vyas</a></div>
+                           <div class="others"><a href="#" style="color:#a1a1a1;font-size:11px">Works at L & T constructions </a></div>
+                       </div>
+                       <div class="add_people_invite">
+                           <button class="btn btn-default add_connection">add connection</button>
+                       </div>
+                   </div>
+
+                   <hr style="border-bottom:1px solid #0e76bd"><br>
+
+                    <div>
+                        <div class="add_people_profile_pic">
+                            <img src="http://localhost:8000/uploads/thumbnails/13.jpeg" alt="0" class="add_people_profile_pic_image"/>
+                        </div>
+                        <div class="add_people_details">
+                            <div class="name"><a href="#" style="font-weight:bold;color:#000">Vishwas Vyas</a></div>
+                            <div class="others"><a href="#" style="color:#a1a1a1;font-size:11px">Works at L & T constructions </a></div>
+                        </div>
+                        <div class="add_people_invite">
+                            <button class="btn btn-default add_connection">add connection</button>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+        </div>
+
+        {{--People you may know ends--}}
+
     </div>
 </div>
-
 
 <script>
     // Notification , MailNotification and ConnectNotification

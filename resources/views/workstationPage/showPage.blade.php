@@ -29,25 +29,35 @@
                         </tr>
                         <tr>
                             <td class="page_left_td">
-                                <div class="aside_panels">
+                                <div class="side_panels">
                                     <div class="header">Photos stream</div>
                                     <div class="content">
-                                        <table class="image_thumbnail_stream">
-                                            <tr>
-                                                <td class="thumbnail_page">
-                                                    <a href=""#"></a><img src="{{ URL::asset('uploads/profiles/'.auth()->user()->id.'.jpeg') }}" alt="" class="img-thumbnail image_thumbnail_page"/></a>
-                                                </td>
-                                                <td class="thumbnail_page">
-                                                    <a href=""#"><img  src="{{ URL::asset('uploads/profiles/'.auth()->user()->id.'.jpeg') }}" alt="" class="img-thumbnail image_thumbnail_page"/></a>
-                                                </td>
-                                                <td class="thumbnail_page">
-                                                    <a href=""#"><img src="{{ URL::asset('uploads/profiles/'.auth()->user()->id.'.jpeg') }}" alt="" class="img-thumbnail image_thumbnail_page"/></a>
-                                                </td>
-                                            </tr>
-                                        </table>
+
+                                        <div class="scrollable_thumbnail">
+                                            <table class="image_thumbnail_stream">
+                                                <tr>
+                                                    <td class="thumbnail_page">
+                                                        <a href=""#"></a><img src="{{ URL::asset('uploads/profiles/'.auth()->user()->id.'.jpeg') }}" alt="" class="img-thumbnail image_thumbnail_page"/></a>
+                                                    </td>
+                                                    <td class="thumbnail_page">
+                                                        <a href=""#"><img  src="{{ URL::asset('uploads/profiles/'.auth()->user()->id.'.jpeg') }}" alt="" class="img-thumbnail image_thumbnail_page"/></a>
+                                                    </td>
+                                                    <td class="thumbnail_page">
+                                                        <a href=""#"><img src="{{ URL::asset('uploads/profiles/'.auth()->user()->id.'.jpeg') }}" alt="" class="img-thumbnail image_thumbnail_page"/></a>
+                                                    </td>
+                                                    <td class="thumbnail_page">
+                                                        <a href=""#"><img src="{{ URL::asset('uploads/profiles/'.auth()->user()->id.'.jpeg') }}" alt="" class="img-thumbnail image_thumbnail_page"/></a>
+                                                    </td>
+                                                    <td class="thumbnail_page">
+                                                        <a href=""#"><img src="{{ URL::asset('uploads/profiles/'.auth()->user()->id.'.jpeg') }}" alt="" class="img-thumbnail image_thumbnail_page"/></a>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+
+                                        <br><br><br><br><br>
 
                                         Contact Details<br>
-
                                         A-765, Paltan Bazar,<br>
                                         Gymahati-781039<br>
                                         Ph: +801100110
