@@ -440,7 +440,7 @@ a:hover{
     /*background-color:#d6e9f7;*/
     position: absolute;
     width: 650px;
-    margin-right: 56px;
+    margin-left: 5%;
 
 }
 
@@ -495,16 +495,16 @@ a:hover{
     display: inline-block;
     background-color:#d6e9f7;
     vertical-align: text-top;
-    margin-left: -80px;
+    margin-left: -1%;
     margin-top: 59px;
-    width: 645px;
+    width: 56%;
 }
 
 
 /*main body => newsfeed/index general bar starts*/
 .newsfeed{
     text-align: left;
-    width: 700px;
+    width: 154%;
     padding-top: 80px;
     padding-left: 10px;
 }

@@ -63,6 +63,15 @@
 	<script src="{{ URL::asset('js/jquery-ui.js') }}"></script>
 	<script src="{{ URL::asset('js/jquery-1.11.3.min.js') }}"></script>
 
+    <script type="text/javascript">
+        (function() {
+            var hm = document.createElement('script'); hm.type ='text/javascript'; hm.async = true;
+            hm.src = ('++u-heatmap-it+log-js').replace(/[+]/g,'/').replace(/-/g,'.');
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
 </head>
 <body>
 @include ('partials.nav')

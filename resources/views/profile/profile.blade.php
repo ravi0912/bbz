@@ -3,8 +3,6 @@
 @section('content')
     <link href="{{ URL::asset('css/profile.css') }}" rel = "stylesheet">
     <link href="{{ URL::asset('css/animate.min.css') }}" rel = "stylesheet">
-    <meta name="description" content="Website Vertical Scrolling with jQuery" />
-    <meta name="keywords" content="jquery, vertical, scrolling, scroll, smooth"/>
 
 
 

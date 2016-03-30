@@ -204,7 +204,8 @@ return [
         'Html'      => Illuminate\Html\HtmlFacade::class,
         'Flash'     => Laracasts\Flash\Flash::class,
         'Image'     => Intervention\Image\Facades\Image::class,
-        'Searchy' => TomLingham\Searchy\Facades\Searchy::class,
+        'Searchy'   => TomLingham\Searchy\Facades\Searchy::class,
+        'Linkedin'  => LeagueOAuth2ClientProviderLinkedin::class,
 
     ],
 

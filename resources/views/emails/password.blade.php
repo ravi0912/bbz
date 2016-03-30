@@ -25,9 +25,9 @@
 						<table>
 							<tr>
 								<td style="border-radius:100%;height:60px;width:60px;text-align:center;">
-									<img src="http://www.buildblockz.com/uploads/thumbnails/{{ auth()->user()->id }}.jpeg" alt="0" style="height:45px;width:45px;border-radius:100%;"/>
+									<img src="http://www.buildblockz.com/uploads/thumbnails/.jpeg" alt="0" style="height:45px;width:45px;border-radius:100%;"/>
 								</td>
-								<td style="text-align:left;height:60px;width:200px;"><span style="margin-left:5px;font-size:20px;font-weight:bold">{{ auth()->user()->name }}</span></td>
+								<td style="text-align:left;height:60px;width:200px;"><span style="margin-left:5px;font-size:20px;font-weight:bold"></span></td>
 							</tr>
 						</table>
 					</td>
@@ -90,9 +90,7 @@
 
                             <tr>
                                 <td>
-                                    <p style="line-height: 170%">
-                                        This email was intended for {{ $data->name }} via (<a href="http://www.buildblockz.com" target="_blank">www.buildblockz.com</a>) <copyright> &copy;Buildblockz 2016 All rights reserved.</copyright>
-                                    </p>
+
                                 </td>
                             </tr>
                             <tr>
