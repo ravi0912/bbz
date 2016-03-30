@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\ProfileVerification;
 use App\User;
+use Illuminate\Support\Facades\Mail;
 use Intervention\Image\File;
 use Validator;
 use App\Http\Controllers\Controller;
@@ -65,7 +67,9 @@ class AuthController extends Controller
     protected function create(array $data)
     {
 
-        return  User::create([
+
+
+        $r =  User::create([
             'name' => $data['name'],
             'designation' => $data['designation'],
             'mobile_number' => $data['mobile_number'],
@@ -74,6 +78,35 @@ class AuthController extends Controller
         ]);
 
 
+
+
+        //Mail sent for verfication for 1st time user
+        //Generating random token
+        //saving token to database and sending it via mail
+        $randomString = str_random(40);
+
+
+        $user = User::where('email',$data['email'])->first();
+
+
+        ProfileVerification::create([
+            'user_id' => $user->id,
+            'emailToken' => $randomString,
+            'email_verified' => 0,
+            'attempt_email_verified' => 0,
+            'contact_number_otp' => 0,
+            'contact_number_verified' => 0,
+            'attempt_contact_number_verified'=> 0
+
+
+        ]);
+        $data = $user;
+        $data = array_add($data, 'token', $randomString);
+        Mail::send('emails.welcome', array('data'=>$data),function ($message) use ($user) {
+            $message->to($user->email,$user->name)->subject('Welcome to Buildblockz.com');
+        });
+
+        return $r;
 
     }
 

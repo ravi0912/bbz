@@ -7,6 +7,7 @@ use App\Like;
 use App\LinkPreview;
 use App\LinkPreviewRelation;
 use App\Notification;
+use App\ProfileVerification;
 use App\Status;
 use App\User;
 use Carbon\Carbon;
@@ -31,6 +32,7 @@ class StatusController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('profile_verified');
     }
 
     /**
@@ -54,12 +56,25 @@ class StatusController extends Controller
                 $img_thumbnail->save($path_thumbnail);
                 $img_profile->save($path_profile);
 
-            //Mail for Welcome
-            $data=[];
+            //Mail for Welcome and verification of email
+            /*$data=[];
             $user = \Auth::User();
-            Mail::send('emails.welcome', $data,function ($message) use ($user) {
+            $randomString = str_random(40);
+            ProfileVerification::create([
+                'user_id' => \Auth::User()->id,
+                'emailToken' => $randomString,
+                'email_verified' => 0,
+                'attempt_email_verified' => 0,
+                'contact_number_otp' => 0,
+                'contact_number_verified' => 0,
+                'attempt_contact_number_verified'=> 0
+
+
+            ]);
+            $data = array_add($data, 'token', $randomString);
+            Mail::send('emails.welcome', array('data'=>$data),function ($message) use ($user) {
                 $message->to($user->email,$user->name)->subject('Welcome to Buildblockz.com');
-            });
+            });*/
         }
 
 

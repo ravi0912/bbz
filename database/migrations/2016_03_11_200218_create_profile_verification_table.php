@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePagesAdminsTable extends Migration
+class CreateProfileVerificationTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,16 @@ class CreatePagesAdminsTable extends Migration
      */
     public function up()
     {
-        Schema::create('page_admins', function (Blueprint $table) {
+        Schema::create('profile_verification', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('page_id')->unsigned();
-            $table->foreign('page_id')->references('id')->on('pages')->onDelete('cascade');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('emailToken');
+            $table->boolean('email_verified');
+            $table->integer('attempt_email_verified');
+            $table->string('contact_number_otp');
+            $table->boolean('contact_number_verified');
+            $table->integer('attempt_contact_number_verified');
             $table->timestamps();
         });
     }
@@ -29,6 +33,6 @@ class CreatePagesAdminsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('page_admins');
+        Schema::drop('profile_verification');
     }
 }

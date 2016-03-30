@@ -61,7 +61,8 @@
                             <div id = "profile_image" class="profile_image">
 
                                 <div id = "profile_image_1" class="profile_image_1">
-                                    <img onclick="profile_show_large(event,{{ $usr->id }})" width="100" height="100" src = "{{ URL::asset('uploads/profiles/'.$usr->id.'.jpeg') }}" alt = "{{ $usr->name }}">                                </div>
+                                    <a href="{{ URL::asset('uploads/profiles/'.$usr->id.'.jpeg') }}" data-lightbox="profile" class = "lbox"><img alt = "{{ $usr->name }}" src = "{{ URL::asset('uploads/profiles/'.$usr->id.'.jpeg') }}"></a>
+                                </div>
                             </div>
                             <div id = "profile_description" class="profile_description">
                                 <div id = "profile_name" class="profile_name">{{ $usr->name}}</div>
@@ -160,7 +161,8 @@
                                             $images = glob($dirname."*.jpeg",GLOB_BRACE);
 
                                             foreach($images as $image) {
-                                                echo '<div class = "profile_3_sub_content_image" onclick="profile_large_carousel(event,'.$i++.','.$project->id.')"><img src = "../'.$image.'"></div>';
+                                                //echo '<div class = "profile_3_sub_content_image" onclick="profile_large_carousel(event,'.$i++.','.$project->id.')"><img src = "../'.$image.'"></div>';
+                                                echo '<a href="../'.$image.'" data-lightbox="project" class = "lbox profile_3_sub_content_image"><img alt = "Project Image" src = "../'.$image.'"></a>';
                                             }
                                         ?>
                                     </div>

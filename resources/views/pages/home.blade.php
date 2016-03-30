@@ -261,6 +261,8 @@
     function success(event){
         alert('Your message is recorded. Thanx!');
     }
+
+
 </script>
 
 

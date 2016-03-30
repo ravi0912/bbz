@@ -36,7 +36,8 @@
                         @endif
                         <div id = "profile_image" class="profile_image">
                             <div id = "profile_image_1" class="profile_image_1">
-                                <img onclick='profile_large(event,"uploads/profiles/{{ auth()->user()->id }}.jpeg")' src = "uploads/profiles/{{ auth()->user()->id }}.jpeg" alt = "not found" align="middle">
+                                <a href="uploads/profiles/{{ auth()->user()->id }}.jpeg" data-lightbox="profile" class="lbox"><img src = "uploads/profiles/{{ auth()->user()->id }}.jpeg"></a>
+                                {{--<img onclick='profile_large(event,"uploads/profiles/{{ auth()->user()->id }}.jpeg")' src = "uploads/profiles/{{ auth()->user()->id }}.jpeg" alt = "not found" align="middle">--}}
                             </div>
                             <div id = "profile_image_2" class="profile_image_2">
                                 {!! Form::open(['action' => 'ImageUploadController@storeProfileImage','enctype' => 'multipart/form-data']) !!}
@@ -296,9 +297,12 @@
                                             //echo $dirname;
                                         foreach($images as $image) {
                                                     $image1 = "'".$image."'";
-                                                    echo '<div class = "profile_3_sub_content_image" onclick="profile_large_carousel(event,'.$i++.','.$project->id.')"><img src = "'.$image.'"></div>';
+                                            //light box for image view
+                                                    echo '<a href="'.$image.'" data-lightbox="project" class = "lbox profile_3_sub_content_image"><img src = "'.$image.'"></a>';
+                                                    //echo '<div class = "profile_3_sub_content_image" onclick="profile_large_carousel(event,'.$i++.','.$project->id.')"><img src = "'.$image.'"></div>';
                                                 }
                                             ?>
+
                                     </div>
 
                                 </div>
@@ -460,6 +464,12 @@
             }
 
         }
+
+        lightbox.option({
+            'resizeDuration': 200,
+            'wrapAround': true,
+            'disableScrolling':true
+        })
     </script>
     <script type="text/javascript" src = "{{ URL::asset('js/profile.js') }}" ></script>
     {{--@include('partials.notification')--}}
