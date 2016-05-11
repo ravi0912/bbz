@@ -77,6 +77,7 @@
 @include ('partials.nav')
 
 
+
 <center id = "main_body" class = "main_body" style = "">
 	@include('flash::message')
 

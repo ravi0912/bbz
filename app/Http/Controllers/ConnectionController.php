@@ -129,11 +129,12 @@ class ConnectionController extends Controller
      * @return mixed
      */
     public function peopleMayKnow(){
-        $user_id_1_connections = Connection::whereUser_id_1AndConnection_status(\Auth::User()->id, 1)->select('user_id_2')->get();
-        $user_id_2_connections = Connection::whereUser_id_2AndConnection_status(\Auth::User()->id, 1)->select('user_id_1')->get();
-        $result = array_merge($user_id_1_connections->toArray(), $user_id_2_connections->toArray());
+        $user_id_1_connections = Connection::whereUser_id_1(\Auth::User()->id)->select('user_id_2')->get();
+        $user_id_2_connections = Connection::whereUser_id_2(\Auth::User()->id)->select('user_id_1')->get();
+        $result = array_merge($user_id_1_connections->toArray(), $user_id_2_connections->toArray(),\Auth::User()->toArray());
         $peopleMayKnow = User::whereNotIn('id', $result)->take(5)->get();
-        return $peopleMayKnow;
+        //return $peopleMayKnow;
+        return view('connection.peopleYouMayKnow',['peopleMayKnows' => $peopleMayKnow]);
     }
 
     /**
@@ -145,6 +146,7 @@ class ConnectionController extends Controller
         $user_id_2_connections = Connection::whereUser_id_2AndConnection_status(\Auth::User()->id, 1)->select('user_id_1')->get();
         $result = array_merge($user_id_1_connections->toArray(), $user_id_2_connections->toArray());
         $peopleMayKnow = User::whereNotIn('id', $result)->get();
-        return $peopleMayKnow;
+        //return $peopleMayKnow;
+        return view('connection.peopleYouMayKnow');
     }
 }

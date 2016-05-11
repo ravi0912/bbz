@@ -1,6 +1,6 @@
 <div id = "right" class = "right">
     <div id = "right_nav" class = "right_nav">
-        <div  onmousedown = "load_right_ul_li_1(event);" class = "right_nav_active"><img onload="onLoadNotifications();" id = "right_nav_1" src = "{{ URL::asset('images/logo/right/SVG/notification_off.svg') }}"></div>
+        <div  onmousedown = "load_right_ul_li_1(event);" class = "right_nav_active"><img onload="onLoadNotifications(); onLoadPeopleYouMayKnow();" id = "right_nav_1" src = "{{ URL::asset('images/logo/right/SVG/notification_off.svg') }}"></div>
         <div onmousedown = "load_right_ul_li_2(event);"><a  ><img id = "right_nav_2" src = "{{ URL::asset('images/logo/right/SVG/message_off.svg') }}"></a>
             <!--<span class="badge badge-notify">3</span>--></div>
         <div onmousedown = "load_right_ul_li_3(event);"><img id = "right_nav_3" src = "{{ URL::asset('images/logo/right/SVG/request_off.svg') }}"></div>
@@ -30,33 +30,7 @@
             <div class="people_heading">People you may know</div>
             <div class="scrollabe_section">
                 <div class="add_people_inner_wrapper">
-                   <div style="margin-top:10px;">
-                       <div class="add_people_profile_pic">
-                           <img src="http://localhost:8000/uploads/thumbnails/13.jpeg" alt="0" class="add_people_profile_pic_image"/>
-                       </div>
-                       <div class="add_people_details">
-                           <div class="name"><a href="#" style="font-weight:bold;color:#000">Vishwas Vyas</a></div>
-                           <div class="others"><a href="#" style="color:#a1a1a1;font-size:11px">Works at L & T constructions </a></div>
-                       </div>
-                       <div class="add_people_invite">
-                           <button class="btn btn-default add_connection">add connection</button>
-                       </div>
-                   </div>
 
-                   <hr style="border-bottom:1px solid #0e76bd"><br>
-
-                    <div>
-                        <div class="add_people_profile_pic">
-                            <img src="http://localhost:8000/uploads/thumbnails/13.jpeg" alt="0" class="add_people_profile_pic_image"/>
-                        </div>
-                        <div class="add_people_details">
-                            <div class="name"><a href="#" style="font-weight:bold;color:#000">Vishwas Vyas</a></div>
-                            <div class="others"><a href="#" style="color:#a1a1a1;font-size:11px">Works at L & T constructions </a></div>
-                        </div>
-                        <div class="add_people_invite">
-                            <button class="btn btn-default add_connection">add connection</button>
-                        </div>
-                    </div>
 
                 </div>
 
@@ -199,7 +173,13 @@
         });
     }
 
-
+    function onLoadPeopleYouMayKnow(){
+        var domain = window.location.host;
+        $.get('http://'+domain+'/peopleMayKnow/'+ {{ auth()->user()->id  }} +'', {
+        }, function (markup) {
+            $(".add_people_inner_wrapper").html(markup);
+        });
+    }
 
 
 
